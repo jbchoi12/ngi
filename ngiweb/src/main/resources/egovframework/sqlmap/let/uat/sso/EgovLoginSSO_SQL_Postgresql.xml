@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="LoginSSO">
+	
+	<!-- 아이디 찾기 -->
+	<select id="NgiiSSODAO.selectUserId" resultClass="int">
+		<![CDATA[
+		SELECT count(mber_id)
+		  FROM NGIWEB.LETTNGNRLMBER
+		 WHERE mber_id = #id#
+		]]>
+	</select>
+	
+    <insert id="NgiiSSODAO.insertSSOUser">
+        <![CDATA[
+            INSERT INTO NGIWEB.LETTNGNRLMBER 
+                (   
+                    ESNTL_ID         ,
+                    MBER_ID          ,
+                    MBER_NM          ,
+                    PASSWORD         ,
+                    PASSWORD_HINT    ,
+                    PASSWORD_CNSR    ,
+                    IHIDNUM          ,
+                    SEXDSTN_CODE     ,
+                    ZIP              ,
+                    ADRES            ,
+                    AREA_NO          ,
+                    MBER_STTUS       ,
+                    DETAIL_ADRES     ,
+                    END_TELNO        ,
+                    MBTLNUM      ,
+                    GROUP_ID         ,
+                    MBER_FXNUM       ,
+                    MBER_EMAIL_ADRES ,
+                    MIDDLE_TELNO     ,
+                    SBSCRB_DE        )
+              VALUES(
+                    #uniqId#,
+                    #mberId#,
+                    #mberNm#,
+                    #pssword#,
+                    #passwordHint#,
+                    #passwordCnsr#,
+                    #ihidnum#,
+                    #sexdstnCode#,
+                    #zip#,
+                    #adres#,
+                    #areaNo#,
+                    #mberSttus#,
+                    #detailAdres#,
+                    #endTelno#,
+                    #moblphonNo#,
+                    #groupId#,
+                    #mberFxnum#,
+                    #mberEmailAdres#,
+                    #middleTelno#,
+                    CURRENT_TIMESTAMP  )              
+        ]]>
+    </insert>	
+	
+</sqlMap>

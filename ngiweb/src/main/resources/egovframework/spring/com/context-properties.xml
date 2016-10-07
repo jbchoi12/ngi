@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    
+    <!-- 프로퍼티 정보 설정 -->
+    <bean name="propertiesService" class="egovframework.rte.fdl.property.impl.EgovPropertyServiceImpl" destroy-method="destroy">
+        <property name="properties">
+            <map>
+                <entry key="pageUnit" value="10"/>
+                <entry key="pageSize" value="10"/>
+                <entry key="posblAtchFileSize" value="52428800"/>
+                <entry key="Globals.fileStorePath" value="c:/fileupload/"/>
+	        	<entry key="Globals.folderStorePath" value="c:/folder_upload"/>
+	        	<entry key="Globals.fileAddressStorePath" value="c:/file_address/"/>
+                <entry key="Globals.addedOptions" value="false"/>
+                <entry key="eais_dir" value="c:\\temp"/>	<!-- 세움터 파일 폴더  -->
+                <entry key="eais_with_filename" value="eais_" />  <!-- 세움터 파일명 필터 -->
+                <entry key="kais_dir" value="c:\\temp"/>	<!-- 새주소 파일 폴더  -->
+                <entry key="kais_with_filename" value="kais_" />  <!-- 새주소 파일명 필터 -->
+            </map>
+        </property>
+    </bean>
+</beans>    

@@ -1,0 +1,63 @@
+
+.historyT{ margin-bottom:40px; padding-bottom:40px; overflow:hidden; border-bottom:2px solid #e6e6e6;}
+.historyT dt {  margin-top:10px; margin-right:50px; float:left; display:inline; }
+.historyT dd { float:left; display:inline; }
+.historyT dd ul.part { margin-bottom:55px; }
+.historyT dd ul li { width:600px; padding:12px 0 14px 0; overflow:hidden; color:#000; font-weight:bold;}
+.historyT dd ul li.last { border-bottom:none; }
+.historyT dd ul li img { float:left; margin-top:3px;}
+.historyT dd ul li span {float:left; margin-left:25px; color:#767676; font-weight:normal;}
+.historyT dd ul li .bb { font-weight:bold;}
+.historyT dd ul li p {float:left; width:30px;}
+
+
+.Table_outL {width:100%; border-collapse:collapse; margin:0; letter-spacing:-1px;}
+.Table_outL caption {display:none;}
+.Table_outL th { width:20%; border-top:1px solid #d3d3d3; border-bottom:1px solid #d3d3d3; background:#e0e0e0;}
+.Table_outL td {padding:20px;border-top:1px solid #d3d3d3; border-bottom:1px solid #d3d3d3; color:#848484;font-size:14px;}
+.Table_outL .title{width:30%; font-weight:bold; color:#474747; font-size:16px; line-height:22px;}
+.Table_outL .title img{ vertical-align:-3px;}
+.Table_outL .rowNum{width:5%; text-align:center; font-size:16px; }
+.Table_outL .imgT{width:5%; padding-left:5px; padding-right:5px; }
+.Table_outL .title span{font-weight: normal; color:#474747; font-size:14px;}
+.Table_outL .T2{color:#666; font-size:12px; font-weight: normal;letter-spacing:0;}
+.Table_outL .Center{ width:45%; border-bottom:1px solid #e8e8e8; letter-spacing:0; word-break:break-all;}
+.Table_outL .Right{ width:15%; border-bottom:1px solid #e8e8e8; text-align:right;}
+.Table_outL .Right img{ padding:0 5px;}
+.Table_outL a{color:#000;}
+.Table_outL a:hover{color:#00b4f1; text-decoration:underline;}
+
+.map_1{ margin-top:40px; margin-bottom:40px;}
+.map_1 h4{padding-left:12px; background:url(../images/common/bull_02.gif) 0 6px no-repeat;color:#333; margin-bottom:10px; font-size:16px;}
+.map_1 li{padding-left:10px; background:url(../images/common/bull_01.gif) 0 7px no-repeat;}
+
+h4{margin:20px 0 10px 0;padding-left:20px;font-size:18px; color:#00b8f8;line-height:23px; background:url(../images/common/bull_sub_h4.png) 0 6px no-repeat;}
+h5{margin:25px 0 5px 0;padding-left:17px;font-size:16px;color:#333; background:url(../images/common/bull_sub_h5.png) 0 6px no-repeat;}
+.h4Txt{ margin-left:20px; color:#fff; border-radius:10px; background:#00b8f8; padding:15px; font-weight:bold; font-size:14px;}
+.h5Txt{ margin-left:20px; color:#666;}
+.TxtPo{ color:#f60; font-size:11px;}
+.TxtLi li{ padding-left:10px; background:url('../images/common/bull_01.gif') no-repeat 0 10px;}
+
+/* margin */
+.Marg_T10{ margin-top:10px;}
+.Marg_T20{ margin-top:20px;}
+.Marg_T30{ margin-top:30px;}
+.Marg_T40{ margin-top:40px;}
+.Marg_T50{ margin-top:50px;}
+
+.Marg_L20{ margin-left:20px;}
+
+.Marg_B10{ margin-bottom:10px;}
+.Marg_B20{ margin-bottom:20px;}
+.Marg_B30{ margin-bottom:30px;}
+.Marg_B40{ margin-bottom:40px;}
+.Marg_B50{ margin-bottom:50px;}
+
+.TxtBold{ font-weight:bold;}
+
+.top_mar_0{margin-top:0px}
+.top_mar_5{margin-top:5px}
+.top_mar_20{margin-top:20px}
+.left_mar_0{margin-left:0px}
+.left_mar_25{margin-left:25px}
+.

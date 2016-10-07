@@ -1,0 +1,620 @@
+package egovframework.let.ngi.chg.service;
+
+import java.util.Date;
+
+public class ChangeSttemntCntrwkVO {
+
+    /** change_info_id */
+    private int changeInfoId;
+    
+    /** register_id */
+    private String registerId;
+    
+    /** change_cl */
+    private String changeCl;
+    
+    /** process_sttus_se */
+    private String processSttusSe;
+    
+    /** bsns_dstrc */
+    private String bsnsDstrc;
+    
+    /** change_lnm_adres_cn */
+    private String changeLnmAdresCn;
+    
+    /** change_lnm_adres_detail_cn */
+    private String changeLnmAdresDetailCn;
+    
+    /** change_rn_adres_cn */
+    private String changeRnAdresCn;
+    
+    /** change_rn_adres_detail_cn */
+    private String changeRnAdresDetailCn;
+    
+    /** x_crdnt_lo */
+    private String XCrdntLo;
+    
+    /** y_crdnt_la */
+    private String YCrdntLa;
+    
+    /** regist_de */
+    private Date registDe;
+    
+    /** register_nm */
+    private String registerNm;
+    
+    /** change_sj */
+    private String changeSj;
+
+    /** pnu_cd */
+    private String pnuCd;
+    
+    /** del_se */
+    private String delSe;  	
+
+    /** regist_path */
+    private String registPath; 
+    
+    /** addr_ty */
+    private String addrTy;  
+    
+	/** sttemnt_cl */
+	private String sttemntCl; //신고분류
+	
+	/** telno */
+	private String telno; //전화번호
+	
+	/** email */
+	private String email; //전자우편
+	
+	/** sttemnt_cn */
+	private String sttemntCn; //내용
+	
+	/** crtfc_password */
+	private String crtfcPssword; //인증비밀번호
+	
+	/** sttemnt_ty */
+	private String sttemntTy; //신고유형
+	
+	/** bfchg */
+	private String bfchg; //변경전
+	
+	/** aftch */
+	private String aftch; //변경후	
+
+	/** 도형정보 */
+	private String vectorList; // 도형정보 임시저장.
+	
+	/** 파일id */
+	private String atchFileId;  
+
+
+	/** engn_code */
+	private String engnCode; //기관코드
+	
+	/** cntrwk_pnttm */
+	private String cntrwkPnttm; //공사시점
+	
+	/** cntrwk_tmnl */
+	private String cntrwkTmnl; //공사종점
+	
+	/** ar */
+	private String ar; //면적
+	
+	/** extn */
+	private String extn; //연장
+	
+	/** change_trget_nm */
+	private String changeTrgetNm; //변경대상
+	
+	/** trget_bfchg_cn */
+	private String trgetBfchgCn; //대상변경전
+	
+	/** trget_aftch_cn */
+	private String trgetAftchCn; //대상변경후
+	
+	/** strwrk_de */
+	private Date strwrkDe; //착공일자
+	
+	/** compet_prearnge_de */
+	private Date competPrearngeDe; //완공예정일자
+	
+	/** last_compet_de */
+	private Date lastCompetDe; //착공완공일자
+	
+	/** compet_drw_file_stle_ty */
+	private String competDrwFileStleTy; //준공도면형태
+	
+	/** cntm */
+	private String cntm; //좌표계
+	
+	/** rm */
+	private String rm; //비고
+	
+	/** psitn_engn_no */
+	private String psitnEngnNo; //소송기관
+	
+	/** plan_engn_no */
+	private String planEngnNo; //계획기관
+	
+	/** mng_engn_no */
+	private String mngEngnNo; //감독기관
+	
+	/** charger_nm */
+	private String chargerNm; //담당자명
+	
+	/** chrg_dept_nm */
+	private String chrgDeptNm; //담당부서
+	
+	/** charger_tlphon_no */
+	private String chargerTlphonNo; //담당자전화번호
+	
+	/** charger_email */
+	private String chargerEmail; //담당자이메일
+	
+	/** acqs_mth_ty */
+	private String acqsMthTy; //취득방법
+	
+	/** sttus_ty */
+	private String sttusTy; //상태
+	
+	/** change_ty */
+	private String changeTy; //변동유형
+
+	private String trgetAreaNm;
+	
+	private String changeSe;	
+		
+	private String registTmpCd;
+	
+	private String cntrwkNo;
+	
+	public int getChangeInfoId() {
+		return changeInfoId;
+	}
+
+	public void setChangeInfoId(int changeInfoId) {
+		this.changeInfoId = changeInfoId;
+	}
+
+	public String getRegisterId() {
+		return registerId;
+	}
+
+	public void setRegisterId(String registerId) {
+		this.registerId = registerId;
+	}
+
+	public String getChangeCl() {
+		return changeCl;
+	}
+
+	public void setChangeCl(String changeCl) {
+		this.changeCl = changeCl;
+	}
+
+	public String getProcessSttusSe() {
+		return processSttusSe;
+	}
+
+	public void setProcessSttusSe(String processSttusSe) {
+		this.processSttusSe = processSttusSe;
+	}
+
+	public String getBsnsDstrc() {
+		return bsnsDstrc;
+	}
+
+	public void setBsnsDstrc(String bsnsDstrc) {
+		this.bsnsDstrc = bsnsDstrc;
+	}
+
+	public String getChangeLnmAdresCn() {
+		return changeLnmAdresCn;
+	}
+
+	public void setChangeLnmAdresCn(String changeLnmAdresCn) {
+		this.changeLnmAdresCn = changeLnmAdresCn;
+	}
+
+	public String getChangeLnmAdresDetailCn() {
+		return changeLnmAdresDetailCn;
+	}
+
+	public void setChangeLnmAdresDetailCn(String changeLnmAdresDetailCn) {
+		this.changeLnmAdresDetailCn = changeLnmAdresDetailCn;
+	}
+
+	public String getChangeRnAdresCn() {
+		return changeRnAdresCn;
+	}
+
+	public void setChangeRnAdresCn(String changeRnAdresCn) {
+		this.changeRnAdresCn = changeRnAdresCn;
+	}
+
+	public String getChangeRnAdresDetailCn() {
+		return changeRnAdresDetailCn;
+	}
+
+	public void setChangeRnAdresDetailCn(String changeRnAdresDetailCn) {
+		this.changeRnAdresDetailCn = changeRnAdresDetailCn;
+	}
+
+	public String getXCrdntLo() {
+		return XCrdntLo;
+	}
+
+	public void setXCrdntLo(String xCrdntLo) {
+		XCrdntLo = xCrdntLo;
+	}
+
+	public String getYCrdntLa() {
+		return YCrdntLa;
+	}
+
+	public void setYCrdntLa(String yCrdntLa) {
+		YCrdntLa = yCrdntLa;
+	}
+
+	public Date getRegistDe() {
+		return registDe;
+	}
+
+	public void setRegistDe(Date registDe) {
+		this.registDe = registDe;
+	}
+
+	public String getRegisterNm() {
+		return registerNm;
+	}
+
+	public void setRegisterNm(String registerNm) {
+		this.registerNm = registerNm;
+	}
+
+	public String getChangeSj() {
+		return changeSj;
+	}
+
+	public void setChangeSj(String changeSj) {
+		this.changeSj = changeSj;
+	}
+
+	public String getPnuCd() {
+		return pnuCd;
+	}
+
+	public void setPnuCd(String pnuCd) {
+		this.pnuCd = pnuCd;
+	}
+
+	public String getDelSe() {
+		return delSe;
+	}
+
+	public void setDelSe(String delSe) {
+		this.delSe = delSe;
+	}
+
+    public String getRegistPath() {
+		return registPath;
+	}
+
+	public void setRegistPath(String registPath) {
+		this.registPath = registPath;
+	}
+	
+	public String getAddrTy() {
+		return addrTy;
+	}
+
+	public void setAddrTy(String addrTy) {
+		this.addrTy = addrTy;
+	}
+	
+	public String getSttemntCl() {
+		return sttemntCl;
+	}
+
+	public void setSttemntCl(String sttemntCl) {
+		this.sttemntCl = sttemntCl;
+	}
+
+	public String getTelno() {
+		return telno;
+	}
+
+	public void setTelno(String telno) {
+		this.telno = telno;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSttemntCn() {
+		return sttemntCn;
+	}
+
+	public void setSttemntCn(String sttemntCn) {
+		this.sttemntCn = sttemntCn;
+	}
+
+	public String getCrtfcPssword() {
+		return crtfcPssword;
+	}
+
+	public void setCrtfcPssword(String crtfcPssword) {
+		this.crtfcPssword = crtfcPssword;
+	}
+
+	public String getSttemntTy() {
+		return sttemntTy;
+	}
+
+	public void setSttemntTy(String sttemntTy) {
+		this.sttemntTy = sttemntTy;
+	}
+
+	public String getBfchg() {
+		return bfchg;
+	}
+
+	public void setBfchg(String bfchg) {
+		this.bfchg = bfchg;
+	}
+
+	public String getAftch() {
+		return aftch;
+	}
+
+	public void setAftch(String aftch) {
+		this.aftch = aftch;
+	}
+
+	public String getVectorList() {
+		return vectorList;
+	}
+
+	public void setVectorList(String vectorList) {
+		this.vectorList = vectorList;
+	}
+
+	public String getAtchFileId() {
+		return atchFileId;
+	}
+
+	public void setAtchFileId(String atchFileId) {
+		this.atchFileId = atchFileId;
+	}
+
+	public String getEngnCode() {
+		return engnCode;
+	}
+
+	public void setEngnCode(String engnCode) {
+		this.engnCode = engnCode;
+	}
+
+	public String getCntrwkPnttm() {
+		return cntrwkPnttm;
+	}
+
+	public void setCntrwkPnttm(String cntrwkPnttm) {
+		this.cntrwkPnttm = cntrwkPnttm;
+	}
+
+	public String getCntrwkTmnl() {
+		return cntrwkTmnl;
+	}
+
+	public void setCntrwkTmnl(String cntrwkTmnl) {
+		this.cntrwkTmnl = cntrwkTmnl;
+	}
+
+	public String getAr() {
+		return ar;
+	}
+
+	public void setAr(String ar) {
+		this.ar = ar;
+	}
+
+	public String getExtn() {
+		return extn;
+	}
+
+	public void setExtn(String extn) {
+		this.extn = extn;
+	}
+
+	public String getChangeTrgetNm() {
+		return changeTrgetNm;
+	}
+
+	public void setChangeTrgetNm(String changeTrgetNm) {
+		this.changeTrgetNm = changeTrgetNm;
+	}
+
+	public String getTrgetBfchgCn() {
+		return trgetBfchgCn;
+	}
+
+	public void setTrgetBfchgCn(String trgetBfchgCn) {
+		this.trgetBfchgCn = trgetBfchgCn;
+	}
+
+	public String getTrgetAftchCn() {
+		return trgetAftchCn;
+	}
+
+	public void setTrgetAftchCn(String trgetAftchCn) {
+		this.trgetAftchCn = trgetAftchCn;
+	}
+
+	public Date getStrwrkDe() {
+		return strwrkDe;
+	}
+
+	public void setStrwrkDe(Date strwrkDe) {
+		this.strwrkDe = strwrkDe;
+	}
+
+	public Date getCompetPrearngeDe() {
+		return competPrearngeDe;
+	}
+
+	public void setCompetPrearngeDe(Date competPrearngeDe) {
+		this.competPrearngeDe = competPrearngeDe;
+	}
+
+	public Date getLastCompetDe() {
+		return lastCompetDe;
+	}
+
+	public void setLastCompetDe(Date lastCompetDe) {
+		this.lastCompetDe = lastCompetDe;
+	}
+
+	public String getCompetDrwFileStleTy() {
+		return competDrwFileStleTy;
+	}
+
+	public void setCompetDrwFileStleTy(String competDrwFileStleTy) {
+		this.competDrwFileStleTy = competDrwFileStleTy;
+	}
+
+	public String getCntm() {
+		return cntm;
+	}
+
+	public void setCntm(String cntm) {
+		this.cntm = cntm;
+	}
+
+	public String getRm() {
+		return rm;
+	}
+
+	public void setRm(String rm) {
+		this.rm = rm;
+	}
+
+	public String getPsitnEngnNo() {
+		return psitnEngnNo;
+	}
+
+	public void setPsitnEngnNo(String psitnEngnNo) {
+		this.psitnEngnNo = psitnEngnNo;
+	}
+
+	public String getPlanEngnNo() {
+		return planEngnNo;
+	}
+
+	public void setPlanEngnNo(String planEngnNo) {
+		this.planEngnNo = planEngnNo;
+	}
+
+	public String getMngEngnNo() {
+		return mngEngnNo;
+	}
+
+	public void setMngEngnNo(String mngEngnNo) {
+		this.mngEngnNo = mngEngnNo;
+	}
+
+	public String getChargerNm() {
+		return chargerNm;
+	}
+
+	public void setChargerNm(String chargerNm) {
+		this.chargerNm = chargerNm;
+	}
+
+	public String getChrgDeptNm() {
+		return chrgDeptNm;
+	}
+
+	public void setChrgDeptNm(String chrgDeptNm) {
+		this.chrgDeptNm = chrgDeptNm;
+	}
+
+	public String getChargerTlphonNo() {
+		return chargerTlphonNo;
+	}
+
+	public void setChargerTlphonNo(String chargerTlphonNo) {
+		this.chargerTlphonNo = chargerTlphonNo;
+	}
+
+	public String getChargerEmail() {
+		return chargerEmail;
+	}
+
+	public void setChargerEmail(String chargerEmail) {
+		this.chargerEmail = chargerEmail;
+	}
+
+	public String getAcqsMthTy() {
+		return acqsMthTy;
+	}
+
+	public void setAcqsMthTy(String acqsMthTy) {
+		this.acqsMthTy = acqsMthTy;
+	}
+
+	public String getSttusTy() {
+		return sttusTy;
+	}
+
+	public void setSttusTy(String sttusTy) {
+		this.sttusTy = sttusTy;
+	}
+
+	public String getChangeTy() {
+		return changeTy;
+	}
+
+	public void setChangeTy(String changeTy) {
+		this.changeTy = changeTy;
+	}
+
+	public String getTrgetAreaNm() {
+		return trgetAreaNm;
+	}
+
+	public void setTrgetAreaNm(String trgetAreaNm) {
+		this.trgetAreaNm = trgetAreaNm;
+	}
+
+	public String getChangeSe() {
+		return changeSe;
+	}
+
+	public void setChangeSe(String changeSe) {
+		this.changeSe = changeSe;
+	}	
+
+	public String getRegistTmpCd() {
+		return registTmpCd;
+	}
+
+	public void setRegistTmpCd(String registTmpCd) {
+		this.registTmpCd = registTmpCd;
+	}
+
+	public String getCntrwkNo() {
+		return cntrwkNo;
+	}
+
+	public void setCntrwkNo(String cntrwkNo) {
+		this.cntrwkNo = cntrwkNo;
+	}	
+	
+}

@@ -1,0 +1,98 @@
+
+.ViSpace{ height:283px; background:url(../images/common/ViSpace_bg.jpg) 0 0 repeat; text-align:center; border-bottom:#cfcfcf 1px solid;}
+.ViSImg {position:relative; margin:0 auto; width:980px; height:345px; background:url(../images/common/ViSpace_m_bg.jpg) 0 0 no-repeat; }
+.mainTxt{ position:absolute; left:10px; top:30px; text-align:left;}
+.mainTxt img{ margin:0;}
+
+.BBbt{position:absolute; left:0; top:135px;}
+.BBbt li{display:inline; padding:4px;}
+
+
+.marginT22 { margin-top:22px;}
+.marginR22 { margin-right:22px;}
+.marginR10 { margin-right:10px;}
+.marginR20 { margin-right:20px;}
+
+
+/* 메인_공지 */	
+.Notice{ position:relative; float:left; width:300px; margin:25px 0 0 0;}
+.Notice h3{font-size:16px; margin-bottom:16px; color:#4b4b4b; letter-spacing:-1px; padding-bottom:15px; border-bottom:#e1e1e1 1px solid;}
+.Notice p{position:absolute; right:0; top:0;}
+.Notice ul{ margin-top:4px;}
+.Notice ul li{position:relative; clear:both; padding-bottom:7px;}
+.Notice ul li a{display:inline-block; letter-spacing:-1px; padding-left:8px; background:url('../images/common/bull_01.gif') no-repeat 0 5px; color:#696969;}
+.Notice ul li a:hover{color:#000; text-decoration:underline;}
+.Notice ul li span.new{display:inline-block; width:23px; height:11px; background:url('../images/btn/new.gif') no-repeat 0 0; text-indent:-9999px; vertical-align:middle;}
+.Notice ul li em{position:absolute; right:0; top:0; font-style:normal; color:#969696; font-size:11px; letter-spacing:-1px;}
+.Notice .bmore{ margin:0; position:absolute; right:0; top:10px; font-size:11px;}
+
+/* 메인_신고 */	
+.Report{ position:relative;float:left; width:300px; right:0; margin:25px 0 0 35px;}
+.Report h3{font-size:16px; margin-bottom:16px; color:#4b4b4b; letter-spacing:-1px; padding-bottom:15px; border-bottom:#e1e1e1 1px solid;}
+.Report p{position:absolute; right:0; top:0;}
+.Report ul{ margin-top:4px;}
+.Report ul li{position:relative; clear:both; padding-bottom:7px;}
+.Report ul li a{display:inline-block; letter-spacing:-1px; padding-left:8px; background:url('../images/common/bull_01.gif') no-repeat 0 5px; color:#696969;}
+.Report ul li a:hover{color:#000; text-decoration:underline;}
+.Report ul li span.new{display:inline-block; width:23px; height:11px; background:url('../images/btn/new.gif') no-repeat 0 0; text-indent:-9999px; vertical-align:middle;}
+.Report ul li em{position:absolute; right:0; top:0; font-style:normal; color:#969696; font-size:11px; letter-spacing:-1px;}
+.Report .bmore{ margin:0; position:absolute; right:0; top:10px; font-size:11px;}
+
+/* 메인_q&a */	
+.qna{ position:relative;float:left; width:300px; right:0; margin:25px 0 0 35px;}
+.qna h3{font-size:16px; margin-bottom:16px; color:#4b4b4b; letter-spacing:-1px; padding-bottom:15px; border-bottom:#e1e1e1 1px solid;}
+.qna p{position:absolute; right:0; top:0;}
+.qna ul{ margin-top:4px;}
+.qna ul li{position:relative; clear:both; padding-bottom:7px;}
+.qna ul li a{display:inline-block; letter-spacing:-1px; padding-left:8px; background:url('../images/common/bull_01.gif') no-repeat 0 5px; color:#696969;}
+.qna ul li a:hover{color:#000; text-decoration:underline;}
+.qna ul li span.new{display:inline-block; width:23px; height:11px; background:url('../images/btn/new.gif') no-repeat 0 0; text-indent:-9999px; vertical-align:middle;}
+.qna ul li em{position:absolute; right:0; top:0; font-style:normal; color:#969696; font-size:11px; letter-spacing:-1px;}
+.qna .bmore{ margin:0; position:absolute; right:0; top:10px; font-size:11px;}
+
+
+/* 메인_지도및최근게시글 레이아웃 */	
+.ConBox{ float:left; position:relative; width:247px; height:247px; border:#e2e2e2 5px solid;}
+.ConBox h2{ font-size:14px; }
+
+.ConBoxC{ float:left; position:relative; width:407px; height:247px; border:#ebebeb 5px solid; background:#fcfcfc;}
+.ConBoxC h2{ font-size:14px; }
+
+.stepTitle{ position:absolute; margin:20px 0 0 20px; color:#6c6c6c; font-weight:bold;}
+.stepMent{ position:absolute; bottom:15px; right:15px; text-align:right;}
+
+.ConBoxR{ float:left; position:relative; width:250px; height:247px; border:#e2e2e2 5px solid; background:#fafafa;}
+.ConBoxR h2{ font-size:14px; background:url(../images/main/bul_stepTitleG.gif) no-repeat 0 3px; padding-left:20px; margin-bottom:5px; }
+.stepGraph{ position:absolute; left:20px; top:30px;}
+.stepTotaltxt{ font-size:16px;}
+.stepTotaltxt span{ color:#f60;}
+.stepTitleG{ position:absolute; margin:40px 0 0 260px; color:#6c6c6c; font-weight:bold;}
+.stepTitleG ul li{padding-bottom:6px;letter-spacing:-1px; color:#696969;}
+.stepTitleG img{ padding-right:5px;}
+.stepTitleG h2{ margin-bottom:16px; color:#4b4b4b; letter-spacing:-1px; padding-bottom:5px; }
+
+
+/* 메인_순위글 */	
+.step3List{ position:relative; float:right; width:200px; margin:20px 25px 0 30px;}
+.step3List h3{ margin-bottom:6px; color:#4b4b4b; letter-spacing:-1px; padding-bottom:10px; border-bottom:#e1e1e1 1px solid;}
+.step3List p{ font-size:11px;}
+.step3List ul{ margin-top:4px; }
+.step3List ul li{position:relative; padding:6px; margin-bottom:5px; letter-spacing:-1px; padding-left:28px; color:#696969; border:#ebebeb 1px solid;}
+.step3List ul .mnum1{background:url('../images/main/bul_n_1.gif') no-repeat 10px 9px; background-color:#fff;}
+.step3List ul .mnum2{background:url('../images/main/bul_n_2.gif') no-repeat 10px 9px; background-color:#fff;}
+.step3List ul .mnum3{background:url('../images/main/bul_n_3.gif') no-repeat 10px 9px; background-color:#fff;}
+.step3List ul .mnum4{background:url('../images/main/bul_n_4.gif') no-repeat 10px 9px; background-color:#fff;}
+.step3List ul .mnum5{background:url('../images/main/bul_n_5.gif') no-repeat 10px 9px; background-color:#fff;}
+.step3List ul li a{display:inline-block; letter-spacing:-1px; padding-left:18px; color:#696969;}
+.step3List ul li a:hover{color:#000; text-decoration:underline;}
+.step3List ul li span.new{display:inline-block; width:23px; height:11px; background:url('../images/common/new.gif') no-repeat 0 0; text-indent:-9999px; vertical-align:middle;}
+.step3List ul li em{position:absolute; right:10px; font-style:normal; color:#969696; font-size:11px; letter-spacing:-1px;}
+.step3List .bmore{ margin:0; position:absolute; right:0; top:10px; font-size:11px;}
+.step3List b{ color:#333;}
+
+
+.MBotUtill{width:960px; margin:0 auto; margin-top:10px; margin-bottom:5px; background:#f7f7f7; padding:10px; text-align:center;}
+.MBotUtill ul li { display:inline;}
+
+.MBanner{width:960px; margin:0 auto; padding:10px; text-align:center;}
+.MBanner ul li { display:inline; padding:0 20px;}

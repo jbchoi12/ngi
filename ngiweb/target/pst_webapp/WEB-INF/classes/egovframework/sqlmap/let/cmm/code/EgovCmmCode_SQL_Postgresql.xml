@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Code">
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="codeVO" type="egovframework.com.cmm.service.CodeVO"/>
+	<typeAlias  alias="businessDistrictVO" type="egovframework.com.cmm.service.BusinessDistrictVO"/>
+	
+	<resultMap class="codeVO" id="code">
+		<result property="code" column="code"/>
+		<result property="codeId" column="code_id"/>
+		<result property="codeNm" column="code_nm"/>
+	</resultMap>
+	
+	<resultMap class="businessDistrictVO" id="businessDistrict">
+		<result property="businessId" column="BUSINESS_ID"/>
+		<result property="businessNm" column="BUSINESS_NM"/>
+	</resultMap>
+	
+	<select id="codeDAO.selectGroupCodeList" parameterClass="String" resultMap="code">
+		/* 공통코드 조회 - kka 2014.10.29 */
+		SELECT
+			CODE_ID
+			,CODE_ID AS CODE
+			,CODE_ID_NM AS CODE_NM
+			FROM NGIWEB.LETTCCMMNCODE 
+			WHERE 1=1 
+			AND CL_CODE IN ('MNG','NGI')
+			ORDER BY CODE_ID
+	</select>
+	
+	<select id="codeDAO.selectCodeList" parameterClass="String" resultMap="code">
+		/* 공통코드 조회 - kka 2014.10.29 */
+		SELECT
+			CODE_ID
+			,CODE
+			,CODE_NM
+			FROM NGIWEB.LETTCCMMNDETAILCODE
+			WHERE 1=1 
+			<![CDATA[ AND CODE_ID = #codeId# ]]>
+			AND USE_AT = 'Y'
+			ORDER BY CODE
+	</select>
+		
+	<select id="codeDAO.selectCode" parameterClass="codeVO" resultMap="code">
+		/* 코드정보 조회 - kka 2014.10.29 */
+		SELECT
+			CODE_ID
+			,CODE
+			,CODE_NM
+		FROM NGIWEB.LETTCCMMNDETAILCODE
+		WHERE CODE_ID = #codeId#
+		AND CODE = #code#
+	</select>
+	
+	<select id="codeDAO.selectBusinessDistrictList" parameterClass="String" resultMap="businessDistrict">
+		/* 코드정보 목록조회 - kka 2014.11.16 */
+		SELECT 
+			BUSINESS_ID
+			,BUSINESS_NM
+		FROM NGIMANAGE.TN_BUSINESS_MAP
+		WHERE DEL_YN = 'N'
+	</select>
+
+ 	
+</sqlMap>

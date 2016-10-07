@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>CommonTag</short-name>
+  <uri>http://127.0.0.1/</uri>
+
+  <tag>
+    <name>cdVal</name>
+    <tag-class>egovframework.com.cmm.tag.CodeValueTag</tag-class>
+    <body-content>empty</body-content>
+    <description>
+    	-- 공통코드 value출력 --
+    	[codeType]		: 코드 타입
+    	[codeCd]		: 코드
+    	[codeLvl]		: 코드레벨 기본'1'
+    	[emptyStr]		: 코드없을시 대체 문자열
+    </description>
+    <attribute>
+		<name>codeType</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>codeCd</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>codeLvl</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>emptyStr</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+  </tag>
+</taglib>

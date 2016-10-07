@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="NgiTrs">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ngiTrsSerarchVO" type="egovframework.let.ngi.trs.service.NgiTrsDefaultVO"/>
+	<typeAlias  alias="ngiTrsEaisVO" type="egovframework.let.ngi.trs.service.NgiTrsEaisVO"/>
+	<typeAlias  alias="ngiTrsKaisVO" type="egovframework.let.ngi.trs.service.NgiTrsKaisVO"/>
+
+	
+	<select id="ngiTrsDAO.selectNgiTrsEaisList_D" parameterClass="ngiTrsSerarchVO" resultClass="egovMap">
+			SELECT
+			  chg_de 
+			 , si_cd 
+			 , chgtyp_cd 
+			 , bldrgst_pk 
+			 , sigungu_cd 
+			 , bjdong_cd 
+			 , bun 
+			 , ji 
+			 , bld_nm 
+			 , dong_nm 
+			 , grnd_flr
+			 , purps_cd 
+			 , purps_nm 
+			 , pnu
+			 , dokak_nm 
+			 , dokak_no 
+			 , loc_tmx 
+			 , loc_tmy 
+			 , loc_lon 
+			 , loc_lat 
+			 , chg_note 
+			FROM ngianalyze.eais_bldg_chg
+			WHERE 1=1
+			<isNotEmpty prepend="AND" property="chgDe">
+				chg_de LIKE '%' || #chgDe#  || '%'
+			</isNotEmpty>
+			ORDER BY chg_de DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#	
+
+	</select>	
+	<select id="ngiTrsDAO.selectNgiTrsEaisTotCnt_S" parameterClass="ngiTrsSerarchVO" resultClass="int">
+			SELECT
+				count(bldrgst_pk)
+			FROM ngianalyze.eais_bldg_chg
+			WHERE 1=1
+			<isNotEmpty prepend="AND" property="chgDe">
+				chg_de LIKE '%' || #chgDe#  || '%'
+			</isNotEmpty>
+	</select>
+
+	<select id="ngiTrsDAO.selectNgiTrsEaisDateList" parameterClass="ngiTrsSerarchVO" resultClass="egovMap">
+		SELECT 
+			chg_de 
+		FROM ngianalyze.eais_bldg_chg 
+		WHERE 1=1
+		GROUP BY chg_de
+		ORDER BY chg_de DESC
+		LIMIT 10
+	</select>
+
+	<select id="ngiTrsDAO.selectNgiTrsKaisList_D" parameterClass="ngiTrsSerarchVO" resultClass="egovMap">
+			SELECT
+				chg_de
+				, si_cd 
+				, chgtyp_cd
+				, bul_man_no
+				, sig_cd
+				, rn_cd
+				, rds_man_no
+				, buld_mnnm
+				, buld_slno
+				, buld_nm
+				, bdtyp_cd
+				, bdtyp_nm
+				, gro_flo_co
+				, und_flo_co
+				, mvm_res_cd
+				, mvmn_resn
+				, pnu
+				, dokak_nm
+				, dokak_no
+				, loc_tmx
+				, loc_tmy
+				, loc_lon
+				, loc_lat
+				, chg_note
+			FROM ngianalyze.kais_bldg_chg
+			WHERE 1=1
+			<isNotEmpty prepend="AND" property="chgDe">
+				chg_de = #chgDe# 
+			</isNotEmpty>
+			ORDER BY chg_de DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#	
+
+	</select>	
+	<select id="ngiTrsDAO.selectNgiTrsKaisTotCnt_S" parameterClass="ngiTrsSerarchVO" resultClass="int">
+			SELECT
+				count(bul_man_no)
+			FROM ngianalyze.kais_bldg_chg
+			WHERE 1=1
+			<isNotEmpty prepend="AND" property="chgDe">
+				chg_de = #chgDe# 
+			</isNotEmpty>
+	</select>
+	<select id="ngiTrsDAO.selectNgiTrsKaisDateList" parameterClass="ngiTrsSerarchVO" resultClass="egovMap">
+		SELECT 
+			chg_de 
+		FROM ngianalyze.kais_bldg_chg 
+		WHERE 1=1
+		GROUP BY chg_de
+		ORDER BY chg_de DESC
+		LIMIT 5
+	</select>
+</sqlMap>

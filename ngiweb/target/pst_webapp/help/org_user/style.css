@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+body                 {margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; font:normal dotum,'돋움'; color:#666666; font-size:12px; }
+body,div,dl,dt,dd.ol,p,h1,h2,h3,h4,h5,h6,form   {margin:0; padding:0;}
+img                  {border:0; vertical-align:top;}
+
+
+#wrap              {width:850px; height:700px; }
+#top               {width:850px; height:57px; }
+#menu              {width:147px; height:560px;float:left; padding:18px 10px 10px 30px;}
+#content           {width:630px; height:580px;float:left; padding:15px 3px 20px 10px; margin-bottom:20px; }
+#content_box       {width:630px; height:580px; padding:0 0 0 5px; overflow-x:hidden; overflow-y:scroll; 
+                      scrollbar-arrow-color:#06C;  scrollbar-track-color:#ffffff; scrollbar-face-color:#eeeeee; scrollbar-highlight-color:#eeeeee; scrollbar-shadow-color:#eeeeee; scrollbar-darkshadow-color:white;}
+.menu_ul           {list-style:none; padding:0; margin:0;}
+.menu_li           {vertical-align:top;}
+.menu_li_list      {vertical-align:top; padding:6px 0 0 10px;}
+.menu_li_list_top  {vertical-align:top; padding:15px 0 0 10px}
+.menu_li_list_btm  {vertical-align:top; padding:6px 0 25px 10px;}
+
+
+.list_ul           {list-style:none; padding:0; margin:0; vertical-align:middle;}
+.list_li           {vertical-align:top; height:20px;  vertical-align:middle;}
+
+
+
+
+
+

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TnChangeAllInfo">
+	
+	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias alias="tnChangeAllInfoSerarchVO" type="egovframework.let.ngi.api.service.TnChangeAllInfoVO"/>
+	<!-- 
+	<typeAlias alias="tnChangeAllInfoSerarchVO" type="egovframework.let.ngi.api.service.TnChangeAllInfoDefaultVO"/> 
+	<typeAlias alias="tnChangeAllInfoListSearchVO" type="egovframework.let.ngi.api.service.TnChangeAllInfoListSearchVO"/>
+	 -->
+	
+	<resultMap id="tnChangeAllInfo" class="egovframework.let.ngi.api.service.TnChangeAllInfoVO">
+		<result property="changeInfoId" column="change_info_id" />
+		<result property="registerId" column="register_id" />
+		<result property="changeCl" column="change_cl" />
+		<result property="processSttusSe" column="process_sttus_se" />
+		<result property="bsnsDstrc" column="bsns_dstrc" />
+		<result property="changeLnmAdresCn" column="change_lnm_adres_cn" />
+		<result property="changeLnmAdresDetailCn" column="change_lnm_adres_detail_cn" />
+		<result property="changeRnAdresCn" column="change_rn_adres_cn" />
+		<result property="changeRnAdresDetailCn" column="change_rn_adres_detail_cn" />
+		<result property="registerNm" column="register_nm" />
+		<result property="changeSj" column="change_sj" />
+		<result property="XCrdntLo" column="x_crdnt_lo" />
+		<result property="YCrdntLa" column="y_crdnt_la" />
+		<result property="pnuCd" column="pnu_cd" />
+		<result property="delSe" column="del_se" />
+		<result property="registPath" column="regist_path" />
+		<result property="reflctPrarnde" column="reflct_prarnde" />
+		<result property="trnsferSe" column="trnsfer_se" />
+		<result property="registDe" column="regist_de" />
+		<result property="addrTy" column="addr_ty" />
+		<result property="engnCode" column="engn_code" />
+		<result property="cntrwkPnttm" column="cntrwk_pnttm" />
+		<result property="cntrwkTmnl" column="cntrwk_tmnl" />
+		<result property="changeTrgetNm" column="change_trget_nm" />
+		<result property="trgetBfchgCn" column="trget_bfchg_cn" />
+		<result property="trgetAftchCn" column="trget_aftch_cn" />
+		<result property="competDrwFileStleTy" column="compet_drw_file_stle_ty" />
+		<result property="cntm" column="cntm" />
+		<result property="rm" column="rm" />
+		<result property="psitnEngnNo" column="psitn_engn_no" />
+		<result property="planEngnNo" column="plan_engn_no" />
+		<result property="mngEngnNo" column="mng_engn_no" />
+		<result property="chargerNm" column="charger_nm" />
+		<result property="chrgDeptNm" column="chrg_dept_nm" />
+		<result property="chargerTlphonNo" column="charger_tlphon_no" />
+		<result property="chargerEmail" column="charger_email" />
+		<result property="acqsMthTy" column="acqs_mth_ty" />
+		<result property="sttusTy" column="sttus_ty" />
+		<result property="changeTy" column="change_ty" />
+		<result property="trgetAreaNm" column="trget_area_nm" />
+		<result property="changeSe" column="change_se" />
+		<result property="ar" column="ar" />
+		<result property="extn" column="extn" />
+		<result property="registTmpCd" column="regist_tmp_cd" />
+		<result property="atchFileId" column="atch_file_id" />
+		<result property="strwrkDe" column="strwrk_de" />
+		<result property="competPrearngeDe" column="compet_prearnge_de" />
+		<result property="lastCompetDe" column="last_compet_de" />
+		<result property="cntrwkNo" column="cntrwk_no" />
+	</resultMap>
+	
+	<select id="tnChangeAllInfoDAO.selectTnChangeAllInfo_S" parameterClass="tnChangeAllInfoSerarchVO" resultMap="tnChangeAllInfo">
+		<![CDATA[
+			SELECT
+				change_info_id,
+			    register_id,
+			    change_cl,
+			    process_sttus_se,
+			    bsns_dstrc,
+			    change_lnm_adres_cn,
+			    change_lnm_adres_detail_cn,
+			    change_rn_adres_cn,
+			    change_rn_adres_detail_cn,
+			    register_nm,
+			    change_sj,
+			    x_crdnt_lo,
+			    y_crdnt_la,
+			    pnu_cd,
+			    del_se,
+			    regist_path,
+			    reflct_prarnde,
+			    trnsfer_se,
+			    regist_de,
+			    addr_ty,
+			    engn_code,
+			    cntrwk_pnttm,
+			    cntrwk_tmnl,
+			    change_trget_nm,
+			    trget_bfchg_cn,
+			    trget_aftch_cn,
+			    compet_drw_file_stle_ty,
+			    cntm,
+			    rm,
+			    psitn_engn_no,
+			    plan_engn_no,
+			    mng_engn_no,
+			    charger_nm,
+			    chrg_dept_nm,
+			    charger_tlphon_no,
+			    charger_email,
+			    acqs_mth_ty,
+			    sttus_ty,
+			    change_ty,
+			    trget_area_nm,
+			    change_se,
+			    ar,
+			    extn,
+			    regist_tmp_cd,
+			    atch_file_id,
+			    strwrk_de,
+			    compet_prearnge_de,
+			    last_compet_de,
+			    cntrwk_no
+			FROM tn_change_all_info
+			WHERE 1=1
+			]]>
+			<isNotEmpty prepend="AND" property="changeInfoId">
+				change_info_id = #changeInfoId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				cntrwk_no = #cntrwkNo#
+			</isNotEmpty>
+			<![CDATA[
+				AND del_se='0'				
+			]]>
+	</select>
+	
+	<!-- open api에서 사용. 리스트 가져오기. -->
+	<select id="tnChangeAllInfoDAO.selectTnChangeAllInfoList_D" parameterClass="tnChangeAllInfoSerarchVO" resultMap="tnChangeAllInfo">
+	
+	<![CDATA[
+			SELECT
+				change_info_id,
+			    register_id,
+			    change_cl,
+			    process_sttus_se,
+			    bsns_dstrc,
+			    change_lnm_adres_cn,
+			    change_lnm_adres_detail_cn,
+			    change_rn_adres_cn,
+			    change_rn_adres_detail_cn,
+			    register_nm,
+			    change_sj,
+			    x_crdnt_lo,
+			    y_crdnt_la,
+			    pnu_cd,
+			    del_se,
+			    regist_path,
+			    reflct_prarnde,
+			    trnsfer_se,
+			    regist_de,
+			    addr_ty,
+			    engn_code,
+			    cntrwk_pnttm,
+			    cntrwk_tmnl,
+			    change_trget_nm,
+			    trget_bfchg_cn,
+			    trget_aftch_cn,
+			    compet_drw_file_stle_ty,
+			    cntm,
+			    rm,
+			    psitn_engn_no,
+			    plan_engn_no,
+			    mng_engn_no,
+			    charger_nm,
+			    chrg_dept_nm,
+			    charger_tlphon_no,
+			    charger_email,
+			    acqs_mth_ty,
+			    sttus_ty,
+			    change_ty,
+			    trget_area_nm,
+			    change_se,
+			    ar,
+			    extn,
+			    regist_tmp_cd,
+			    atch_file_id,
+			    strwrk_de,
+			    compet_prearnge_de,
+			    last_compet_de,
+			    cntrwk_no
+			FROM tn_change_all_info
+			WHERE 1=1
+			]]>
+			<isNotEmpty prepend="AND" property="changeInfoId">
+				change_info_id = #changeInfoId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registerId">
+				register_id = #registerId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeCl">
+				change_cl = #changeCl#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se = #processSttusSe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bsnsDstrc">
+				bsns_dstrc = #bsnsDstrc#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeLnmAdresCn">
+				change_lnm_adres_cn = #changeLnmAdresCn#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="AND" property="changeLnmAdresDetailCn">
+				change_lnm_adres_detail_cn = #changeLnmAdresDetailCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeRnAdresCn">
+				change_rn_adres_cn = #changeRnAdresCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeRnAdresDetailCn">
+				change_rn_adres_detail_cn = #changeRnAdresDetailCn#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm = #registerNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj = #changeSj#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="pnuCd">
+				pnu_cd = #pnuCd#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registPath">
+				regist_path = #registPath#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="reflctPrarnde">
+				reflct_prarnde = #reflctPrarnde#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trnsferSe">
+				trnsfer_se = #trnsferSe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registDe">
+				regist_de = #registDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="addrTy">
+				addr_ty = #addrTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="engnCode">
+				engn_code = #engnCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkPnttm">
+				cntrwk_pnttm = #cntrwkPnttm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkTmnl">
+				cntrwk_tmnl = #cntrwkTmnl#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTrgetNm">
+				change_trget_nm = #changeTrgetNm#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="AND" property="trgetBfchgCn">
+				trget_bfchg_cn = #trgetBfchgCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trgetAftchCn">
+				trget_aftch_cn = #trgetAftchCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="competDrwFileStleTy">
+				compet_drw_file_stle_ty = #competDrwFileStleTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntm">
+				cntm = #cntm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rm">
+				rm = #rm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="psitnEngnNo">
+				psitn_engn_no = #psitnEngnNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="planEngnNo">
+				plan_engn_no = #planEngnNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mngEngnNo">
+				mng_engn_no = #mngEngnNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="chargerNm">
+				charger_nm = #chargerNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="chrgDeptNm">
+				chrg_dept_nm = #chrgDeptNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="acqsMthTy">
+				acqs_mth_ty = #acqsMthTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sttusTy">
+				sttus_ty = #sttusTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				change_ty = #changeTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trgetAreaNm">
+				trget_area_nm = #trgetAreaNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSe">
+				change_se = #changeSe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="extn">
+				extn = #extn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ar">
+				ar = #ar#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registTmpCd">
+				regist_tmp_cd = #registTmpCd#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="atchFileId">
+				atch_file_id = #atchFileId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="strwrkDe">
+				strwrk_de = #strwrkDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="competPrearngeDe">
+				compet_prearnge_de = #competPrearngeDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="lastCompetDe">
+				last_compet_de = #lastCompetDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="lastCompetBgnde">
+				last_compet_de BETWEEN #lastCompetBgnde# AND #lastCompetEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				cntrwk_no = #cntrwkNo#
+			</isNotEmpty>
+			
+			<!-- 
+			<isNotEmpty prepend="AND" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bbox">
+				bbox = #bbox#
+			</isNotEmpty>
+ 			-->
+				
+		<![CDATA[
+			AND del_se='0'	
+		]]>	
+			<!--
+			<isNotEmpty property="pageSort">
+				ORDER BY change_info_id #pageSort#
+			</isNotEmpty>
+			-->
+		<![CDATA[			
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+		]]>				
+				
+			
+	</select>	
+	<select id="tnChangeAllInfoDAO.selectTnChangeAllInfoListTotCnt_S" parameterClass="tnChangeAllInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				count(change_info_id)
+			FROM tn_change_all_info
+			WHERE 1=1
+			]]>
+			<isNotEmpty prepend="AND" property="changeInfoId">
+				change_info_id = #changeInfoId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registerId">
+				register_id = #registerId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeCl">
+				change_cl = #changeCl#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se = #processSttusSe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bsnsDstrc">
+				bsns_dstrc = #bsnsDstrc#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeLnmAdresCn">
+				change_lnm_adres_cn = #changeLnmAdresCn#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="AND" property="changeLnmAdresDetailCn">
+				change_lnm_adres_detail_cn = #changeLnmAdresDetailCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeRnAdresCn">
+				change_rn_adres_cn = #changeRnAdresCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeRnAdresDetailCn">
+				change_rn_adres_detail_cn = #changeRnAdresDetailCn#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm = #registerNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj = #changeSj#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="pnuCd">
+				pnu_cd = #pnuCd#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registPath">
+				regist_path = #registPath#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="reflctPrarnde">
+				reflct_prarnde = #reflctPrarnde#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trnsferSe">
+				trnsfer_se = #trnsferSe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registDe">
+				regist_de = #registDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="addrTy">
+				addr_ty = #addrTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="engnCode">
+				engn_code = #engnCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkPnttm">
+				cntrwk_pnttm = #cntrwkPnttm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkTmnl">
+				cntrwk_tmnl = #cntrwkTmnl#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTrgetNm">
+				change_trget_nm = #changeTrgetNm#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="AND" property="trgetBfchgCn">
+				trget_bfchg_cn = #trgetBfchgCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trgetAftchCn">
+				trget_aftch_cn = #trgetAftchCn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="competDrwFileStleTy">
+				compet_drw_file_stle_ty = #competDrwFileStleTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntm">
+				cntm = #cntm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rm">
+				rm = #rm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="psitnEngnNo">
+				psitn_engn_no = #psitnEngnNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="planEngnNo">
+				plan_engn_no = #planEngnNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mngEngnNo">
+				mng_engn_no = #mngEngnNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="chargerNm">
+				charger_nm = #chargerNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="chrgDeptNm">
+				chrg_dept_nm = #chrgDeptNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="acqsMthTy">
+				acqs_mth_ty = #acqsMthTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sttusTy">
+				sttus_ty = #sttusTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				change_ty = #changeTy#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trgetAreaNm">
+				trget_area_nm = #trgetAreaNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSe">
+				change_se = #changeSe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="extn">
+				extn = #extn#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ar">
+				ar = #ar#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registTmpCd">
+				regist_tmp_cd = #registTmpCd#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="atchFileId">
+				atch_file_id = #atchFileId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="strwrkDe">
+				strwrk_de = #strwrkDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="competPrearngeDe">
+				compet_prearnge_de = #competPrearngeDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="lastCompetDe">
+				last_compet_de = #lastCompetDe#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="lastCompetBgnde">
+				last_compet_de BETWEEN #lastCompetBgnde# AND #lastCompetEndde# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				cntrwk_no = #cntrwkNo#
+			</isNotEmpty>
+			
+		<![CDATA[
+			AND del_se='0'				
+		]]>
+	</select>
+
+</sqlMap>

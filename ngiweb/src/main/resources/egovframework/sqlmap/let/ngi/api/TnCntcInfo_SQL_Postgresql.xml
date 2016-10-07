@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TnCntcInfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="tnCntcInfoVO" type="egovframework.let.ngi.api.service.TnCntcInfoVO"/>
+	
+	<resultMap id="tnCntcInfo" class="egovframework.let.ngi.api.service.TnCntcInfoVO">
+		<result property="cntcInfoId" column="cntc_info_id" columnIndex="1"/>
+		<result property="chargerNm" column="charger_nm" columnIndex="2"/>
+		<result property="sysNm" column="sys_nm" columnIndex="3"/>
+		<result property="telno" column="telno" columnIndex="4"/>
+		<result property="email" column="email" columnIndex="5"/>
+		<result property="cntcTy" column="cntc_ty" columnIndex="6"/>
+		<result property="applcDomnNm" column="applc_domn_nm" columnIndex="7"/>
+		<result property="useprps" column="useprps" columnIndex="8"/>
+		<result property="rgsde" column="rgsde" columnIndex="9"/>
+		<result property="crtfcCodeSe" column="crtfc_code_se" columnIndex="10"/>
+		<result property="issuDe" column="issu_de" columnIndex="11"/>
+		<result property="confmAt" column="confm_at" columnIndex="12"/>
+		<result property="userId" column="user_id" columnIndex="13"/>
+		<result property="host" column="host" columnIndex="14"/>
+		<result property="port" column="port" columnIndex="15"/>
+		<result property="protocol" column="protocol" columnIndex="16"/>
+		<result property="authKey" column="auth_key" columnIndex="17"/>
+	</resultMap>
+	
+	<insert id="tnCntcInfoDAO.insertTnCntcInfo_S">
+		<![CDATA[
+			INSERT INTO ngiweb.tn_cntc_info 
+				( cntc_info_id
+				  , charger_nm
+				  , sys_nm
+				  , telno
+				  , email
+				  , cntc_ty
+				  , applc_domn_nm
+				  , useprps
+				  , rgsde
+				  , crtfc_code_se
+				  , confm_at
+				  , user_id
+				  , host
+				  , port
+				  , protocol
+				  , auth_key )
+			VALUES ( 
+					(SELECT  COALESCE(MAX(cntc_info_id),0)+1 FROM ngiweb.tn_cntc_info)
+				  , #chargerNm#
+				  , #sysNm#
+				  , #telno#
+				  , #email#
+				  , #cntcTy#
+				  , #applcDomnNm#
+				  , #useprps#
+				  , CURRENT_TIMESTAMP
+				  , #crtfcCodeSe#
+				  , #confmAt#
+				  , #userId#
+				  , #host#
+				  , #port#
+				  , #protocol#
+				  , #authKey# )
+		]]>
+	</insert>
+	
+	<update id="tnCntcInfoDAO.updateTnCntcInfo_S">
+		<![CDATA[
+			UPDATE ngiweb.tn_cntc_info
+			SET cntc_info_id=#cntcInfoId#
+				, charger_nm=#chargerNm#
+				, sys_nm=#sysNm#
+				, telno=#telno#
+				, email=#email#
+				, cntc_ty=#cntcTy#
+				, applc_domn_nm=#applcDomnNm#
+				, useprps=#useprps#
+				, rgsde=#rgsde#
+				, crtfc_code_se=#crtfcCodeSe#
+				, issu_de=#issuDe#
+				, confm_at=#confmAt#
+				, user_id = #userId#
+				, host = #host#
+				, port = #port#
+				, protocol = #protocol#
+				, auth_key = #authKey#
+						WHERE cntc_info_id=#cntcInfoId#
+				]]>
+	</update>
+	
+	<delete id="tnCntcInfoDAO.deleteTnCntcInfo_S">
+		<![CDATA[
+			DELETE FROM ngiweb.tn_cntc_info 
+						WHERE cntc_info_id=#cntcInfoId#
+				]]>
+	</delete>
+	
+	<select id="tnCntcInfoDAO.selectTnCntcInfo_S" resultMap="tnCntcInfo">
+		<![CDATA[
+			SELECT
+				cntc_info_id
+				, charger_nm
+				, sys_nm
+				, telno
+				, email
+				, cntc_ty
+				, applc_domn_nm
+				, useprps
+				, rgsde
+				, crtfc_code_se
+				, issu_de
+				, confm_at
+				, user_id
+				, host
+				, port
+				, protocol
+				, auth_key 
+			FROM ngiweb.tn_cntc_info
+			WHERE 1=1
+			]]>
+			<isNotEmpty prepend="AND" property="userId">
+				user_id = #userId#  
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="crtfcCodeSe">
+				crtfc_code_se = #crtfcCodeSe#  
+			</isNotEmpty>
+				
+	</select>
+	
+	<select id="tnCntcInfoDAO.selectTnCntcInfoList_D" parameterClass="tnCntcInfoVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				cntc_info_id
+				, charger_nm
+				, sys_nm
+				, telno
+				, email
+				, cntc_ty
+				, applc_domn_nm
+				, useprps
+				, rgsde
+				, crtfc_code_se
+				, issu_de
+				, confm_at
+				, user_id
+				, host
+				, port
+				, protocol
+				, auth_key 
+			FROM ngiweb.tn_cntc_info
+						WHERE user_id=#userId#
+				]]>
+	</select>	
+	<select id="tnCntcInfoDAO.selectTnCntcInfoListTotCnt_S" parameterClass="tnCntcInfoVO" resultClass="int">
+			SELECT
+				COUNT(cntc_info_id)
+			FROM ngiweb.tn_cntc_info
+						WHERE crtfc_code_se = #crtfcCodeSe#
+	</select>
+
+</sqlMap>

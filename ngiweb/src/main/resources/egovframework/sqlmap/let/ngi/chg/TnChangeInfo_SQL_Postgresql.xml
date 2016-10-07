@@ -1,0 +1,2442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TnChangeInfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="changeInfoSerarchVO" type="egovframework.let.ngi.chg.service.ChangeInfoDefaultVO"/>
+	<typeAlias  alias="changeInfoVO" type="egovframework.let.ngi.chg.service.ChangeInfoVO"/>
+	<typeAlias  alias="changeHistVO" type="egovframework.let.ngi.chg.service.ChangeHistVO"/>
+	<typeAlias  alias="sttemntInfoVO" type="egovframework.let.ngi.chg.service.SttemntInfoVO"/>
+	<typeAlias  alias="cntrwkInfoVO" type="egovframework.let.ngi.chg.service.CntrwkInfoVO"/>
+	<typeAlias  alias="changeSttemntInfoVO" type="egovframework.let.ngi.chg.service.ChangeSttemntInfoVO"/>
+	<typeAlias  alias="changeCntrwkInfoVO" type="egovframework.let.ngi.chg.service.ChangeCntrwkInfoVO"/>
+	<typeAlias  alias="changeSttemntCntrwkVO" type="egovframework.let.ngi.chg.service.ChangeSttemntCntrwkVO"/>
+	<typeAlias alias="changeInfoSearchRectVO" type="egovframework.let.ngi.chg.service.ChangeInfoRadiusSearchingVO"/>
+	<typeAlias alias="changeInfoChartVO" type="egovframework.let.ngi.chg.service.ChangeInfoChartVO"/>
+		
+	<resultMap id="changeInfo" class="egovframework.let.ngi.chg.service.ChangeInfoVO">
+		<result property="changeInfoId" column="change_info_id" columnIndex="1"/>
+		<result property="registerId" column="register_id" columnIndex="2"/>
+		<result property="changeCl" column="change_cl" columnIndex="3"/>
+		<result property="processSttusSe" column="process_sttus_se" columnIndex="4"/>
+		<result property="bsnsDstrc" column="bsns_dstrc" columnIndex="5"/>
+		<result property="changeLnmAdresCn" column="change_lnm_adres_cn" columnIndex="6"/>
+		<result property="changeLnmAdresDetailCn" column="change_lnm_adres_detail_cn" columnIndex="7"/>
+		<result property="changeRnAdresCn" column="change_rn_adres_cn" columnIndex="8"/>
+		<result property="changeRnAdresDetailCn" column="change_rn_adres_detail_cn" columnIndex="9"/>
+		<result property="XCrdntLo" column="x_crdnt_lo" columnIndex="10"/>
+		<result property="YCrdntLa" column="y_crdnt_la" columnIndex="11"/>
+		<result property="registDe" column="regist_de" columnIndex="12"/>
+		<result property="registerNm" column="register_nm" columnIndex="13"/>
+		<result property="changeSj" column="change_sj" columnIndex="14"/>
+		<result property="pnuCd" column="pnu_cd" columnIndex="15"/>
+		<result property="registPath" column="regist_path" columnIndex="17"/>
+		<result property="cntrwkNo" column="cntrwk_no" />
+		
+	</resultMap>
+
+	<resultMap id="changeHist" class="egovframework.let.ngi.chg.service.ChangeHistVO">
+		<result property="sttus" column="sttus" columnIndex="1"/>
+		<result property="opinion" column="opinion" columnIndex="2"/>
+		<result property="register" column="register" columnIndex="3"/>
+		<result property="rgsde" column="rgsde" columnIndex="4"/>
+		<result property="sttemntCl" column="sttemnt_cl" columnIndex="5"/>
+		<result property="changeHistId" column="change_hist_id" columnIndex="6"/>
+		<result property="changeInfoId" column="change_info_id" columnIndex="7"/>
+	</resultMap>
+
+	<resultMap id="sttemntInfo" class="egovframework.let.ngi.chg.service.SttemntInfoVO" >
+		<result property="changeInfoId" column="change_info_id" columnIndex="1"/>
+		<result property="sttemntCl" column="sttemnt_cl" columnIndex="2"/>
+		<result property="telno" column="telno" columnIndex="3"/>
+		<result property="email" column="email" columnIndex="4"/>
+		<result property="sttemntCn" column="sttemnt_cn" columnIndex="5"/>
+		<result property="crtfcPssword" column="crtfc_pssword" columnIndex="6"/>
+		<result property="sttemntTy" column="sttemnt_ty" columnIndex="7"/>
+		<result property="bfchg" column="bfchg" columnIndex="8"/>
+		<result property="aftch" column="aftch" columnIndex="9"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="10"/>
+	</resultMap>
+
+	<resultMap id="cntrwkInfo" class="egovframework.let.ngi.chg.service.CntrwkInfoVO" >
+		<result property="changeInfoId" column="change_info_id" columnIndex="1"/>
+		<result property="engnCode" column="engn_code" columnIndex="2"/>
+		<result property="cntrwkPnttm" column="cntrwk_pnttm" columnIndex="3"/>
+		<result property="cntrwkTmnl" column="cntrwk_tmnl" columnIndex="4"/>
+		<result property="ar" column="ar" columnIndex="5"/>
+		<result property="extn" column="extn" columnIndex="6"/>
+		<result property="changeTrgetNm" column="change_trget_nm" columnIndex="7"/>
+		<result property="trgetBfchgCn" column="trget_bfchg_cn" columnIndex="8"/>
+		<result property="trgetAftchCn" column="trget_aftch_cn" columnIndex="9"/>
+		<result property="strwrkDe" column="strwrk_de" columnIndex="10"/>
+		<result property="competPrearngeDe" column="compet_prearnge_de" columnIndex="11"/>
+		<result property="lastCompetDe" column="last_compet_de" columnIndex="12"/>
+		<result property="competDrwFileStleTy" column="compet_drw_file_stle_ty" columnIndex="13"/>
+		<result property="cntm" column="cntm" columnIndex="14"/>
+		<result property="rm" column="rm" columnIndex="15"/>
+		<result property="psitnEngnNo" column="psitn_engn_no" columnIndex="16"/>
+		<result property="planEngnNo" column="plan_engn_no" columnIndex="17"/>
+		<result property="mngEngnNo" column="mng_engn_no" columnIndex="18"/>
+		<result property="chargerNm" column="charger_nm" columnIndex="19"/>
+		<result property="chrgDeptNm" column="chrg_dept_nm" columnIndex="20"/>
+		<result property="chargerTlphonNo" column="charger_tlphon_no" columnIndex="21"/>
+		<result property="chargerEmail" column="charger_email" columnIndex="22"/>
+		<result property="acqsMthTy" column="acqs_mth_ty" columnIndex="23"/>
+		<result property="sttusTy" column="sttus_ty" columnIndex="24"/>
+		<result property="changeTy" column="change_ty" columnIndex="25"/>
+		<result property="trgetAreaNm" column="trget_area_nm" columnIndex="26"/>
+		<result property="changeSe" column="change_se" columnIndex="27"/>		
+		<result property="registTmpCd" column="regist_tmp_cd" columnIndex="28"/>
+		<result property="cntrwkNo" column="cntrwk_no" columnIndex="29"/>	
+	</resultMap>
+
+	<resultMap id="changeSttemntInfo" class="egovframework.let.ngi.chg.service.ChangeSttemntInfoVO">
+		<result property="changeInfoId" column="change_info_id" columnIndex="1"/>
+		<result property="registerId" column="register_id" columnIndex="2"/>
+		<result property="changeCl" column="change_cl" columnIndex="3"/>
+		<result property="processSttusSe" column="process_sttus_se" columnIndex="4"/>
+		<result property="bsnsDstrc" column="bsns_dstrc" columnIndex="5"/>
+		<result property="changeLnmAdresCn" column="change_lnm_adres_cn" columnIndex="6"/>
+		<result property="changeLnmAdresDetailCn" column="change_lnm_adres_detail_cn" columnIndex="7"/>
+		<result property="changeRnAdresCn" column="change_rn_adres_cn" columnIndex="8"/>
+		<result property="changeRnAdresDetailCn" column="change_rn_adres_detail_cn" columnIndex="9"/>
+		<result property="XCrdntLo" column="x_crdnt_lo" columnIndex="10"/>
+		<result property="YCrdntLa" column="y_crdnt_la" columnIndex="11"/>
+		<result property="registDe" column="regist_de" columnIndex="12"/>
+		<result property="registerNm" column="register_nm" columnIndex="13"/>
+		<result property="changeSj" column="change_sj" columnIndex="14"/>
+		<result property="pnuCd" column="pnu_cd" columnIndex="15"/>
+		<result property="registPath" column="regist_path" columnIndex="17"/>		
+		<result property="sttemntCl" column="sttemnt_cl" columnIndex="18"/>
+		<result property="telno" column="telno" columnIndex="19"/>
+		<result property="email" column="email" columnIndex="20"/>
+		<result property="sttemntCn" column="sttemnt_cn" columnIndex="21"/>
+		<result property="crtfcPssword" column="crtfc_pssword" columnIndex="22"/>
+		<result property="sttemntTy" column="sttemnt_ty" columnIndex="23"/>
+		<result property="bfchg" column="bfchg" columnIndex="24"/>
+		<result property="aftch" column="aftch" columnIndex="25"/>	
+		<result property="atchFileId" column="atch_file_id" columnIndex="26"/>	
+	</resultMap>
+
+	<resultMap id="changeCntrwkInfo" class="egovframework.let.ngi.chg.service.ChangeCntrwkInfoVO">
+		<result property="changeInfoId" column="change_info_id" columnIndex="1"/>
+		<result property="registerId" column="register_id" columnIndex="2"/>
+		<result property="changeCl" column="change_cl" columnIndex="3"/>
+		<result property="processSttusSe" column="process_sttus_se" columnIndex="4"/>
+		<result property="bsnsDstrc" column="bsns_dstrc" columnIndex="5"/>
+		<result property="changeLnmAdresCn" column="change_lnm_adres_cn" columnIndex="6"/>
+		<result property="changeLnmAdresDetailCn" column="change_lnm_adres_detail_cn" columnIndex="7"/>
+		<result property="changeRnAdresCn" column="change_rn_adres_cn" columnIndex="8"/>
+		<result property="changeRnAdresDetailCn" column="change_rn_adres_detail_cn" columnIndex="9"/>
+		<result property="XCrdntLo" column="x_crdnt_lo" columnIndex="10"/>
+		<result property="YCrdntLa" column="y_crdnt_la" columnIndex="11"/>
+		<result property="registDe" column="regist_de" columnIndex="12"/>
+		<result property="registerNm" column="register_nm" columnIndex="13"/>
+		<result property="changeSj" column="change_sj" columnIndex="14"/>
+		<result property="pnuCd" column="pnu_cd" columnIndex="15"/>
+		<result property="registPath" column="regist_path" columnIndex="17"/>
+		<result property="engnCode" column="engn_code" columnIndex="18"/>
+		<result property="cntrwkPnttm" column="cntrwk_pnttm" columnIndex="19"/>
+		<result property="cntrwkTmnl" column="cntrwk_tmnl" columnIndex="20"/>
+		<result property="ar" column="ar" columnIndex="21"/>
+		<result property="extn" column="extn" columnIndex="22"/>
+		<result property="changeTrgetNm" column="change_trget_nm" columnIndex="23"/>
+		<result property="trgetBfchgCn" column="trget_bfchg_cn" columnIndex="24"/>
+		<result property="trgetAftchCn" column="trget_aftch_cn" columnIndex="25"/>
+		<result property="strwrkDe" column="strwrk_de" columnIndex="26"/>
+		<result property="competPrearngeDe" column="compet_prearnge_de" columnIndex="27"/>
+		<result property="lastCompetDe" column="last_compet_de" columnIndex="28"/>
+		<result property="competDrwFileStleTy" column="compet_drw_file_stle_ty" columnIndex="29"/>
+		<result property="cntm" column="cntm" columnIndex="30"/>
+		<result property="rm" column="rm" columnIndex="31"/>
+		<result property="psitnEngnNo" column="psitn_engn_no" columnIndex="32"/>
+		<result property="planEngnNo" column="plan_engn_no" columnIndex="33"/>
+		<result property="mngEngnNo" column="mng_engn_no" columnIndex="34"/>
+		<result property="chargerNm" column="charger_nm" columnIndex="35"/>
+		<result property="chrgDeptNm" column="chrg_dept_nm" columnIndex="36"/>
+		<result property="chargerTlphonNo" column="charger_tlphon_no" columnIndex="37"/>
+		<result property="chargerEmail" column="charger_email" columnIndex="38"/>
+		<result property="acqsMthTy" column="acqs_mth_ty" columnIndex="38"/>
+		<result property="sttusTy" column="sttus_ty" columnIndex="40"/>
+		<result property="changeTy" column="change_ty" columnIndex="41"/>
+		<result property="trgetAreaNm" column="trget_area_nm" columnIndex="42"/>
+		<result property="changeSe" column="change_se" columnIndex="43"/>		
+		<result property="registTmpCd" column="regist_tmp_cd" columnIndex="44"/>
+		<result property="cntrwkNo" column="cntrwk_no" columnIndex="45"/>	
+		<result property="filecode01" column="filecode01" />
+		<result property="filecode02" column="filecode02" />
+		<result property="filecode03" column="filecode03" />
+	</resultMap>
+
+	<resultMap id="changeSttemntCntrwk" class="egovframework.let.ngi.chg.service.ChangeSttemntCntrwkVO">
+		<result property="changeInfoId" column="change_info_id" columnIndex="1"/>
+		<result property="registerId" column="register_id" columnIndex="2"/>
+		<result property="changeCl" column="change_cl" columnIndex="3"/>
+		<result property="processSttusSe" column="process_sttus_se" columnIndex="4"/>
+		<result property="bsnsDstrc" column="bsns_dstrc" columnIndex="5"/>
+		<result property="changeLnmAdresCn" column="change_lnm_adres_cn" columnIndex="6"/>
+		<result property="changeLnmAdresDetailCn" column="change_lnm_adres_detail_cn" columnIndex="7"/>
+		<result property="changeRnAdresCn" column="change_rn_adres_cn" columnIndex="8"/>
+		<result property="changeRnAdresDetailCn" column="change_rn_adres_detail_cn" columnIndex="9"/>
+		<result property="XCrdntLo" column="x_crdnt_lo" columnIndex="10"/>
+		<result property="YCrdntLa" column="y_crdnt_la" columnIndex="11"/>
+		<result property="registDe" column="regist_de" columnIndex="12"/>
+		<result property="registerNm" column="register_nm" columnIndex="13"/>
+		<result property="changeSj" column="change_sj" columnIndex="14"/>
+		<result property="pnuCd" column="pnu_cd" columnIndex="15"/>
+		<result property="registPath" column="regist_path" columnIndex="17"/>
+		<result property="sttemntCl" column="sttemnt_cl" columnIndex="18"/>
+		<result property="telno" column="telno" columnIndex="19"/>
+		<result property="email" column="email" columnIndex="20"/>
+		<result property="sttemntCn" column="sttemnt_cn" columnIndex="21"/>
+		<result property="crtfcPssword" column="crtfc_pssword" columnIndex="22"/>
+		<result property="sttemntTy" column="sttemnt_ty" columnIndex="23"/>
+		<result property="bfchg" column="bfchg" columnIndex="24"/>
+		<result property="aftch" column="aftch" columnIndex="25"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="26"/>		
+		<result property="engnCode" column="engn_code" columnIndex="27"/>
+		<result property="cntrwkPnttm" column="cntrwk_pnttm" columnIndex="28"/>
+		<result property="cntrwkTmnl" column="cntrwk_tmnl" columnIndex="29"/>
+		<result property="ar" column="ar" columnIndex="30"/>
+		<result property="extn" column="extn" columnIndex="31"/>
+		<result property="changeTrgetNm" column="change_trget_nm" columnIndex="32"/>
+		<result property="trgetBfchgCn" column="trget_bfchg_cn" columnIndex="33"/>
+		<result property="trgetAftchCn" column="trget_aftch_cn" columnIndex="34"/>
+		<result property="strwrkDe" column="strwrk_de" columnIndex="35"/>
+		<result property="competPrearngeDe" column="compet_prearnge_de" columnIndex="36"/>
+		<result property="lastCompetDe" column="last_compet_de" columnIndex="37"/>
+		<result property="competDrwFileStleTy" column="compet_drw_file_stle_ty" columnIndex="38"/>
+		<result property="cntm" column="cntm" columnIndex="39"/>
+		<result property="rm" column="rm" columnIndex="40"/>
+		<result property="psitnEngnNo" column="psitn_engn_no" columnIndex="41"/>
+		<result property="planEngnNo" column="plan_engn_no" columnIndex="42"/>
+		<result property="mngEngnNo" column="mng_engn_no" columnIndex="43"/>
+		<result property="chargerNm" column="charger_nm" columnIndex="44"/>
+		<result property="chrgDeptNm" column="chrg_dept_nm" columnIndex="45"/>
+		<result property="chargerTlphonNo" column="charger_tlphon_no" columnIndex="46"/>
+		<result property="chargerEmail" column="charger_email" columnIndex="47"/>
+		<result property="acqsMthTy" column="acqs_mth_ty" columnIndex="48"/>
+		<result property="sttusTy" column="sttus_ty" columnIndex="49"/>
+		<result property="changeTy" column="change_ty" columnIndex="50"/>
+		<result property="trgetAreaNm" column="trget_area_nm" columnIndex="51"/>
+		<result property="changeSe" column="change_se" columnIndex="52"/>
+		<result property="registTmpCd" column="regist_tmp_cd" columnIndex="53"/>	
+		<result property="cntrwkNo" column="cntrwk_no" columnIndex="54"/>		
+	</resultMap>
+
+	<!-- 변경신고 차트에서 사용. 메인페이지용  -->
+	<resultMap id="changeInfoChartCntVO" class="egovframework.let.ngi.chg.service.changeInfoChartCntVO">
+		<result property="cnt" column="cnt" />
+		<result property="st_type" column="st_type" />
+		<result property="code_nm" column="code_nm" />
+		<result property="pnu" column="pnu" />
+	</resultMap>
+	
+
+	<!-- geometry table point -->
+	<resultMap id="changeGeomLcPoint" class="egovframework.let.ngi.chg.service.ChangeGeomLcVo">
+		<result property="lcPointInfoId" column="lc_point_info_id" columnIndex="1"/>
+		<result property="changeInfoId" column="change_info_id" columnIndex="2"/>
+		<result property="location" column="location" columnIndex="3"/>
+	</resultMap>
+	
+	<!-- geometry table line -->
+	<resultMap id="changeGeomLcLn" class="egovframework.let.ngi.chg.service.ChangeGeomLcVo">
+		<result property="lcLnInfoId" column="lc_ln_info_id" columnIndex="1"/>
+		<result property="changeInfoId" column="change_info_id" columnIndex="2"/>
+		<result property="location" column="location" columnIndex="3"/>
+	</resultMap>
+	
+	<!-- geometry table polygon -->
+	<resultMap id="changeGeomLcMyeon" class="egovframework.let.ngi.chg.service.ChangeGeomLcVo">
+		<result property="lcMyeonInfoId" column="lc_myeon_info_id" columnIndex="1"/>
+		<result property="changeInfoId" column="change_info_id" columnIndex="2"/>
+		<result property="location" column="location" columnIndex="3"/>
+	</resultMap>
+	<!-- geometry table polygon -->
+	<resultMap id="changeGeomLcShp" class="egovframework.let.ngi.chg.service.ChangeGeomLcVo">
+		<result property="shpId" column="shp_id" columnIndex="1"/>
+		<result property="changeInfoId" column="change_info_id" columnIndex="2"/>
+		<result property="location" column="location" columnIndex="3"/>
+	</resultMap>
+
+	
+	<!-- 차트 -->
+	<resultMap id="changeInfoChartVO" class="egovframework.let.ngi.chg.service.ChangeInfoChartVO">
+		<result property="name" column="name" columnIndex="1"/>
+		<result property="count" column="count" columnIndex="2"/>
+	</resultMap>
+	
+	<insert id="changeInfoDAO.insertChangeInfo_S">
+		<![CDATA[
+			INSERT INTO ngiweb.tn_change_info 
+				( change_info_id
+				  , register_id
+				  , change_cl
+				  , process_sttus_se
+				  , bsns_dstrc
+				  , change_lnm_adres_cn
+				  , change_lnm_adres_detail_cn
+				  , change_rn_adres_cn
+				  , change_rn_adres_detail_cn
+				  , x_crdnt_lo
+				  , y_crdnt_la
+				  , regist_de
+				  , register_nm
+				  , change_sj
+				  , pnu_cd
+				  , del_se
+				  , regist_path
+				  , addr_ty )
+			VALUES ( #changeInfoId#
+				  , #registerId#
+				  , #changeCl#
+				  , '01'
+				  , #bsnsDstrc#
+				  , #changeLnmAdresCn#
+				  , #changeLnmAdresDetailCn#
+				  , #changeRnAdresCn#
+				  , #changeRnAdresDetailCn#
+				  , #XCrdntLo#
+				  , #YCrdntLa#
+				  , CURRENT_TIMESTAMP
+				  , #registerNm#
+				  , #changeSj#
+				  , #pnuCd#
+				  , '0'
+				  , '1'
+				  , #addrTy# )
+		]]>
+	</insert>
+	<insert id="changeInfoDAO.insertChangeHistory_S">
+		INSERT INTO NGIMANAGE.TN_CHANGE_HIST
+			( CHANGE_HIST_ID
+			  , CHANGE_INFO_ID
+			  ,	STTUS
+			  , REGISTER
+			  , RGSDE 
+			  , STTEMNT_CL
+			  )
+			VALUES (
+				(SELECT coalesce(MAX(CHANGE_HIST_ID),0)+1 FROM NGIMANAGE.TN_CHANGE_HIST	WHERE 1=1)
+			  , #changeInfoId#
+			  , '01'
+			  , (SELECT register_nm FROM ngiweb.tn_change_info	WHERE change_info_id=#changeInfoId#)
+			  , CURRENT_TIMESTAMP
+			  , '01'
+			  )
+	</insert>
+
+
+	<insert id="changeInfoDAO.insertChangeInfoStaff_S">
+<![CDATA[
+			INSERT INTO NGIWEB.tn_change_info 
+				( change_info_id
+				  , register_id
+				  , change_cl
+				  , process_sttus_se
+				  , bsns_dstrc
+				  , change_lnm_adres_cn
+				  , change_lnm_adres_detail_cn
+				  , change_rn_adres_cn
+				  , change_rn_adres_detail_cn
+				  , x_crdnt_lo
+				  , y_crdnt_la
+				  , regist_de
+				  , register_nm
+				  , change_sj
+				  , pnu_cd
+				  , del_se
+				  , regist_path
+				  , addr_ty )
+			VALUES ( #changeInfoId#
+				  , #registerId#
+				  , #changeCl#
+				  , '01'
+				  , #bsnsDstrc#
+				  , #changeLnmAdresCn#
+				  , #changeLnmAdresDetailCn#
+				  , #changeRnAdresCn#
+				  , #changeRnAdresDetailCn#
+				  , #XCrdntLo#
+				  , #YCrdntLa#
+				  , CURRENT_TIMESTAMP
+				  , #registerNm#
+				  , #changeSj#
+				  , #pnuCd#
+				  , '0'
+				  , '2'
+				  , #addrTy# )
+		]]>
+</insert>
+
+	<insert id="changeInfoDAO.insertChangeInfoMember_S">
+<![CDATA[
+			INSERT INTO NGIWEB.tn_change_info 
+				( change_info_id
+				  , register_id
+				  , change_cl
+				  , process_sttus_se
+				  , bsns_dstrc
+				  , change_lnm_adres_cn
+				  , change_lnm_adres_detail_cn
+				  , change_rn_adres_cn
+				  , change_rn_adres_detail_cn
+				  , x_crdnt_lo
+				  , y_crdnt_la
+				  , regist_de
+				  , register_nm
+				  , change_sj
+				  , pnu_cd
+				  , del_se
+				  , regist_path
+				  , addr_ty )
+			VALUES ( #changeInfoId#
+				  , #registerId#
+				  , #changeCl#
+				  , '01'
+				  , #bsnsDstrc#
+				  , #changeLnmAdresCn#
+				  , #changeLnmAdresDetailCn#
+				  , #changeRnAdresCn#
+				  , #changeRnAdresDetailCn#
+				  , #XCrdntLo#
+				  , #YCrdntLa#
+				  , CURRENT_TIMESTAMP
+				  , #registerNm#
+				  , #changeSj#
+				  , #pnuCd#
+				  , '0'
+				  , '2'
+				  , #addrTy# )
+		]]>
+</insert>
+	
+	<insert id="changeInfoDAO.insertSttemntInfo_S">
+		<![CDATA[
+			INSERT INTO ngiweb.TN_STTEMNT_INFO 
+				( CHANGE_INFO_ID
+				,STTEMNT_CL
+				,TELNO
+				,EMAIL
+				,STTEMNT_CN
+				,CRTFC_PASSWORD
+				,STTEMNT_TY
+				,BFCHG
+				,AFTCH,
+				atch_file_id  )
+			VALUES ( #changeInfoId#
+				  , #sttemntCl#
+				  , #telno#
+				  , #email#
+				  , #sttemntCn#
+				  , #crtfcPssword#
+				  , #sttemntTy#
+				  , #bfchg#
+				  , #aftch#
+				  , #atchFileId#  )
+		]]>
+	</insert>
+
+	<insert id="changeInfoDAO.insertCntrwkInfo_S">
+		<![CDATA[
+			INSERT INTO ngiweb.TN_CNTRWK_INFO 
+				(   change_info_id
+				 , engn_code
+				 , cntrwk_pnttm
+				 , cntrwk_tmnl
+				 , ar
+				 , extn
+				 , change_trget_nm
+				 , trget_bfchg_cn
+				 , trget_aftch_cn
+				 , strwrk_de
+				 , compet_prearnge_de
+				 , last_compet_de
+				 , compet_drw_file_stle_ty
+				 , cntm
+				 , rm
+				 , psitn_engn_no
+				 , plan_engn_no
+				 , mng_engn_no
+				 , charger_nm
+				 , chrg_dept_nm
+				 , charger_tlphon_no
+				 , charger_email
+				 , acqs_mth_ty
+				 , sttus_ty
+				 , change_ty
+				 , trget_area_nm
+				 , change_se
+				 , regist_tmp_cd 
+				 , cntrwk_no	)
+			VALUES ( #changeInfoId#
+				 , #engnCode#
+				 , #cntrwkPnttm#
+				 , #cntrwkTmnl#
+				 , #ar#
+				 , #extn#
+				 , #changeTrgetNm#
+				 , #trgetBfchgCn#
+				 , #trgetAftchCn#
+				 , #strwrkDe#
+				 , #competPrearngeDe#
+				 , #lastCompetDe#
+				 , #competDrwFileStleTy#
+				 , #cntm#
+				 , #rm#
+				 , #psitnEngnNo#
+				 , #planEngnNo#
+				 , #mngEngnNo#
+				 , #chargerNm#
+				 , #chrgDeptNm#
+				 , #chargerTlphonNo#
+				 , #chargerEmail#
+				 , #acqsMthTy#
+				 , #sttusTy#
+				 , #changeTy#
+				 , #trgetAreaNm#
+				 , #changeSe#
+				 , #registTmpCd#
+				 , NGIWEB.MAKE_CNTRWK_NO(#changeInfoId#)  )
+		]]>
+	</insert>
+
+	
+	<update id="changeInfoDAO.updateChangeInfo_S">
+		<![CDATA[
+			UPDATE ngiweb.tn_change_info
+			SET  register_id=#registerId#
+				, change_cl=#changeCl#
+				, bsns_dstrc=#bsnsDstrc#
+				, change_lnm_adres_cn=#changeLnmAdresCn#
+				, change_lnm_adres_detail_cn=#changeLnmAdresDetailCn#
+				, change_rn_adres_cn=#changeRnAdresCn#
+				, change_rn_adres_detail_cn=#changeRnAdresDetailCn#
+				, x_crdnt_lo=#XCrdntLo#
+				, y_crdnt_la=#YCrdntLa#
+				, regist_de=CURRENT_TIMESTAMP
+				, register_nm=#registerNm#
+				, change_sj=#changeSj#
+				, pnu_cd=#pnuCd#
+				, addr_ty=#addrTy#
+						WHERE change_info_id=#changeInfoId#
+				]]>
+	</update>
+
+	<update id="changeInfoDAO.updateSttemntInfo_S">
+		<![CDATA[
+			UPDATE ngiweb.tn_sttemnt_info
+			SET sttemnt_cl=#sttemntCl#
+				, telno=#telno#
+				, email=#email#
+				, sttemnt_cn=#sttemntCn#
+				, crtfc_password=#crtfcPssword#
+				, sttemnt_ty=#sttemntTy#
+				, bfchg=#bfchg#
+				, aftch=#aftch#
+				, atch_file_id=#atchFileId#
+					WHERE change_info_id=#changeInfoId#
+				]]>
+	</update>
+
+	<update id="changeInfoDAO.updateCntrwkInfo_S">
+		<![CDATA[
+			UPDATE ngiweb.TN_CNTRWK_INFO 
+			SET engn_code=#engnCode#
+				 , cntrwk_pnttm=#cntrwkPnttm#
+				 , cntrwk_tmnl=#cntrwkTmnl#
+				 , ar=#ar#
+				 , extn=#extn#
+				 , change_trget_nm=#changeTrgetNm#
+				 , trget_bfchg_cn=#trgetBfchgCn#
+				 , trget_aftch_cn=#trgetAftchCn#
+				 , strwrk_de=#strwrkDe#
+				 , compet_prearnge_de=#competPrearngeDe#
+				 , last_compet_de=#lastCompetDe#
+				 , compet_drw_file_stle_ty=#competDrwFileStleTy#
+				 , cntm=#cntm#
+				 , rm=#rm#
+				 , psitn_engn_no=#psitnEngnNo#
+				 , plan_engn_no=#planEngnNo#
+				 , mng_engn_no=#mngEngnNo#
+				 , charger_nm=#chargerNm#
+				 , chrg_dept_nm=#chrgDeptNm#
+				 , charger_tlphon_no=#chargerTlphonNo#
+				 , charger_email=#chargerEmail#
+				 , acqs_mth_ty=#acqsMthTy#
+				 , sttus_ty=#sttusTy#
+				 , change_ty=#changeTy#
+				 , trget_area_nm=#trgetAreaNm#
+				 , change_se=#changeSe# 
+ 				 
+				WHERE change_info_id=#changeInfoId#
+				]]>
+	</update>
+
+	<update id="changeInfoDAO.updateCntrwkRegComInfo_S">
+		<![CDATA[
+			UPDATE ngiweb.TN_CNTRWK_INFO 
+			SET regist_tmp_cd='0'
+				WHERE change_info_id=CAST(#changeInfoId# AS NUMERIC)
+				]]>
+	</update>
+	
+	<update id="changeInfoDAO.deleteChangeInfo_S">
+		<![CDATA[
+			UPDATE ngiweb.tn_change_info 
+			SET del_se = '1'
+						WHERE change_info_id=#changeInfoId#
+				]]>
+	</update>
+
+	<select id="changeInfoDAO.selectChangeInfo_S" resultMap="changeInfo">
+		<![CDATA[
+			SELECT
+				change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, pnu_cd
+				, regist_path
+				, addr_ty
+			FROM ngiweb.tn_change_info
+						WHERE change_info_id=#changeInfoId#
+						AND change_cl='01'
+				ORDER BY change_info_id DESC
+				]]>
+	</select>
+
+	<select id="changeInfoDAO.selectSttemntInfo_S" resultMap="sttemntInfo">
+		<![CDATA[
+			SELECT
+				change_info_id
+				, sttemnt_cl
+				, telno
+				, email
+				, sttemnt_cn
+				, crtfc_password as crtfc_pssword
+				, sttemnt_ty
+				, bfchg
+				, aftch
+				, atch_file_id
+			FROM ngiweb.tn_sttemnt_info
+						WHERE change_info_id=#changeInfoId#
+					ORDER BY change_info_id DESC
+				]]>
+	</select>
+	
+	<select id="changeInfoDAO.selectChangeSttemntInfo_S" resultMap="changeSttemntInfo">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, pnu_cd
+				, regist_path
+				, addr_ty
+				, STTEMNT_CL
+				, TELNO
+				, EMAIL
+				, STTEMNT_CN
+				, CRTFC_PASSWORD AS CRTFC_PSSWORD
+				, STTEMNT_TY
+				, BFCHG
+				, AFTCH
+				, atch_file_id
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.TN_STTEMNT_INFO B
+			ON A.change_info_id=B.change_info_id
+						WHERE A.change_info_id=#changeInfoId#	
+					ORDER BY A.change_info_id DESC	
+
+				]]>
+	</select>
+
+	
+	<select id="changeInfoDAO.selectChangeInfoList_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, regist_de
+				, register_nm
+				, change_sj
+				, atch_file_id
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.TN_STTEMNT_INFO B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="changeCl">
+				change_cl LIKE '%' || #changeCl# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				regist_de BETWEEN #ntceBgnde# AND #ntceEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mapBBOX">
+				ST_Contains( 
+					( SELECT ST_GeomFromText( #mapBBOX#, 5179 ) ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isNotEmpty>
+			<isEqual prepend="AND" property="dokak_select" compareValue="50k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."50k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="25k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."25k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="5k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."5k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+		<![CDATA[
+			AND del_se='0'				
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+	</select>	
+
+	<select id="changeInfoDAO.selectChangeCntrwkList_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, engn_code
+				, cntrwk_pnttm
+				, cntrwk_tmnl
+				, ar
+				, extn
+				, change_trget_nm
+				, trget_bfchg_cn
+				, trget_aftch_cn
+				, strwrk_de
+				, TO_CHAR(compet_prearnge_de, 'YYYY-MM-DD') as compet_prearnge_de
+				, TO_CHAR(last_compet_de, 'YYYY-MM-DD') as last_compet_de
+				, compet_drw_file_stle_ty
+				, cntm 
+				, rm 
+				, psitn_engn_no
+				, plan_engn_no
+				, mng_engn_no
+				, charger_nm
+				, chrg_dept_nm
+				, charger_tlphon_no
+				, charger_email
+				, acqs_mth_ty
+				, sttus_ty
+				, change_ty
+				, trget_area_nm
+				, change_se
+				, regist_tmp_cd
+				, cntrwk_no
+				, C.location AS location
+				, (select count(atchmnfl_id) from NGIWEB.tn_atchmnfl where file_fom_code_ty = '01' and change_info_id = A.change_info_id group by change_info_id) as fileCode01
+				, (select count(atchmnfl_id) from NGIWEB.tn_atchmnfl where file_fom_code_ty = '02' and change_info_id = A.change_info_id group by change_info_id) as fileCode02
+				, (select count(atchmnfl_id) from NGIWEB.tn_atchmnfl where file_fom_code_ty = '03' and change_info_id = A.change_info_id group by change_info_id) as fileCode03
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.tn_cntrwk_info B ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_change_lc_point C ON A.change_info_id = C.change_info_id
+						WHERE 1=1
+		]]>
+			<!--
+			<isGreaterThan prepend="AND" property="changeInfoId" compareValue="0">
+				A.change_info_id = #changeInfoId# 
+			</isGreaterThan>
+			 -->
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				cntrwk_no = #cntrwkNo# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				change_ty = #changeTy# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se = #processSttusSe# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="psitnEngnNo">
+				psitn_engn_no = #psitnEngnNo# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="planEngnNo">
+				plan_engn_no = #planEngnNo# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trgetAreaNm">
+				trget_area_nm LIKE '%' || #trgetAreaNm# || '%'
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="strwrkBgnde">
+				strwrk_de BETWEEN #strwrkBgnde# AND #strwrkEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="competPrearngeBgnde">
+				compet_prearnge_de BETWEEN #competPrearngeBgnde# AND #competPrearngeEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="mapBBOX">
+				ST_Contains( 
+					( SELECT ST_GeomFromText( #mapBBOX#, 5179 ) ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isNotEmpty>
+			<isEqual prepend="AND" property="dokak_select" compareValue="50k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."50k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="25k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."25k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="5k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."5k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+		<![CDATA[
+			AND change_cl='02' AND del_se='0' AND regist_tmp_cd='0'			
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+	</select>	
+	
+	<select id="changeInfoDAO.selectChangeCntrwkListPhone_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, engn_code
+				, cntrwk_pnttm
+				, cntrwk_tmnl
+				, ar
+				, extn
+				, change_trget_nm
+				, trget_bfchg_cn
+				, trget_aftch_cn
+				, strwrk_de
+				, TO_CHAR(compet_prearnge_de, 'YYYY-MM-DD') as compet_prearnge_de
+				, TO_CHAR(last_compet_de, 'YYYY-MM-DD') as last_compet_de
+				, compet_drw_file_stle_ty
+				, cntm 
+				, rm 
+				, psitn_engn_no
+				, plan_engn_no
+				, mng_engn_no
+				, charger_nm
+				, chrg_dept_nm
+				, charger_tlphon_no
+				, charger_email
+				, acqs_mth_ty
+				, sttus_ty
+				, change_ty
+				, trget_area_nm
+				, change_se
+				, regist_tmp_cd
+				, cntrwk_no
+			FROM ngiweb.tn_change_info A INNER JOIN ngiweb.tn_cntrwk_info B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+		]]>
+			<isGreaterThan prepend="AND" property="changeInfoId" compareValue="0">
+				A.change_info_id = #changeInfoId# 
+			</isGreaterThan>
+			<isNotEmpty prepend="AND" property="changeTy">
+				change_ty = #changeTy# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se = #processSttusSe# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				regist_de &gt;= #ntceBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="ntceEndde">
+				regist_de &lt;= #ntceEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="competPrearngeBgnde">
+				compet_prearnge_de &gt;= #competPrearngeBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="competPrearngeEndde">
+				compet_prearnge_de &lt;= #competPrearngeEndde# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="insttNm">
+				register_id in (select user_id from ngimanage.tn_user where tn_user.instt_code = #insttNm#)
+			</isNotEmpty>		
+		<![CDATA[
+			AND change_cl='03' AND del_se='0'				
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+</select>
+	
+	<select id="changeInfoDAO.selectChangeCntrwkRegList_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, engn_code
+				, cntrwk_pnttm
+				, cntrwk_tmnl
+				, ar
+				, extn
+				, change_trget_nm
+				, trget_bfchg_cn
+				, trget_aftch_cn
+				, strwrk_de
+				, TO_CHAR(compet_prearnge_de, 'YYYY-MM-DD') as compet_prearnge_de
+				, TO_CHAR(last_compet_de, 'YYYY-MM-DD') as last_compet_de
+				, compet_drw_file_stle_ty
+				, cntm 
+				, rm 
+				, psitn_engn_no
+				, plan_engn_no
+				, mng_engn_no
+				, charger_nm
+				, chrg_dept_nm
+				, charger_tlphon_no
+				, charger_email
+				, acqs_mth_ty
+				, sttus_ty
+				, change_ty
+				, trget_area_nm
+				, change_se
+				, regist_tmp_cd
+				, cntrwk_no
+				, ST_AsText(C.location) AS location
+			FROM 
+				ngiweb.tn_change_info A LEFT JOIN ngiweb.tn_cntrwk_info B ON A.change_info_id=B.change_info_id
+				LEFT JOIN ngiweb.tn_change_lc_point C ON A.change_info_id = C.change_info_id
+			WHERE 1=1
+			AND change_cl='02'
+			AND del_se='0'	
+			AND regist_tmp_cd='1'
+			AND register_id=#registerId#			
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+	</select>	
+
+
+	
+	
+	<select id="changeInfoDAO.selectChangeInfoList_Phone_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.TN_STTEMNT_INFO B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="changeCl">
+				change_cl LIKE '%' || #changeCl# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sttemntTy">
+				B.sttemnt_ty LIKE '%' || #sttemntTy# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				regist_de &gt;= #ntceBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="ntceEndde">
+				regist_de &lt;= #ntceEndde# 
+			</isNotEmpty>		
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+				
+		<![CDATA[
+			AND del_se='0'
+			AND change_cl='01'			
+			ORDER BY change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+	</select>
+	
+		<select id="changeInfoDAO.selectChangeInfoTrsList_Phone_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, A.register_id
+				, A.change_cl
+				, A.process_sttus_se
+				, B.bsns_dstrc
+				, A.change_lnm_adres_cn
+				, A.change_lnm_adres_detail_cn
+				, A.change_rn_adres_cn
+				, A.change_rn_adres_detail_cn
+				, A.x_crdnt_lo
+				, A.y_crdnt_la
+				, TO_CHAR(A.regist_de, 'YYYY-MM-DD') as regist_de
+				, A.register_nm
+				, A.change_sj
+			FROM ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+			ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_cntrwk_info C  ON A.change_info_id=C.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="changeCl">
+				A.change_cl LIKE '%' || #changeCl# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				A.process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				A.change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sttemntTy">
+				B.change_ty LIKE '%' || #sttemntTy# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				A.regist_de &gt;= #ntceBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="ntceEndde">
+				A.regist_de &lt;= #ntceEndde# 
+			</isNotEmpty>		
+			<isNotEmpty prepend="AND" property="registerNm">
+				A.register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+				
+		<![CDATA[
+			And A.del_se='0'			
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+	</select>
+	
+	<select id="changeInfoDAO.selectChangeInfoInRectList_D" parameterClass="changeInfoSearchRectVO" resultClass="egovMap">
+<![CDATA[
+			SELECT
+				change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+			FROM ngiweb.tn_change_info
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="leftRect">
+				x_crdnt_lo &gt;= #leftRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rightRect">
+				x_crdnt_lo &lt;= #rightRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="topRect">
+				y_crdnt_la &gt;= #topRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bottomRect">
+				y_crdnt_la &lt;= #bottomRect# 
+			</isNotEmpty>	
+				
+		<![CDATA[
+			AND del_se='0'
+			AND change_cl='01'				
+			ORDER BY change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+</select>	
+	
+		<select id="changeInfoDAO.selectChangeInfoTrsInRectList_D" parameterClass="changeInfoSearchRectVO" resultClass="egovMap">
+<![CDATA[
+			SELECT
+				A.change_info_id
+				, A.register_id
+				, A.change_cl
+				, A.process_sttus_se
+				, B.bsns_dstrc
+				, A.change_lnm_adres_cn
+				, A.change_lnm_adres_detail_cn
+				, A.change_rn_adres_cn
+				, A.change_rn_adres_detail_cn
+				, A.x_crdnt_lo
+				, A.y_crdnt_la
+				, TO_CHAR(A.regist_de, 'YYYY-MM-DD') as regist_de
+				, A.register_nm
+				, A.change_sj
+			FROM ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+			ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_cntrwk_info C  ON A.change_info_id=C.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				A.process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="leftRect">
+				A.x_crdnt_lo &gt;= #leftRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rightRect">
+				A.x_crdnt_lo &lt;= #rightRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="topRect">
+				A.y_crdnt_la &gt;= #topRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bottomRect">
+				A.y_crdnt_la &lt;= #bottomRect# 
+			</isNotEmpty>	
+				
+		<![CDATA[
+			AND A.del_se='0'	
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+</select>
+
+	<select id="changeInfoDAO.selectChangeInfoListInRectTotCnt_S" parameterClass="changeInfoSearchRectVO" resultClass="int">
+<![CDATA[
+			SELECT
+				COUNT(change_info_id)
+			FROM ngiweb.tn_change_info
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="leftRect">
+				x_crdnt_lo &gt;= #leftRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rightRect">
+				x_crdnt_lo &lt;= #rightRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="topRect">
+				y_crdnt_la &gt;= #topRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bottomRect">
+				y_crdnt_la &lt;= #bottomRect# 
+			</isNotEmpty>	
+				
+		<![CDATA[
+			AND change_cl='01' AND del_se='0'							
+
+				]]>
+</select>
+	
+		<select id="changeInfoDAO.selectChangeInfoTrListInRectTotCnt_S" parameterClass="changeInfoSearchRectVO" resultClass="int">
+<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+			ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_cntrwk_info C  ON A.change_info_id=C.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				A.process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="leftRect">
+				A.x_crdnt_lo &gt;= #leftRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rightRect">
+				A.x_crdnt_lo &lt;= #rightRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="topRect">
+				A.y_crdnt_la &gt;= #topRect#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="bottomRect">
+				A.y_crdnt_la &lt;= #bottomRect# 
+			</isNotEmpty>	
+				
+		<![CDATA[
+			AND A.del_se='0'
+				]]>
+</select>
+		<select id="changeInfoDAO.selectChangeInfoListTotCnt_Staff" parameterClass="changeInfoSearchRectVO" resultClass="int">
+		<![CDATA[
+					SELECT
+						COUNT(change_info_id)
+					FROM NGIWEB.tn_change_info
+								WHERE 1=1
+				]]>
+					<isNotEmpty prepend="AND" property="processSttusSe">
+						process_sttus_se LIKE '%' || #processSttusSe# || '%'
+					</isNotEmpty>
+					<isNotEmpty prepend="AND" property="leftRect">
+						x_crdnt_lo &gt;= #leftRect#
+					</isNotEmpty>
+					<isNotEmpty prepend="AND" property="rightRect">
+						x_crdnt_lo &lt;= #rightRect#
+					</isNotEmpty>
+					<isNotEmpty prepend="AND" property="topRect">
+						y_crdnt_la &gt;= #topRect#
+					</isNotEmpty>
+					<isNotEmpty prepend="AND" property="bottomRect">
+						y_crdnt_la &lt;= #bottomRect# 
+					</isNotEmpty>	
+						
+				<![CDATA[
+					AND change_cl='03' AND del_se='0'							
+		
+						]]>
+		</select>
+
+	<select id="changeInfoDAO.selectChangeHistList_D" parameterClass="changeHistVO"  resultClass="egovMap">
+			SELECT
+				STTUS
+				, OPINION
+				, REGISTER
+				, TO_CHAR(RGSDE, 'YYYY-MM-DD') as RGSDE
+				, STTEMNT_CL
+				, CHANGE_HIST_ID
+				, CHANGE_INFO_ID
+			FROM ngimanage.TN_CHANGE_HIST
+			WHERE 1=1
+			AND CHANGE_INFO_ID = #changeInfoId#
+			ORDER BY CHANGE_HIST_ID DESC
+	</select>		
+	
+	
+	<select id="changeInfoDAO.selectChangeInfoListTotCnt_S" parameterClass="changeInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(change_info_id)
+			FROM ngiweb.tn_change_info
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="changeCl">
+				change_cl LIKE '%' || #changeCl# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				regist_de BETWEEN #ntceBgnde# AND #ntceEndde# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mapBBOX">
+				ST_Contains( 
+					( SELECT ST_GeomFromText( #mapBBOX#, 5179 ) ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isNotEmpty>
+			<isEqual prepend="AND" property="dokak_select" compareValue="50k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."50k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="25k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."25k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="5k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."5k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+		<![CDATA[
+			AND change_cl='01' AND del_se='0'							
+
+				]]>
+	</select>
+
+	<select id="changeInfoDAO.selectChangeCntrwkListTotCnt_S" parameterClass="changeInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.tn_cntrwk_info B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+		]]>
+			<!-- 
+			<isGreaterThan prepend="AND" property="changeInfoId" compareValue="0">
+				A.change_info_id = #changeInfoId# 
+			</isGreaterThan>
+			 -->
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				cntrwk_no = #cntrwkNo# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				change_ty = #changeTy# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se = #processSttusSe# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="psitnEngnNo">
+				psitn_engn_no = #psitnEngnNo# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="planEngnNo">
+				plan_engn_no = #planEngnNo# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="trgetAreaNm">
+				trget_area_nm LIKE '%' || #trgetAreaNm# || '%'
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="strwrkBgnde">
+				strwrk_de BETWEEN #strwrkBgnde# AND #strwrkEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="competPrearngeBgnde">
+				compet_prearnge_de BETWEEN #competPrearngeBgnde# AND #competPrearngeEndde# 
+			</isNotEmpty>	
+			<isNotEmpty prepend="AND" property="mapBBOX">
+				ST_Contains( 
+					( SELECT ST_GeomFromText( #mapBBOX#, 5179 ) ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isNotEmpty>
+			<isEqual prepend="AND" property="dokak_select" compareValue="50k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."50k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="25k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."25k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="5k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."5k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+		<![CDATA[
+			AND change_cl='02' AND del_se='0' AND regist_tmp_cd='0'							
+
+				]]>
+	</select>
+
+	<select id="changeInfoDAO.selectChangeCntrwkListTotCnt_S_Phone" parameterClass="changeInfoSerarchVO" resultClass="int">
+<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A INNER JOIN ngiweb.tn_cntrwk_info B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+		]]>
+			<isGreaterThan prepend="AND" property="changeInfoId" compareValue="0">
+				A.change_info_id = #changeInfoId# 
+			</isGreaterThan>
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				cntrwk_no = #cntrwkNo# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				change_ty = #changeTy# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se = #processSttusSe# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				regist_de &gt;= #ntceBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="ntceEndde">
+				regist_de &lt;= #ntceEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="competPrearngeBgnde">
+				compet_prearnge_de &gt;= #competPrearngeBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="competPrearngeEndde">
+				compet_prearnge_de &lt;= #competPrearngeEndde# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="insttNm">
+				register_id in (select user_id from ngimanage.tn_user where tn_user.instt_code = #insttNm#)
+			</isNotEmpty>
+				
+		<![CDATA[
+			AND change_cl='03' AND del_se='0'								
+
+				]]>
+</select>
+	
+	<select id="changeInfoDAO.selectChangeCntrwkRegListTotCnt_S" parameterClass="changeInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.tn_cntrwk_info B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+			AND change_cl='02' 
+			AND del_se='0'	
+			AND regist_tmp_cd='1'	
+			AND register_id=#registerId#					
+				]]>
+	</select>
+
+
+	
+	<select id="changeInfoDAO.selectChangeInfoListTotCnt_Phone_S" parameterClass="changeInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.TN_STTEMNT_INFO B
+			ON A.change_info_id=B.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="changeCl">
+				change_cl LIKE '%' || #changeCl# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sttemntTy">
+				B.sttemnt_ty LIKE '%' || #sttemntTy# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				regist_de &gt;= #ntceBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="ntceEndde">
+				regist_de &lt;= #ntceEndde# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="registerNm">
+				register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+				
+		<![CDATA[
+			AND change_cl='01' AND del_se='0'							
+
+				]]>
+	</select>
+	
+		<select id="changeInfoDAO.selectChangeInfoTrsListTotCnt_Phone_S" parameterClass="changeInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+			ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_cntrwk_info C  ON A.change_info_id=C.change_info_id
+						WHERE 1=1
+		]]>
+			<isNotEmpty prepend="AND" property="changeCl">
+				A.change_cl LIKE '%' || #changeCl# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				A.process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeSj">
+				A.change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sttemntTy">
+				B.change_ty LIKE '%' || #sttemntTy# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				A.regist_de &gt;= #ntceBgnde#
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="ntceEndde">
+				A.regist_de &lt;= #ntceEndde# 
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="registerNm">
+				A.register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+				
+		<![CDATA[
+			AND A.del_se='0'							
+
+				]]>
+	</select>
+	
+	<select id="changeInfoDAO.selectChangeInfoMaxid" parameterClass="changeInfoVO" resultClass="int">
+	SELECT CAST(COALESCE(MAX(CAST(CHANGE_INFO_ID AS NUMERIC)),'0') AS NUMERIC)+1
+ 			FROM ngiweb.tn_change_info WHERE 1=1
+	</select>
+
+
+<!-- Cntrwk start -->
+
+	<select id="changeInfoDAO.selectCntrwkInfo_S" resultMap="cntrwkInfo">
+		<![CDATA[
+			SELECT
+				change_info_id
+				, engn_code
+				, cntrwk_pnttm
+				, cntrwk_tmnl
+				, ar
+				, extn
+				, change_trget_nm
+				, trget_bfchg_cn
+				, trget_aftch_cn
+				, TO_CHAR(strwrk_de, 'YYYY-MM-DD') as strwrk_de
+				, TO_CHAR(compet_prearnge_de, 'YYYY-MM-DD') as compet_prearnge_de
+				, TO_CHAR(last_compet_de, 'YYYY-MM-DD') as last_compet_de
+				, compet_drw_file_stle_ty
+				, cntm
+				, rm 
+				, psitn_engn_no
+				, plan_engn_no
+				, mng_engn_no
+				, charger_nm
+				, chrg_dept_nm
+				, charger_tlphon_no
+				, charger_email
+				, acqs_mth_ty
+				, sttus_ty
+				, change_ty 
+				, trget_area_nm
+				, change_se	
+				, regist_tmp_cd	
+				, cntrwk_no		
+			FROM ngiweb.tn_cntrwk_info
+						WHERE change_info_id=#changeInfoId#
+				]]>
+	</select>
+	
+	<select id="changeInfoDAO.selectChangeCntrwkInfo_S" resultMap="changeCntrwkInfo">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, pnu_cd
+				, regist_path
+				, addr_ty
+				, engn_code
+				, cntrwk_pnttm
+				, cntrwk_tmnl
+				, ar
+				, extn
+				, change_trget_nm
+				, trget_bfchg_cn
+				, trget_aftch_cn
+				, TO_CHAR(strwrk_de, 'YYYY-MM-DD') as strwrk_de
+				, TO_CHAR(compet_prearnge_de, 'YYYY-MM-DD') as compet_prearnge_de
+				, TO_CHAR(last_compet_de, 'YYYY-MM-DD') as last_compet_de
+				, compet_drw_file_stle_ty
+				, cntm
+				, rm
+				, psitn_engn_no
+				, plan_engn_no
+				, mng_engn_no
+				, charger_nm
+				, chrg_dept_nm
+				, charger_tlphon_no
+				, charger_email
+				, acqs_mth_ty
+				, sttus_ty
+				, change_ty
+				, trget_area_nm
+				, change_se		
+				, regist_tmp_cd	
+				, cntrwk_no	
+				, (select count(atchmnfl_id) from NGIWEB.tn_atchmnfl where file_fom_code_ty = '01' and change_info_id = A.change_info_id group by change_info_id) as fileCode01
+				, (select count(atchmnfl_id) from NGIWEB.tn_atchmnfl where file_fom_code_ty = '02' and change_info_id = A.change_info_id group by change_info_id) as fileCode02
+				, (select count(atchmnfl_id) from NGIWEB.tn_atchmnfl where file_fom_code_ty = '03' and change_info_id = A.change_info_id group by change_info_id) as fileCode03
+			FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.TN_CNTRWK_INFO B
+			ON A.change_info_id=B.change_info_id
+						WHERE A.change_info_id=#changeInfoId#		
+
+				]]>
+				
+	</select>
+<!-- Cntrwk end  -->
+	
+<!-- Trs Start  -->	
+
+	
+	<select id="changeInfoDAO.selectChangeTrsInfoList_D" parameterClass="changeInfoSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				A.change_info_id
+				, A.register_id
+				, A.change_cl
+				, B.change_ty
+				, A.process_sttus_se
+				, B.bsns_dstrc
+				, A.change_lnm_adres_cn
+				, A.change_lnm_adres_detail_cn
+				, A.change_rn_adres_cn
+				, A.change_rn_adres_detail_cn
+				, A.x_crdnt_lo
+				, A.y_crdnt_la
+				, TO_CHAR(A.regist_de, 'YYYY-MM-DD') as regist_de
+				, A.regist_de
+				, A.register_nm
+				, A.change_sj
+				, C.cntrwk_no
+			FROM ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+			ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_cntrwk_info C  ON A.change_info_id=C.change_info_id
+						WHERE 1=1
+		]]>
+			<!-- 
+			<isGreaterThan prepend="AND" property="changeInfoId" compareValue="0">
+				A.change_info_id = #changeInfoId# 
+			</isGreaterThan>
+			 -->
+			<isNotEmpty prepend="AND" property="changeCl">
+				A.change_cl = #changeCl# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				C.cntrwk_no = #cntrwkNo# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				A.process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="bsnsDstrc">
+				B.bsns_dstrc LIKE '%' || #bsnsDstrc# || '%'
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="changeSj">
+				A.change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				B.change_ty = #changeTy# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				A.regist_de BETWEEN #ntceBgnde# AND #ntceEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="registerNm">
+				A.register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mapBBOX">
+				ST_Contains( 
+					( SELECT ST_GeomFromText( #mapBBOX#, 5179 ) ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isNotEmpty>
+			<isEqual prepend="AND" property="dokak_select" compareValue="50k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."50k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="25k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."25k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="5k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."5k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+		<![CDATA[
+			AND A.del_se='0'				
+			ORDER BY A.change_info_id DESC
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#						
+						
+		]]>
+	</select>	
+
+	<select id="changeInfoDAO.selectChangeTrsInfoListTotCnt_S" parameterClass="changeInfoSerarchVO" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(A.change_info_id)
+			FROM ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+			ON A.change_info_id=B.change_info_id
+			LEFT JOIN ngiweb.tn_cntrwk_info C  ON A.change_info_id=C.change_info_id
+						WHERE 1=1
+		]]>
+			<!-- 			
+			<isGreaterThan prepend="AND" property="changeInfoId" compareValue="0">
+				A.change_info_id = #changeInfoId# 
+			</isGreaterThan>
+			 -->
+			<isNotEmpty prepend="AND" property="changeCl">
+				A.change_cl = #changeCl# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cntrwkNo">
+				C.cntrwk_no = #cntrwkNo# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="processSttusSe">
+				A.process_sttus_se LIKE '%' || #processSttusSe# || '%'
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="bsnsDstrc">
+				B.bsns_dstrc LIKE '%' || #bsnsDstrc# || '%'
+			</isNotEmpty>			
+			<isNotEmpty prepend="AND" property="changeSj">
+				A.change_sj LIKE '%' || #changeSj# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="changeTy">
+				B.change_ty = #changeTy# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="ntceBgnde">
+				A.regist_de BETWEEN #ntceBgnde# AND #ntceEndde# 
+			</isNotEmpty>				
+			<isNotEmpty prepend="AND" property="registerNm">
+				A.register_nm LIKE '%' || #registerNm# || '%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mapBBOX">
+				ST_Contains( 
+					( SELECT ST_GeomFromText( #mapBBOX#, 5179 ) ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isNotEmpty>
+			<isEqual prepend="AND" property="dokak_select" compareValue="50k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."50k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="25k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."25k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+			<isEqual prepend="AND" property="dokak_select" compareValue="5k-dokak">
+				ST_Contains( 
+					( SELECT ST_Transform(geom,5179) from  ngiweb."5k-dokak" where z0k_number= #dokak_select_sub1# ) 
+					, ST_SetSRID(ST_Point((CASE WHEN char_length(x_crdnt_lo) > 5 THEN x_crdnt_lo ELSE '0' END)::real, (CASE WHEN char_length(y_crdnt_la) > 5 THEN y_crdnt_la ELSE '0' END)::real),5179)  
+				) = 't'
+			</isEqual>
+		<![CDATA[
+			AND del_se='0'							
+
+				]]>
+	</select>
+
+	<select id="changeInfoDAO.selectChangeSttemntCntrwk_S" resultMap="changeSttemntCntrwk">
+		<![CDATA[
+			SELECT
+				D.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, regist_de
+				, register_nm
+				, change_sj
+				, pnu_cd
+				, regist_path
+				, addr_ty
+				, sttemnt_cl
+				, telno
+				, email
+				, sttemnt_cn
+				, crtfc_password AS crtfc_pssword
+				, sttemnt_ty
+				, bfchg
+				, aftch
+				, engn_code
+				, cntrwk_pnttm
+				, cntrwk_tmnl
+				, ar
+				, extn
+				, change_trget_nm
+				, trget_bfchg_cn
+				, trget_aftch_cn
+				, TO_CHAR(strwrk_de, 'YYYY-MM-DD') as strwrk_de
+				, TO_CHAR(compet_prearnge_de, 'YYYY-MM-DD') as compet_prearnge_de
+				, TO_CHAR(last_compet_de, 'YYYY-MM-DD') as last_compet_de
+				, compet_drw_file_stle_ty
+				, cntm
+				, rm
+				, psitn_engn_no
+				, plan_engn_no
+				, mng_engn_no
+				, charger_nm
+				, chrg_dept_nm
+				, charger_tlphon_no
+				, charger_email
+				, acqs_mth_ty
+				, sttus_ty
+				, change_ty
+				, trget_area_nm
+				, C.atch_file_id	
+				, change_se
+				, regist_tmp_cd	
+				, cntrwk_no
+				FROM
+			(SELECT
+				A.change_info_id
+				, register_id
+				, change_cl
+				, process_sttus_se
+				, bsns_dstrc
+				, change_lnm_adres_cn
+				, change_lnm_adres_detail_cn
+				, change_rn_adres_cn
+				, change_rn_adres_detail_cn
+				, x_crdnt_lo
+				, y_crdnt_la
+				, TO_CHAR(regist_de, 'YYYY-MM-DD') as regist_de
+				, register_nm
+				, change_sj
+				, pnu_cd
+				, regist_path
+				, addr_ty
+				, sttemnt_cl
+				, telno
+				, email
+				, sttemnt_cn
+				, crtfc_password
+				, sttemnt_ty
+				, bfchg
+				, aftch
+				FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.tn_sttemnt_info B
+				ON A.change_info_id=B.change_info_id
+				WHERE A.change_info_id=#changeInfoId#	
+			) D LEFT JOIN NGIWEB.TN_CNTRWK_INFO C
+			ON D.change_info_id=C.change_info_id
+							
+
+				]]>
+	</select>	
+	
+	<!-- Trs end  -->	
+	
+	
+	<!-- geom select point  -->
+	<select id="changeInfoDAO.selectGeomLcPointInfo" resultMap="changeGeomLcPoint">
+		<![CDATA[
+			SELECT
+				LC_POINT_INFO_ID
+				, CHANGE_INFO_ID
+				, ST_AsText(location) AS LOCATION
+			FROM
+				ngiweb.TN_CHANGE_LC_POINT
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+	
+	<!-- geom select line  -->
+	<select id="changeInfoDAO.selectGeomLcLnInfo" resultMap="changeGeomLcLn">
+		<![CDATA[
+			SELECT
+				LC_LN_INFO_ID
+				, CHANGE_INFO_ID
+				, ST_AsText(location) AS LOCATION
+			FROM
+				ngiweb.TN_CHANGE_LC_LN
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+	
+	<!-- geom select polygon  -->
+	<select id="changeInfoDAO.selectGeomLcMyeonInfo" resultMap="changeGeomLcMyeon">
+		<![CDATA[
+			SELECT
+				LC_MYEON_INFO_ID
+				, CHANGE_INFO_ID
+				, ST_AsText(location) AS LOCATION
+			FROM
+				ngiweb.TN_CHANGE_LC_MYEON
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+
+	<!-- geom select polygon  -->
+	<select id="changeInfoDAO.selectGeomLcShpInfo" resultMap="changeGeomLcShp">
+		<![CDATA[
+			SELECT
+				shp_id
+				, change_info_id
+				, ST_AsText(location) AS LOCATION
+			FROM
+				NGIMANAGE.TN_CHANGE_SHP
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+
+	
+	<!-- geom select point EPSG4326  -->
+	<select id="changeInfoDAO.selectGeomLcPointInfoEPSG4326" resultMap="changeGeomLcPoint">
+		<![CDATA[
+			SELECT
+				LC_POINT_INFO_ID
+				, CHANGE_INFO_ID
+				, ST_AsText(ST_Transform(location, 4326)) AS LOCATION
+			FROM
+				ngiweb.TN_CHANGE_LC_POINT
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+	
+	<!-- geom select line EPSG4326  -->
+	<select id="changeInfoDAO.selectGeomLcLnInfoEPSG4326" resultMap="changeGeomLcLn">
+		<![CDATA[
+			SELECT
+				LC_LN_INFO_ID
+				, CHANGE_INFO_ID
+				, ST_AsText(ST_Transform(location, 4326)) AS LOCATION
+			FROM
+				ngiweb.TN_CHANGE_LC_LN
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+	
+	<!-- geom select polygon EPSG4326  -->
+	<select id="changeInfoDAO.selectGeomLcMyeonInfoEPSG4326" resultMap="changeGeomLcMyeon">
+		<![CDATA[
+			SELECT
+				LC_MYEON_INFO_ID
+				, CHANGE_INFO_ID
+				, ST_AsText(ST_Transform(location, 4326)) AS LOCATION
+			FROM
+				ngiweb.TN_CHANGE_LC_MYEON
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+
+	<!-- geom select polygon EPSG4326  -->
+	<select id="changeInfoDAO.selectGeomLcShpInfoEPSG4326" resultMap="changeGeomLcMyeon">
+		<![CDATA[
+			SELECT
+				shp_id
+				, change_info_id
+				, ST_AsText(ST_Transform(location, 4326)) AS LOCATION
+			FROM
+				NGIMANAGE.TN_CHANGE_SHP
+			WHERE
+				change_info_id = #changeInfoId#
+		]]>
+	</select>
+
+	
+	<!-- geom table point insert -->
+	<insert id="changeInfoDAO.insertGeomLcPointInfo">
+		<![CDATA[
+		INSERT INTO ngiweb.TN_CHANGE_LC_POINT
+			( LC_POINT_INFO_ID, 
+			CHANGE_INFO_ID, 
+			LOCATION ) 
+ 		VALUES ( 
+			( SELECT COALESCE(MAX(LC_POINT_INFO_ID),0)+1 FROM NGIWEB.tn_change_lc_point )
+ 			, #changeInfoId#
+ 			, ST_GeomFromText(#location#, 5179) )
+		]]>
+	</insert>
+	
+	<!-- geom table line insert -->
+	<insert id="changeInfoDAO.insertGeomLcLnInfo">
+		<![CDATA[
+		INSERT INTO ngiweb.TN_CHANGE_LC_LN 
+			( LC_LN_INFO_ID, 
+			CHANGE_INFO_ID, 
+			LOCATION ) 
+ 		VALUES ( 
+			( SELECT COALESCE(MAX(LC_LN_INFO_ID),0)+1 FROM tn_change_lc_ln )
+ 			, #changeInfoId#
+ 			, ST_GeomFromText(#location#, 5179) )
+		]]>
+	</insert>
+	
+	<!-- geom table polygon insert -->
+	<insert id="changeInfoDAO.insertGeomLcMyeonInfo">
+		<![CDATA[
+		INSERT INTO ngiweb.TN_CHANGE_LC_MYEON 
+			( LC_MYEON_INFO_ID, 
+			CHANGE_INFO_ID, 
+			LOCATION ) 
+ 		VALUES ( 
+			( SELECT COALESCE(MAX(LC_MYEON_INFO_ID),0)+1 FROM tn_change_lc_myeon )
+ 			, #changeInfoId#
+ 			, ST_GeomFromText(#location#, 5179) )
+		]]>
+	</insert>
+
+	<!-- geom table point delete -->
+	<delete id="changeInfoDAO.deleteGeomLcPointInfo">
+		<![CDATA[
+			DELETE FROM ngiweb.tn_change_lc_point 
+			WHERE change_info_id = #changeInfoId#
+		]]>
+	</delete>
+	
+	<!-- geom table line delete -->
+	<delete id="changeInfoDAO.deleteGeomLcLnInfo">
+		<![CDATA[
+			DELETE FROM ngiweb.tn_change_lc_ln 
+			WHERE change_info_id = #changeInfoId#
+		]]>
+	</delete>
+	
+	<!-- geom table polygon delete -->
+	<delete id="changeInfoDAO.deleteGeomLcMyeonInfo">
+		<![CDATA[
+			DELETE FROM ngiweb.tn_change_lc_myeon 
+			WHERE change_info_id = #changeInfoId#
+		]]>
+	</delete>
+	
+	
+	
+	<!-- 변경신고 차트 월별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartSttemntMonth" resultMap="changeInfoChartVO">
+		
+		SELECT 
+			regist_month as name
+			,count(regist_month) as count
+		 FROM (
+			 SELECT     
+				(select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG004' and code=process_sttus_se ) as process_sttus_se    
+				, TO_CHAR(regist_de, 'YYYY') as regist_year   
+				, TO_CHAR(regist_de, 'MM') as regist_month
+				, (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=STTEMNT_TY ) as change_ty    
+			  FROM ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.TN_STTEMNT_INFO B  
+					ON A.change_info_id=B.change_info_id  
+			 WHERE 
+				A.del_se='0' 
+				AND A.change_cl='01'
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by regist_month
+		order by regist_month
+		
+	</select>
+	
+	<!-- 변경신고 차트 유형별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartSttemntChangeTy" resultMap="changeInfoChartVO">
+		
+		SELECT 
+			change_ty as name
+			,count(change_ty) as count
+		 FROM (
+			 SELECT     
+				(select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG004' and code=process_sttus_se ) as process_sttus_se    
+				, TO_CHAR(regist_de, 'YYYY') as regist_year   
+				, TO_CHAR(regist_de, 'MM') as regist_month
+				, (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=STTEMNT_TY ) as change_ty    
+			  FROM ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.TN_STTEMNT_INFO B  
+					ON A.change_info_id=B.change_info_id  
+			 WHERE 
+				A.del_se='0' 
+				AND A.change_cl='01'
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by change_ty
+		order by change_ty
+	
+	</select>
+	
+	<!-- 변경신고 차트 처리상태 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartSttemntProcessSttusSe" resultMap="changeInfoChartVO">
+		
+		SELECT 
+			process_sttus_se as name
+			,count(process_sttus_se) as count
+		 FROM (
+			 SELECT     
+				(select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG004' and code=process_sttus_se ) as process_sttus_se    
+				, TO_CHAR(regist_de, 'YYYY') as regist_year   
+				, TO_CHAR(regist_de, 'MM') as regist_month
+				, (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=STTEMNT_TY ) as change_ty    
+			  FROM ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.TN_STTEMNT_INFO B  
+					ON A.change_info_id=B.change_info_id  
+			 WHERE 
+				A.del_se='0' 
+				AND A.change_cl='01'
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by process_sttus_se
+		order by process_sttus_se
+		
+	</select>
+	
+	<!-- 변경신고 차트 년도별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartSttemntYear" resultMap="changeInfoChartVO">
+		
+		SELECT 
+			TT.regist_year as name
+			,TT.count
+		from 
+		(
+			 SELECT 
+				TO_CHAR(regist_de, 'YYYY') AS regist_year
+				,count(a.change_info_id) AS count
+			 FROM ngiweb.tn_change_info A LEFT JOIN ngiweb.TN_STTEMNT_INFO B  
+				ON A.change_info_id=B.change_info_id  
+			 WHERE 
+				A.del_se='0' AND A.change_cl='01'
+			 GROUP BY regist_year
+			 ORDER BY regist_year
+		 ) AS TT
+		
+	</select>
+	
+	
+	<!-- 변동신고 차트 월별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartCntrwkMonth" resultMap="changeInfoChartVO">
+		SELECT 
+			regist_month as name
+			,count(regist_month) as count
+		 FROM (
+			SELECT 
+				(select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG004' and code=process_sttus_se ) as process_sttus_se    
+				,TO_CHAR(regist_de, 'YYYY') as regist_year
+				,TO_CHAR(regist_de, 'MM') as regist_month
+				, (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=change_ty ) as change_ty 
+			 FROM 
+				ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.tn_cntrwk_info B  
+				ON A.change_info_id = B.change_info_id
+			 WHERE 
+				change_cl='02' 
+				AND del_se='0' 
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by regist_month
+		order by regist_month
+	</select>
+	
+	<!-- 변동신고 차트 유형별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartCntrwkChangeTy" resultMap="changeInfoChartVO">	
+		SELECT 
+			change_ty as name
+			,count(change_ty) as count
+		 FROM (
+				 SELECT 
+				(select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG004' and code=process_sttus_se ) as process_sttus_se    
+				,TO_CHAR(regist_de, 'YYYY') as regist_year
+				,TO_CHAR(regist_de, 'MM') as regist_month
+				, (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=change_ty ) as change_ty 
+			 FROM 
+				ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.tn_cntrwk_info B  
+				ON A.change_info_id = B.change_info_id
+			 WHERE 
+				change_cl='02' 
+				AND del_se='0' 
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by change_ty
+		order by change_ty
+	</select>
+	
+	<!-- 변동신고 차트 처리상태 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartCntrwkProcessSttusSe" resultMap="changeInfoChartVO">	
+		SELECT 
+			process_sttus_se as name
+			,count(process_sttus_se) as count
+		 FROM (
+			 SELECT 
+				(select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG004' and code=process_sttus_se ) as process_sttus_se    
+				,TO_CHAR(regist_de, 'YYYY') as regist_year
+				,TO_CHAR(regist_de, 'MM') as regist_month
+				, (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=change_ty ) as change_ty 
+			 FROM 
+				ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.tn_cntrwk_info B  
+				ON A.change_info_id = B.change_info_id
+			 WHERE 
+				change_cl='02' 
+				AND del_se='0' 
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by process_sttus_se
+		order by process_sttus_se
+	</select>
+	
+	<!-- 변동신고 차트 년도별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartCntrwkYear" resultMap="changeInfoChartVO">	
+		SELECT 
+			TT.regist_year as name
+			,TT.count
+		from 
+		(
+			 SELECT 
+				TO_CHAR(regist_de, 'YYYY') AS regist_year
+				,count(a.change_info_id) AS count
+			 FROM 
+				ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.tn_cntrwk_info B  
+				ON A.change_info_id=B.change_info_id
+			 WHERE 
+				change_cl='02'
+				AND del_se='0' 
+			 GROUP BY regist_year
+			 ORDER BY regist_year
+		 ) AS TT
+	</select>
+	
+	
+	
+	<!-- 변화정보 차트 월별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartFinishMonth" resultMap="changeInfoChartVO">
+		SELECT 
+			regist_month as name
+			,count(regist_month) as count
+		 FROM (
+			SELECT   
+				TO_CHAR(regist_de, 'YYYY') as regist_year
+				,TO_CHAR(regist_de, 'MM') as regist_month
+			 FROM 
+				ngiweb.tn_change_info A 
+			 WHERE 
+				process_sttus_se = '11'
+				AND del_se='0' 
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by regist_month
+		order by regist_month
+	</select>
+	
+	<!-- 변화정보 차트 유형별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartFinishChangeTy" resultMap="changeInfoChartVO">	
+		SELECT 
+			change_ty as name
+			,count(change_ty) as count
+		 FROM (
+			SELECT   
+				 CASE
+				    WHEN A.change_cl = '01' THEN (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=B.STTEMNT_TY )  
+				    ELSE (select code_nm from ngiweb.lettccmmndetailcode where code_id='CHG003' and code=C.change_ty ) 
+				  END 
+				  AS change_ty
+			 FROM 
+				ngiweb.tn_change_info A 
+				LEFT JOIN ngiweb.tn_sttemnt_info B ON A.change_info_id = B.change_info_id
+				LEFT JOIN ngiweb.tn_cntrwk_info C ON A.change_info_id = C.change_info_id
+			 WHERE 
+				process_sttus_se='11' 
+				AND del_se='0' 
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by change_ty
+		order by change_ty
+	</select>
+	
+	<!-- 변화정보 차트 사업지구별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartFinishBsnsDstrc" resultMap="changeInfoChartVO">	
+		SELECT 
+			bsns_dstrc as name
+			,count(bsns_dstrc) as count
+		 FROM (
+			SELECT   
+				B.bsns_dstrc
+			 FROM 
+				ngiweb.tn_change_info A LEFT JOIN ngimanage.tn_updt_info B
+				ON A.change_info_id=B.change_info_id  
+			 WHERE 
+				process_sttus_se = '11'
+				AND del_se='0' 
+				AND regist_de <![CDATA[ >= ]]> to_date(concat( #registYear# ,'-01-01'), 'YYYY-MM-DD') 
+				AND regist_de <![CDATA[ <= ]]> to_date(concat( #registYear# ,'-12-31'), 'YYYY-MM-DD')
+		) AS TT
+		group by bsns_dstrc
+		order by bsns_dstrc
+	</select>
+	
+	<!-- 변화정보 차트 년도별 건수 -->
+	<select id="changeInfoDAO.selectChangeInfoChartFinishYear" resultMap="changeInfoChartVO">	
+		SELECT 
+			TT.regist_year as name
+			,TT.count
+		from 
+		(
+			 SELECT 
+				TO_CHAR(regist_de, 'YYYY') AS regist_year
+				,count(a.change_info_id) AS count
+			 FROM 
+				ngiweb.tn_change_info A 
+			 WHERE 
+				process_sttus_se = '11'
+				AND del_se='0'
+			 GROUP BY regist_year
+			 ORDER BY regist_year
+		 ) AS TT
+	</select>
+	
+	
+	<!-- 조회가능 년도 리스트 -->
+	<select id="changeInfoDAO.selectChangeInfoChartListYear" resultMap="changeInfoChartVO">	
+		select
+			TO_CHAR(regist_de, 'YYYY') as name
+			,0 as count 
+		from ngiweb.tn_change_info
+		group by name 
+		order by name desc
+	</select>
+	
+	<!-- 변경신고 차트에서 사용. 메인페이지용  -->
+	<select id="changeInfoDAO.selectChangeInfoChartCntJson" resultMap="changeInfoChartCntVO" >
+	select count(st_type) cnt, st_type, code_nm, pnu  from 
+		(
+		select 
+		substring(C.pnu_cd from 0 for 3) pnu
+		, D.sttemnt_ty st_type
+		, E.CODE_NM code_nm
+		from NGIWEB.tn_change_info C
+		LEFT OUTER JOIN NGIWEB.tn_sttemnt_info D ON C.change_info_id = D.change_info_id
+		LEFT OUTER JOIN NGIWEB.LETTCCMMNDETAILCODE E ON D.sttemnt_ty = E.code AND E.CODE_ID='CHG003'
+		where 
+			C.change_cl = '01' 
+			AND C.del_se = '0'
+			AND char_length(C.pnu_cd) = 19
+		) DUAL
+		WHERE DUAL.pnu = #area#
+		GROUP BY st_type, pnu, code_nm
+		ORDER BY st_type
+	</select>
+	
+	<!-- 조회가능 년도 리스트 -->
+	<select id="changeInfoDAO.selectBgnssNmList" resultClass="String">	
+		select
+			business_nm 
+		from ngimanage.tn_business_map
+		where del_yn = 'N'
+		order by business_nm asc
+	</select>
+	
+	
+</sqlMap>

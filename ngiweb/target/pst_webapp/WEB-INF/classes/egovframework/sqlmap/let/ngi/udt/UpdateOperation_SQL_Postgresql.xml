@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UpdateOperation">
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="updateOperationVO" type="egovframework.let.ngi.udt.service.UpdateOperationVO"/>
+	<typeAlias  alias="acptncHistVO" type="egovframework.let.ngi.udt.service.AcptncHistVO"/>
+	<typeAlias  alias="updateOperationFileVO" type="egovframework.let.ngi.udt.service.UpdateOperationFileVO"/>
+	<typeAlias  alias="mapdmcVO" type="egovframework.let.ngi.udt.service.MapdmcVO"/>
+	
+	<resultMap class="egovframework.let.ngi.udt.service.UpdateOperationVO" id="updateOperation">
+		<result property="updtInfoId" column="updt_info_id"/>	
+		<result property="servcExcprofsCode" column="servc_excprofs_code"/>	
+		<result property="opertNm" column="opert_nm"/>	
+		<result property="bsnsDstrc" column="bsns_dstrc"/>	
+		<result property="mapdmcA" column="mapdmc_a"/>	
+		<result property="mapdmcB" column="mapdmc_b"/>	
+		<result property="mapdmcC" column="mapdmc_c"/>	
+		<result property="mapdmcD" column="mapdmc_d"/>	
+		<result property="mesrDe" column="mesr_de"/>	
+		<result property="register" column="register"/>	
+		<result property="rgsde" column="rgsde"/>	
+		<result property="updusr" column="updusr"/>	
+		<result property="updde" column="updde"/>	
+		<result property="wrter" column="wrter"/>
+		<result property="sttus" column="sttus"/>
+		<result property="mapdmcA" column="MAPDMC_A" />
+		<result property="mapdmcB" column="MAPDMC_B" />
+		<result property="mapdmcC" column="MAPDMC_C" />
+		<result property="mapdmcNmA" column="MAPDMC_NM_A" />
+		<result property="mapdmcNmB" column="MAPDMC_NM_B" />
+		<result property="mapdmcNmC" column="MAPDMC_NM_C" />
+		<result property="cntrwkPnttm" column="CNTRWK_PNTTM" />
+		<result property="cntrwkTmnl" column="CNTRWK_TMNL" />
+		<result property="changeTy" column="CHANGE_TY" />
+		<result property="manp" column="MANP" />
+		<result property="unit" column="UNIT" />
+		<result property="cntm" column="CNTM" />
+		<result property="oval" column="OVAL" />
+		<result property="trnsprclaw" column="TRNSPRCLAW" />
+		<result property="trgnpt" column="TRGNPT" />
+		<result property="phtogrfYear" column="PHTOGRF_YEAR" />
+		<result property="examinYear" column="EXAMIN_YEAR" />
+		<result property="updtYear" column="UPDT_YEAR" />
+		<result property="updtMt" column="UPDT_MT" />
+		<result property="changeInfoId" column="CHANGE_INFO_ID"/>	
+		<result property="XCrdntLo" column="x_crdnt_lo"/>
+		<result property="YCrdntLa" column="y_crdnt_la"/>
+		<result property="cntrwkNo" column="cntrwk_no" />
+		<result property="acptncHistList" select="updateOperationVO.acptncHistList" column="updt_info_id"/>
+	<!-- 	<result property="changeInfoList" select="updateOperationVO.changeInfoList" column="updt_info_id"/> -->
+		<result property="updateOperationFileList" select="updateOperationVO.updateOperationFileList" column="CHANGE_INFO_ID"/>
+	</resultMap>
+
+	<resultMap class="egovframework.let.ngi.udt.service.UpdateOperationVO" id="updateOperation2">
+		<result property="updtInfoId" column="updt_info_id"/>	
+		<result property="servcExcprofsCode" column="servc_excprofs_code"/>	
+		<result property="opertNm" column="opert_nm"/>	
+		<result property="bsnsDstrc" column="bsns_dstrc"/>	
+		<result property="mapdmcA" column="mapdmc_a"/>	
+		<result property="mapdmcB" column="mapdmc_b"/>	
+		<result property="mapdmcC" column="mapdmc_c"/>	
+		<result property="mapdmcD" column="mapdmc_d"/>	
+		<result property="mesrDe" column="mesr_de"/>	
+		<result property="register" column="register"/>	
+		<result property="rgsde" column="rgsde"/>	
+		<result property="updusr" column="updusr"/>	
+		<result property="updde" column="updde"/>	
+		<result property="wrter" column="wrter"/>
+		<result property="sttus" column="sttus"/>
+		<result property="mapdmcA" column="MAPDMC_A" />
+		<result property="mapdmcB" column="MAPDMC_B" />
+		<result property="mapdmcC" column="MAPDMC_C" />
+		<result property="mapdmcNmA" column="MAPDMC_NM_A" />
+		<result property="mapdmcNmB" column="MAPDMC_NM_B" />
+		<result property="mapdmcNmC" column="MAPDMC_NM_C" />
+		<result property="cntrwkPnttm" column="CNTRWK_PNTTM" />
+		<result property="cntrwkTmnl" column="CNTRWK_TMNL" />
+		<result property="changeTy" column="CHANGE_TY" />
+		<result property="manp" column="MANP" />
+		<result property="unit" column="UNIT" />
+		<result property="cntm" column="CNTM" />
+		<result property="oval" column="OVAL" />
+		<result property="trnsprclaw" column="TRNSPRCLAW" />
+		<result property="trgnpt" column="TRGNPT" />
+		<result property="phtogrfYear" column="PHTOGRF_YEAR" />
+		<result property="examinYear" column="EXAMIN_YEAR" />
+		<result property="updtYear" column="UPDT_YEAR" />
+		<result property="updtMt" column="UPDT_MT" />
+		<result property="changeInfoId" column="CHANGE_INFO_ID"/>	
+		<result property="XCrdntLo" column="x_crdnt_lo"/>
+		<result property="YCrdntLa" column="y_crdnt_la"/>
+		<result property="location" column="location" />
+		<result property="acptncHistList" select="updateOperationVO.acptncHistList" column="updt_info_id"/>
+	<!-- 	<result property="changeInfoList" select="updateOperationVO.changeInfoList" column="updt_info_id"/> -->
+		<result property="updateOperationFileList" select="updateOperationVO.updateOperationFileList" column="CHANGE_INFO_ID"/>
+	</resultMap>
+
+	
+	<resultMap class="egovframework.let.ngi.udt.service.AcptncHistVO" id="acptncHist">
+		<result property="acptncHistId" column="acptnc_hist_id"/>
+		<result property="updtInfoId" column="updt_info_id"/>
+		<result property="sttus" column="sttus"/>
+		<result property="opinion" column="opinion"/>
+		<result property="register" column="register"/>
+		<result property="rgsde" column="rgsde"/>
+	</resultMap>
+	
+	<resultMap class="egovframework.let.ngi.udt.service.UpdateOperationFileVO" id="updateOperationFile">
+		<result property="fileId" column="file_id"/>
+		<result property="fileNm" column="file_nm"/>
+		<result property="flpth" column="flpth"/>
+		<result property="atchTy" column="atch_ty"/>
+		<result property="register" column="register"/>
+		<result property="rgsde" column="rgsde"/>
+		<result property="deleteAt" column="delete_at"/>
+		<result property="nttId" column="ntt_id"/>
+		<result property="fileSize" column="file_size"/>
+	</resultMap>	
+	
+	<resultMap class="egovframework.let.ngi.udt.service.MapdmcVO" id="mapdmcDetail">
+		<result property="mapdmcSe" column="MAPDMC_SE"/>
+		<result property="mapdmcNo" column="MAPDMC_NO"/>
+		<result property="mapdmcNm" column="MAPDMC_NM"/>
+		<result property="mapdmcGroup" column="MAPDMC_GROUP"/>
+	</resultMap>
+	
+	<statement id="updateOperationVO.updateOperationFileList" parameterClass="java.lang.Integer" resultMap="updateOperationFile">
+		/* 갱신작업 정보 파일 목록 조회 - kka 2014.10.29 */
+		SELECT 
+			FILE_ID
+			,FILE_NM
+			,FLPTH
+			,ATCH_TY
+			,REGISTER
+			,RGSDE
+			,DELETE_AT
+			,NTT_ID
+			,FILE_SIZE
+		FROM NGIMANAGE.TN_FILE_INFO
+		WHERE 1=1
+		AND NTT_ID = #change_info_id#
+	</statement>
+	
+	<statement id="updateOperationVO.changeInfoList" parameterClass="java.lang.Integer" resultClass="egovMap">
+		/* 갱신작업 매핑 공사목록 조회 - kka 2014.10.29 */
+		SELECT 
+			T1.CHANGE_INFO_ID
+			,T1.REGISTER_ID
+			,T1.CHANGE_CL
+			,T1.PROCESS_STTUS_SE
+			,COALESCE(NGIMANAGE.business_district(T1.X_CRDNT_LO, T1.Y_CRDNT_LA), '해당없음') AS BSNS_DSTRC
+			,T1.CHANGE_LNM_ADRES_CN
+			,T1.CHANGE_LNM_ADRES_DETAIL_CN
+			,T1.CHANGE_RN_ADRES_CN
+			,T1.CHANGE_RN_ADRES_DETAIL_CN
+			,T1.X_CRDNT_LO
+			,T1.Y_CRDNT_LA
+			,T1.REGIST_DE
+			,T1.REGISTER_NM
+			,T1.CHANGE_SJ
+			,T2.STTEMNT_TY
+			,T3.CHANGE_TY 
+			,T3.PSITN_ENGN_NO
+			,T3.TRGET_AREA_NM
+		FROM NGIMANAGE.TN_UPDT_CNTRWK_MAPNG T4
+			LEFT OUTER JOIN NGIWEB.TN_CHANGE_INFO T1
+				ON T4.CHANGE_INFO_ID = T1.CHANGE_INFO_ID
+			LEFT OUTER JOIN NGIWEB.TN_STTEMNT_INFO T2
+				ON T1.CHANGE_INFO_ID = T2.CHANGE_INFO_ID
+			LEFT OUTER JOIN NGIWEB.TN_CNTRWK_INFO T3
+				ON T1.CHANGE_INFO_ID = T3.CHANGE_INFO_ID
+		WHERE 1=1 
+			AND T4.UPDT_INFO_ID = #updt_info_id#
+	</statement>
+	
+	<statement id="updateOperationVO.acptncHistList" parameterClass="java.lang.Integer" resultMap="acptncHist">
+		/* 갱신작업 검수이력 목록 조회 - kka 2014.10.29 */
+		SELECT 
+			ACPTNC_HIST_ID
+			,UPDT_INFO_ID
+			,STTUS
+			,OPINION
+			,REGISTER
+			,RGSDE
+		FROM NGIMANAGE.TN_ACPTNC_HIST
+		WHERE 1=1
+		AND UPDT_INFO_ID = #updt_info_id#
+		ORDER BY RGSDE DESC
+	</statement>
+
+	<select id="updateOperationDAO.selectUpdateOperationList" parameterClass="updateOperationVO" resultMap="updateOperation">
+		/* 성과 목록 조회 - kka 2014.11.15 */
+		SELECT 
+			T1.OPERT_NM
+			,COALESCE(NGIMANAGE.business_district(T2.X_CRDNT_LO, T2.Y_CRDNT_LA), '해당없음') AS BSNS_DSTRC
+			,T1.MAPDMC_A
+			,T1.MAPDMC_B
+			,T1.MAPDMC_C
+			,T1.MAPDMC_D
+			,T1.MESR_DE
+			,T1.UPDT_INFO_ID
+			,T1.REGISTER
+			,T1.RGSDE
+			,T1.UPDUSR
+			,T1.UPDDE
+			,T1.WRTER
+			,T1.SERVC_EXCPROFS_CODE
+			,T1.STTUS
+			,T1.MAPDMC_A
+			,T1.MAPDMC_B
+			,T1.MAPDMC_C
+			,T1.MAPDMC_NM_A
+			,T1.MAPDMC_NM_B
+			,T1.MAPDMC_NM_C
+			,T1.CNTRWK_PNTTM
+			,T1.CNTRWK_TMNL
+			,T1.CHANGE_TY
+			,T1.MANP
+			,T1.UNIT
+			,T1.CNTM
+			,T1.OVAL
+			,T1.TRNSPRCLAW
+			,T1.TRGNPT
+			,T1.PHTOGRF_YEAR
+			,T1.EXAMIN_YEAR
+			,T1.UPDT_YEAR
+			,T1.UPDT_MT
+			,T1.CHANGE_INFO_ID
+			,T2.X_CRDNT_LO  
+			,T2.Y_CRDNT_LA 
+			,T3.CNTRWK_NO 
+		FROM NGIMANAGE.TN_UPDT_INFO T1
+		INNER JOIN NGIWEB.TN_CHANGE_INFO T2
+		ON T1.CHANGE_INFO_ID = T2.CHANGE_INFO_ID
+		INNER JOIN NGIWEB.TN_CNTRWK_INFO T3
+		ON T1.CHANGE_INFO_ID = T3.CHANGE_INFO_ID
+		WHERE 1=1
+		AND T2.process_sttus_se LIKE '11'
+		<isEqual property="menuType" compareValue="10">
+			<isNotNull property="updtInfoIds">
+				<iterate property="updtInfoIds" prepend="AND T1.UPDT_INFO_ID IN " open="(" close=")" conjunction="," >
+					$updtInfoIds[]$
+				</iterate>
+			</isNotNull>
+			<isEmpty property="updtInfoIds">
+			AND T1.UPDT_INFO_ID NOT IN (SELECT UPDT_INFO_ID 
+									FROM NGIMANAGE.TN_NTFC_MAPNG_UPDT_INFO
+									WHERE 1=1
+								<isNotEmpty prepend="AND" property="tpgrphNtfcId">	
+									TPGRPH_NTFC_ID != #tpgrphNtfcId#
+								</isNotEmpty>					
+									)	
+			</isEmpty>
+		</isEqual>
+		<isNotEmpty prepend="AND" property="searchBsnsDstrc">
+			EXISTS (
+			SELECT  b.business_id, a.MAPDMC_NO
+			FROM ngimanage.tn_mapdmc A
+				INNER JOIN ngimanage.tn_business_map_detail B
+				on b.MAPDMC_NO = a.MAPDMC_NO
+			WHERE 1=1
+			and mapdmc_se = '03'
+			AND ST_Intersects(A.GEOMETRY,ST_GeomFromText('POINT(' || T2.X_CRDNT_LO	|| ' ' || T2.Y_CRDNT_LA || ')')) = 't'
+			and b.business_id = $searchBsnsDstrc$
+			)
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="searchSttus">
+			T1.STTUS LIKE '%' || #searchSttus# || '%'
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="searchChangeTy">
+			T1.CHANGE_TY = #searchChangeTy#
+		</isNotEmpty>
+		<isEqual prepend="AND" property="searchCondition" compareValue="01">
+			T1.OPERT_NM LIKE '%' || #searchKeyword# || '%'
+		</isEqual>
+		<isEqual prepend="AND" property="searchCondition" compareValue="02">
+			T1.SERVC_EXCPROFS_CODE LIKE '%' || #searchKeyword# || '%'
+		</isEqual>
+		<isNotEmpty prepend="AND" property="searchDateSRgsde">
+			T1.RGSDE BETWEEN #searchDateSRgsde# AND #searchDateERgsde#
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="cntrwkNo">
+			T3.cntrwk_no = #cntrwkNo# 
+		</isNotEmpty>
+		ORDER BY T1.UPDDE DESC, T1.RGSDE DESC, T1.UPDT_INFO_ID ASC
+		LIMIT #recordCountPerPage# OFFSET #firstIndex#		
+	</select>
+	
+	<select id="updateOperationDAO.selectUpdateOperationListTotCnt" parameterClass="updateOperationVO" resultClass="int">
+		/* 성과 목록 수 조회 - kka 2014.11.15 */
+		SELECT COUNT(T1.*) totcnt
+		FROM NGIMANAGE.TN_UPDT_INFO T1
+		INNER JOIN NGIWEB.TN_CHANGE_INFO T2
+		ON T1.CHANGE_INFO_ID = T2.CHANGE_INFO_ID
+		INNER JOIN NGIWEB.TN_CNTRWK_INFO T3
+		ON T1.CHANGE_INFO_ID = T3.CHANGE_INFO_ID
+		WHERE 1=1 AND T2.process_sttus_se LIKE '11'
+		AND (LENGTH(T2.X_CRDNT_LO) > 0 OR LENGTH(T2.Y_CRDNT_LA) > 0) /* 유효하지 않은 데이터 제거 */
+		<isEqual property="menuType" compareValue="10">
+			<isNotNull property="updtInfoIds">
+				<iterate property="updtInfoIds" prepend="AND T1.UPDT_INFO_ID IN " open="(" close=")" conjunction="," >
+					$updtInfoIds[]$
+				</iterate>
+			</isNotNull>
+			<isEmpty property="updtInfoIds">
+			AND T1.UPDT_INFO_ID NOT IN (SELECT UPDT_INFO_ID 
+									FROM NGIMANAGE.TN_NTFC_MAPNG_UPDT_INFO
+									WHERE 1=1
+								<isNotEmpty prepend="AND" property="tpgrphNtfcId">	
+									TPGRPH_NTFC_ID != #tpgrphNtfcId#
+								</isNotEmpty>					
+									)	
+			</isEmpty>
+		</isEqual>
+		<isNotEmpty prepend="AND" property="searchBsnsDstrc">
+			EXISTS (
+			SELECT  b.business_id, a.MAPDMC_NO
+			FROM ngimanage.tn_mapdmc A
+				INNER JOIN ngimanage.tn_business_map_detail B
+				on b.MAPDMC_NO = a.MAPDMC_NO
+			WHERE 1=1
+			and mapdmc_se = '03'
+			AND ST_Intersects(A.GEOMETRY,ST_GeomFromText('POINT(' || T2.X_CRDNT_LO	|| ' ' || T2.Y_CRDNT_LA || ')')) = 't'
+			and b.business_id = $searchBsnsDstrc$
+			)
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="searchSttus">
+			T1.STTUS LIKE '%' || #searchSttus# || '%'
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="searchChangeTy">
+			T1.CHANGE_TY = #searchChangeTy#
+		</isNotEmpty>
+		<isEqual prepend="AND" property="searchCondition" compareValue="01">
+			T1.OPERT_NM LIKE '%' || #searchKeyword# || '%'
+		</isEqual>
+		<isEqual prepend="AND" property="searchCondition" compareValue="02">
+			T1.SERVC_EXCPROFS_CODE LIKE '%' || #searchKeyword# || '%'
+		</isEqual>
+		<isNotEmpty prepend="AND" property="searchDateSRgsde">
+			T1.RGSDE BETWEEN #searchDateSRgsde# AND #searchDateERgsde#
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="cntrwkNo">
+			T3.cntrwk_no = #cntrwkNo# 
+		</isNotEmpty>
+	</select>
+	
+	<insert id="updateOperationDAO.insertUpdateOperation" parameterClass="updateOperationVO">
+		<selectKey keyProperty="updtInfoId" resultClass="java.lang.Integer" type="pre">
+			SELECT LPAD(CAST(CAST(COALESCE(MAX(CAST(UPDT_INFO_ID AS NUMERIC)),'0') AS NUMERIC)+1 AS CHARACTER VARYING),10,'0')
+  			FROM NGIMANAGE.TN_UPDT_INFO
+		</selectKey>
+		/* 성과 정보 등록 - kka 2014.11.15 */
+		INSERT INTO NGIMANAGE.TN_UPDT_INFO(
+			UPDT_INFO_ID
+			,CHANGE_INFO_ID
+			,OPERT_NM
+			,BSNS_DSTRC
+			,WRTER
+			,SERVC_EXCPROFS_CODE
+			,STTUS
+			,MAPDMC_A
+			,MAPDMC_B
+			,MAPDMC_C
+			,MAPDMC_NM_A
+			,MAPDMC_NM_B
+			,MAPDMC_NM_C
+			,CNTRWK_PNTTM
+			,CNTRWK_TMNL
+			,CHANGE_TY
+			,MANP
+			,UNIT
+			,CNTM
+			,OVAL
+			,TRNSPRCLAW
+			,TRGNPT
+			,PHTOGRF_YEAR
+			,EXAMIN_YEAR
+			,UPDT_YEAR
+			,UPDT_MT
+			,REGISTER
+			,RGSDE
+			,UPDUSR
+			,UPDDE
+			)
+			VALUES (
+			#updtInfoId#
+			,#changeInfoId#
+			,#opertNm#
+			,#bsnsDstrc#
+			,#wrter#
+			,#servcExcprofsCode#
+			,#sttus#
+			,#mapdmcA#
+			,#mapdmcB#
+			,#mapdmcC#
+			,#mapdmcNmA#
+			,#mapdmcNmB#
+			,#mapdmcNmC#
+			,#cntrwkPnttm#
+			,#cntrwkTmnl#
+			,#changeTy#
+			,#manp#
+			,#unit#
+			,#cntm#
+			,#oval#
+			,#trnsprclaw#
+			,#trgnpt#
+			,#phtogrfYear#
+			,#examinYear#
+			,#updtYear#
+			,#updtMt#
+			,#register#
+			,CURRENT_TIMESTAMP
+			,#updusr#
+			,CURRENT_TIMESTAMP			
+			 )
+	</insert>
+	
+	<select id="updateOperationDAO.selectUpdateOperation" parameterClass="updateOperationVO" resultMap="updateOperation">
+		<![CDATA[
+			/* 성과 상세정보 조회 - kka 2014.11.11 */
+			SELECT 
+				T1.OPERT_NM
+				,COALESCE(NGIMANAGE.business_district(T2.X_CRDNT_LO, T2.Y_CRDNT_LA), '해당없음') AS BSNS_DSTRC
+				,T1.MAPDMC_A
+				,T1.MAPDMC_B
+				,T1.MAPDMC_C
+				,T1.MAPDMC_D
+				,T1.MESR_DE
+				,T1.UPDT_INFO_ID
+				,T1.REGISTER
+				,T1.RGSDE
+				,T1.UPDUSR
+				,T1.UPDDE
+				,T1.WRTER
+				,T1.SERVC_EXCPROFS_CODE
+				,T1.STTUS
+				,T1.MAPDMC_A
+				,T1.MAPDMC_B
+				,T1.MAPDMC_C
+				,T1.MAPDMC_NM_A
+				,T1.MAPDMC_NM_B
+				,T1.MAPDMC_NM_C
+				,T1.CNTRWK_PNTTM
+				,T1.CNTRWK_TMNL
+				,T1.CHANGE_TY
+				,T1.MANP
+				,T1.UNIT
+				,T1.CNTM
+				,T1.OVAL
+				,T1.TRNSPRCLAW
+				,T1.TRGNPT
+				,T1.PHTOGRF_YEAR
+				,T1.EXAMIN_YEAR
+				,T1.UPDT_YEAR
+				,T1.UPDT_MT
+				,T1.CHANGE_INFO_ID
+				,T2.X_CRDNT_LO  
+				,T2.Y_CRDNT_LA 
+				,T3.CNTRWK_NO 
+			FROM NGIMANAGE.TN_UPDT_INFO T1
+			INNER JOIN NGIWEB.TN_CHANGE_INFO T2
+			ON T1.CHANGE_INFO_ID = T2.CHANGE_INFO_ID
+			INNER JOIN NGIWEB.TN_CNTRWK_INFO T3
+			ON T1.CHANGE_INFO_ID = T3.CHANGE_INFO_ID
+			WHERE 1=1
+			AND UPDT_INFO_ID = #updtInfoId#
+		]]>
+	</select>
+
+	<select id="updateOperationDAO.selectUpdateOperation2" parameterClass="updateOperationVO" resultMap="updateOperation2">
+		<![CDATA[
+			/* 성과 상세정보 조회 222 - kka 2014.11.11 */
+			SELECT 
+				T1.OPERT_NM
+				,COALESCE(NGIMANAGE.business_district(T2.X_CRDNT_LO, T2.Y_CRDNT_LA), '해당없음') AS BSNS_DSTRC
+				,T1.MAPDMC_A
+				,T1.MAPDMC_B
+				,T1.MAPDMC_C
+				,T1.MAPDMC_D
+				,T1.MESR_DE
+				,T1.UPDT_INFO_ID
+				,T1.REGISTER
+				,T1.RGSDE
+				,T4.NM AS UPDUSR
+				,T1.UPDDE
+				,T1.WRTER
+				,T3.SERVC_EXCPROFS_NM AS SERVC_EXCPROFS_CODE
+				,T1.STTUS
+				,T1.MAPDMC_A
+				,T1.MAPDMC_B
+				,T1.MAPDMC_C
+				,T1.MAPDMC_NM_A
+				,T1.MAPDMC_NM_B
+				,T1.MAPDMC_NM_C
+				,T1.CNTRWK_PNTTM
+				,T1.CNTRWK_TMNL
+				,T1.CHANGE_TY
+				,T1.MANP
+				,T1.UNIT
+				,T1.CNTM
+				,T1.OVAL
+				,T1.TRNSPRCLAW
+				,T1.TRGNPT
+				,T1.PHTOGRF_YEAR
+				,T1.EXAMIN_YEAR
+				,T1.UPDT_YEAR
+				,T1.UPDT_MT
+				,T1.CHANGE_INFO_ID
+				,T2.X_CRDNT_LO  
+				,T2.Y_CRDNT_LA 
+				,ST_ASTEXT(T5.location)  AS LOCATION
+			FROM NGIMANAGE.TN_UPDT_INFO T1
+			INNER JOIN NGIWEB.TN_CHANGE_INFO T2
+			ON T1.CHANGE_INFO_ID = T2.CHANGE_INFO_ID
+			LEFT OUTER JOIN NGIMANAGE.TN_SERVC_EXCPROFS_RSPNBER T3
+	  		ON T1.SERVC_EXCPROFS_CODE = T3.SERVC_EXCPROFS_CODE
+	  		AND T1.DEPT_CODE = T3.DEPT_CODE
+	  		LEFT OUTER JOIN NGIMANAGE.TN_USER T4
+	  		ON T1.UPDUSR = T4.USER_ID
+	  		LEFT OUTER JOIN NGIMANAGE.TN_CHANGE_SHP T5 ON T1.CHANGE_INFO_ID = T5.CHANGE_INFO_ID    
+			WHERE 1=1
+			AND T1.CHANGE_INFO_ID = #changeInfoId# LIMIT 1
+		]]>
+	</select>
+
+	
+	<update id="updateOperationDAO.updateUpdateOperation" parameterClass="updateOperationVO">
+		/* 갱신작업 수정 - kka 2014.10.29 */
+		UPDATE NGIMANAGE.TN_UPDT_INFO SET
+			UPDDE = CURRENT_TIMESTAMP
+			<isNotEmpty property="opertNm" prepend=",">
+			OPERT_NM = #opertNm#
+			</isNotEmpty>
+			<isNotEmpty property="bsnsDstrc" prepend=",">
+			BSNS_DSTRC = #bsnsDstrc#
+			</isNotEmpty>
+			<isNotEmpty property="mesrDe" prepend=",">
+			MESR_DE = #mesrDe#
+			</isNotEmpty>
+			<isNotEmpty property="updtInfoId" prepend=",">
+			UPDT_INFO_ID = #updtInfoId#
+			</isNotEmpty>
+			<isNotEmpty property="updusr" prepend=",">
+			UPDUSR = #updusr#
+			</isNotEmpty>
+			<isNotEmpty property="wrter" prepend=",">
+			WRTER = #wrter#
+			</isNotEmpty>
+			<isNotEmpty property="servcExcprofsCode" prepend=",">
+			SERVC_EXCPROFS_CODE = #servcExcprofsCode#
+			</isNotEmpty>
+			<isNotEmpty property="sttus" prepend=",">
+			STTUS = #sttus#
+			</isNotEmpty>
+			<isNotEmpty property="mapdmcA" prepend=",">
+			MAPDMC_A = #mapdmcA#
+			</isNotEmpty>
+			<isNotEmpty property="mapdmcB" prepend=",">
+			MAPDMC_B = #mapdmcB#
+			</isNotEmpty>
+			<isNotEmpty property="mapdmcC" prepend=",">
+			MAPDMC_C = #mapdmcC#
+			</isNotEmpty>
+			<isNotEmpty property="mapdmcNmA" prepend=",">
+			MAPDMC_NM_A = #mapdmcNmA#
+			</isNotEmpty>
+			<isNotEmpty property="mapdmcNmB" prepend=",">
+			MAPDMC_NM_B = #mapdmcNmB#
+			</isNotEmpty>
+			<isNotEmpty property="mapdmcNmC" prepend=",">
+			MAPDMC_NM_C = #mapdmcNmC#
+			</isNotEmpty>
+			<isNotEmpty property="cntrwkPnttm" prepend=",">
+			CNTRWK_PNTTM = #cntrwkPnttm#
+			</isNotEmpty>
+			<isNotEmpty property="cntrwkTmnl" prepend=",">
+			CNTRWK_TMNL = #cntrwkTmnl#
+			</isNotEmpty>
+			<isNotEmpty property="changeTy" prepend=",">
+			CHANGE_TY = #changeTy#
+			</isNotEmpty>
+			<isNotEmpty property="manp" prepend=",">
+			MANP = #manp#
+			,UNIT = #unit#
+			</isNotEmpty>
+			<isNotEmpty property="cntm" prepend=",">
+			CNTM = #cntm#
+			</isNotEmpty>
+			<isNotEmpty property="oval" prepend=",">
+			OVAL = #oval#
+			</isNotEmpty>
+			<isNotEmpty property="trnsprclaw" prepend=",">
+			TRNSPRCLAW = #trnsprclaw#
+			</isNotEmpty>
+			<isNotEmpty property="trgnpt" prepend=",">
+			TRGNPT = #trgnpt#
+			</isNotEmpty>
+			<isNotEmpty property="phtogrfYear" prepend=",">
+			PHTOGRF_YEAR = #phtogrfYear#
+			</isNotEmpty>
+			<isNotEmpty property="examinYear" prepend=",">
+			EXAMIN_YEAR = #examinYear#
+			</isNotEmpty>
+			<isNotEmpty property="updtYear" prepend=",">
+			UPDT_YEAR = #updtYear#
+			</isNotEmpty>
+			<isNotEmpty property="updtMt" prepend=",">
+			UPDT_MT = #updtMt#
+			</isNotEmpty>
+			WHERE UPDT_INFO_ID = #updtInfoId#
+	</update>
+	
+	<delete id="updateOperationDAO.deleteUpdateOperation" parameterClass="updateOperationVO">
+		/* 갱신작업 삭제 - kka 2014.10.29 */
+		DELETE FROM NGIMANAGE.TN_UPDT_INFO
+		WHERE UPDT_INFO_ID = #updtInfoId#
+	</delete>
+	
+	<insert id="acptncHistDAO.insertAcptncHist" parameterClass="acptncHistVO">
+		<selectKey keyProperty="acptncHistId" resultClass="java.lang.Integer" type="pre">
+			SELECT LPAD(  CAST(CAST(COALESCE(MAX(CAST(ACPTNC_HIST_ID AS NUMERIC)),'0') AS NUMERIC)+1 AS CHARACTER VARYING),10,'0')    
+  			FROM NGIMANAGE.TN_ACPTNC_HIST
+		</selectKey>
+		/* 갱신작업 검수이력 등록 - kka 2014.10.29 */
+		INSERT INTO NGIMANAGE.TN_ACPTNC_HIST(
+			ACPTNC_HIST_ID
+			,UPDT_INFO_ID
+			,STTUS
+			,OPINION
+			,REGISTER
+			,RGSDE
+			)
+			VALUES (
+			#acptncHistId#
+			,#updtInfoId#
+			,#sttus#
+			,#opinion#
+			,'관리자'
+			,CURRENT_TIMESTAMP
+				 )
+	</insert> 
+	
+	<insert id="updateOperationDAO.insertFile" parameterClass="updateOperationVO">
+		<selectKey keyProperty="fileId" resultClass="java.lang.Integer" type="pre">
+			SELECT LPAD(  CAST(CAST(COALESCE(MAX(CAST(FILE_ID AS NUMERIC)),'0') AS NUMERIC)+1 AS CHARACTER VARYING),10,'0')    
+  			FROM NGIMANAGE.TN_FILE_INFO
+		</selectKey>
+		/* 갱신작업 파일 등록 - kka 2014.10.29 */
+		INSERT INTO NGIMANAGE.TN_FILE_INFO(
+			FILE_ID
+			,FILE_NM
+			,FLPTH
+			,ATCH_TY
+			,REGISTER
+			,RGSDE
+			,DELETE_AT
+			,NTT_ID
+			)
+			VALUES (
+			#fileId#
+			,#fileOrgNm#
+			,''
+			,''
+			,''
+			,CURRENT_TIMESTAMP
+			,''
+			,#changeInfoId#
+				 )
+	</insert> 
+	
+	<insert id="updateOperationDAO.insertChangeInfoMapping" parameterClass="updateOperationVO">
+		/* 갱신작업 매핑 공사정보 등록 - kka 2014.10.29 */
+		INSERT INTO NGIMANAGE.TN_UPDT_CNTRWK_MAPNG (
+		UPDT_INFO_ID
+		,CHANGE_INFO_ID
+		)
+		VALUES (
+		#updtInfoId#
+		,$changeInfoId$
+		)
+	</insert>
+	
+	<delete id="updateOperationDAO.deleteChangeInfoMapping" parameterClass="updateOperationVO">
+		/* 갱신작업 매핑 공사정보 삭제 - kka 2014.10.29 */
+		DELETE FROM NGIMANAGE.TN_UPDT_CNTRWK_MAPNG
+		WHERE UPDT_INFO_ID = #updtInfoId#
+	</delete>
+	
+	<update id="acptncHistDAO.updateChangeInfo" parameterClass="acptncHistVO">
+		/* 갱신작업 매핑 공사정보 처리상태 변경 - kka 2014.10.29 */
+		UPDATE NGIWEB.TN_CHANGE_INFO
+		SET PROCESS_STTUS_SE = #sttus#
+		WHERE 1=1
+		AND CHANGE_INFO_ID	IN(
+			SELECT CHANGE_INFO_ID
+			FROM NGIMANAGE.TN_UPDT_CNTRWK_MAPNG
+			WHERE UPDT_INFO_ID = #updtInfoId#
+		)
+	</update>
+	
+	<delete id="acptncHistDAO.deleteChangeHist" parameterClass="acptncHistVO">
+		/* 매핑 공사정보의 처리이력 삭제 - kka 2014.10.29 */
+		DELETE FROM NGIMANAGE.TN_CHANGE_HIST
+		WHERE 1=1
+		AND CHANGE_INFO_ID IN(
+			SELECT CHANGE_INFO_ID
+			FROM NGIMANAGE.TN_UPDT_CNTRWK_MAPNG
+			WHERE UPDT_INFO_ID = #updtInfoId#
+		)
+		AND STTUS = '07'
+	</delete>
+
+	<select id="acptncHistDAO.selectChangeInfoMappingList" parameterClass="acptncHistVO" resultClass="egovMap">
+		<![CDATA[
+			/* 매핑 공사정보 목록 조회 - kka 2014.10.29 */
+			SELECT
+			T1.CHANGE_INFO_ID
+			,T1.REGISTER_ID
+			,T1.CHANGE_CL
+			,T1.PROCESS_STTUS_SE
+			,T1.BSNS_DSTRC
+			,T1.CHANGE_LNM_ADRES_CN
+			,T1.CHANGE_LNM_ADRES_DETAIL_CN
+			,T1.CHANGE_RN_ADRES_CN
+			,T1.CHANGE_RN_ADRES_DETAIL_CN
+			,T1.X_CRDNT_LO
+			,T1.Y_CRDNT_LA
+			,T1.REGIST_DE
+			,T1.REGISTER_NM
+			,T1.CHANGE_SJ
+			,T2.AFTCH
+			,T3.TRGET_AFTCH_CN 
+			,T3.PSITN_ENGN_NO
+		FROM NGIMANAGE.TN_UPDT_CNTRWK_MAPNG T4
+			LEFT OUTER JOIN NGIWEB.TN_CHANGE_INFO T1
+				ON T4.CHANGE_INFO_ID = T1.CHANGE_INFO_ID
+			LEFT OUTER JOIN NGIWEB.TN_STTEMNT_INFO T2
+				ON T1.CHANGE_INFO_ID = T2.CHANGE_INFO_ID
+			LEFT OUTER JOIN NGIWEB.TN_CNTRWK_INFO T3
+				ON T1.CHANGE_INFO_ID = T3.CHANGE_INFO_ID
+		WHERE 1=1 
+			AND T4.UPDT_INFO_ID = #updtInfoId#
+			]]>
+	</select>
+	
+	<select id="updateOperationDAO.selectMapdmcList" parameterClass="mapdmcVO" resultClass="egovMap">
+		SELECT 
+			MAPDMC_GROUP
+		FROM NGIMANAGE.TN_MAPDMC
+		WHERE 1=1 
+		<isNotEmpty prepend="AND" property="mapdmcSe">
+			MAPDMC_SE = #mapdmcSe#
+		</isNotEmpty>
+		GROUP BY MAPDMC_GROUP
+		ORDER BY MAPDMC_GROUP
+	</select>
+	
+	<select id="updateOperationDAO.selectMapdmcDetailList" parameterClass="mapdmcVO" resultMap="mapdmcDetail">
+		SELECT 
+			MAPDMC_SE
+			,MAPDMC_NO
+			,MAPDMC_NM
+			,MAPDMC_GROUP
+		FROM NGIMANAGE.TN_MAPDMC
+		WHERE 1=1 
+		<isNotEmpty prepend="AND" property="mapdmcSe">
+			MAPDMC_SE = #mapdmcSe#
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="mapdmcGroup">
+			MAPDMC_GROUP = #mapdmcGroup#
+		</isNotEmpty>
+		ORDER BY MAPDMC_GROUP, MAPDMC_NO
+	</select>
+		
+	<delete id="updateOperationDAO.deleteFile" parameterClass="updateOperationVO">
+		/* 파일정보 삭제 - kka 2014.11.14 */
+		DELETE FROM NGIMANAGE.TN_FILE_INFO
+		WHERE 1=1
+		AND NTT_ID = #changeInfoId#
+	</delete>
+	
+	<delete id="updateOperationDAO.deleteAcptncHist" parameterClass="updateOperationVO">
+		/* 성과 검수 이력 삭제 - kka 2014.11.20 */
+		DELETE FROM NGIMANAGE.TN_ACPTNC_HIST
+		WHERE 1=1
+		AND UPDT_INFO_ID = #updtInfoId#
+	</delete>
+	
+</sqlMap>

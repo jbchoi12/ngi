@@ -1,0 +1,13 @@
+
+/*
+.chartContent { display:none; }
+.chartContent.on { display:block; }
+*/
+
+.charts_ul li{margin:0 0 10px 15px;}
+.charts_ul li span{font-size:12px;}
+.charts_ul li.on span{font-size:14px;font-weight:bold;}
+.charts{position:absolute;}
+.chartsMenuLR{ /* margin:15px; */ }
+.chartHeader{height:51px;border-bottom:1px solid #3A5E9E;background-color:#3796C0;font-size:2em;font-weight:bold;color:#FFF !important;letter-spacing: -1px;line-height: 2em;padding:0 15px;}
+.chartYearSelect{margin:15px;}

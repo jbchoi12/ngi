@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ScoreLog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="scoreLogSerarchVO" type="egovframework.let.ngi.pnt.service.ScoreLogDefaultVO"/>
+	<typeAlias  alias="scoreLogVO" type="egovframework.let.ngi.pnt.service.ScoreLogVO"/>
+	
+	<resultMap id="scoreLog" class="egovframework.let.ngi.pnt.service.ScoreLogVO">
+		<result property="scoreId" column="score_id" columnIndex="1"/>
+		<result property="userId" column="user_id" columnIndex="2"/>
+		<result property="score" column="score" columnIndex="3"/>
+		<result property="scoreOccrrncDe" column="score_occrrnc_de" columnIndex="4"/>
+		<result property="scoreCodeTy" column="score_code_ty" columnIndex="5"/>
+	</resultMap>
+	
+	<insert id="scoreLogDAO.insertScoreLog_S">
+		<![CDATA[
+			INSERT INTO ngiweb.th_score_log 
+				(   score_id 
+					, user_id 
+					, score 
+					, score_occrrnc_de 
+					, score_code_ty )
+			VALUES ( 
+					(SELECT COALESCE(MAX(score_id),0)+1 FROM NGIWEB.th_score_log WHERE 1=1)
+				  , #userId#
+				  , #score#
+				  , CURRENT_TIMESTAMP 
+				  , #scoreCodeTy# )
+		]]>
+	</insert>
+	
+	<update id="scoreLogDAO.updateScoreLog_S">
+		<![CDATA[
+			UPDATE ngiweb.th_score_log
+			SET  user_id=#userId#
+				, score=#score#
+				, score_occrrnc_de=CURRENT_TIMESTAMP				
+				, score_code_ty=#scoreCodeTy#
+						WHERE score_id=#scoreId#
+				]]>
+	</update>
+	
+	<delete id="scoreLogDAO.deleteScoreLog_S">
+		<![CDATA[
+			DELETE FROM ngiweb.th_score_log
+						WHERE score_id=#scoreId#
+				]]>
+	</delete>
+	
+	<select id="scoreLogDAO.selectScoreLog_S" resultMap="scoreLog">
+		<![CDATA[
+			SELECT
+					 score_id 
+					, user_id 
+					, score 
+					, score_occrrnc_de 
+					, score_code_ty
+			FROM ngiweb.th_score_log
+						WHERE score_id=#scoreId#
+				]]>
+	</select>
+	
+	<select id="scoreLogDAO.selectScoreLogList_D" parameterClass="scoreLogSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+					 user_id 
+					, sum(score) AS score 
+			FROM ngiweb.th_score_log 
+			where score_code_ty = 'I' AND score_occrrnc_de BETWEEN '2015-01-01' AND '2015-12-31'
+			GROUP BY user_id 
+			ORDER BY score DESC
+			LIMIT 5
+				]]>
+	</select>	
+	<select id="scoreLogDAO.selectScoreLogListTotCnt_S" parameterClass="scoreLogSerarchVO" resultClass="int">
+			SELECT
+				count(score_id)
+			FROM ngiweb.th_score_log
+	</select>
+
+	<select id="scoreLogDAO.selectScoreLogMaxid" parameterClass="scoreLogVO" resultClass="int">
+			SELECT
+				MAX(score_id)+1
+			FROM ngiweb.th_score_log
+	</select>
+
+</sqlMap>

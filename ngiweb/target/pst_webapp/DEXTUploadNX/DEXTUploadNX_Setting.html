@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DEXTUploadNX Development Package Setting</title>
+	<style type="text/css">
+<!--
+body, div, dl, dt, dd, p, img {
+	margin:0;
+	padding:0;
+}
+body {
+	color:#000;
+	font:14px /1.6 "Malgun Gothic", Dotum, Gulim, Verdana, AppleGothic, sans-serif;
+	line-height:27px;
+	font-weight:bold;
+}
+img {
+	border:0;
+}
+#nx {
+	width:758px;
+	margin:0 auto;
+}
+#top {
+	width:758px;
+	height:74px;
+	background-image:url(images/top.jpg);
+}
+#top .logo {
+	float:right;
+	padding:30px 24px 0 0;
+}
+.con {
+	width:758px;
+	margin:0 auto;
+}
+.con .btn {
+	width:758px;
+	border-bottom:1px solid #d3d3d3;
+}
+.con .tit {
+	width:697px;
+	height:40px;
+	float:left;
+	background-color:#4c4c4c;
+	color:#fff;
+	padding:9px 0 0 12px;
+}
+.f_num {
+	color:#fde048;
+	font-size:19px;
+}
+.f_none {
+	display:block;
+	font-weight:normal;
+	font-size:12px;
+	width:600px;
+	line-height:14px;
+	font-size:12px;
+}
+.con .page {
+	border:2px solid #d3d3d3;
+	padding-bottom:38px;
+	margin-top:-2px;
+}
+.con dl {
+	margin:34px 0 0 60px;
+}
+.con dt {
+	font-size:13px;
+	padding-bottom:12px;
+}
+.con dd {
+	width:630px;
+	background-color:#f7f7f7;
+	text-align:center;
+	padding:15px 0 8px 0;
+	border:1px solid #ececec;
+}
+#footer {
+	width:100%;
+	height:25px;
+	background-color:#f4f4f4;
+	text-align:center;
+	margin-top:50px;
+	padding-top:18px;
+}
+-->
+</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			for (i = 1; i <= 7; i++) {
+				var vDivID = "page_" + i + "";
+				var vImgID = "img_btn_" + i + "";
+
+				if ((document.getElementById(vDivID).style.display == "none")) {
+					document.getElementById(vImgID).src = "images/btn_02.jpg";
+				} else {
+					document.getElementById(vImgID).src = "images/btn_01.jpg";
+				}
+			}
+		}
+		function OnPageShowHide(varPage) {
+			var vDivID = "page_" + varPage + "";
+			var vImgID = "img_btn_" + varPage + "";
+
+			if ((document.getElementById(vDivID).style.display == "none")) {
+				document.getElementById(vDivID).style.display = "block";
+				document.getElementById(vImgID).src = "images/btn_01.jpg";
+			} else {
+				document.getElementById(vDivID).style.display = "none";
+				document.getElementById(vImgID).src = "images/btn_02.jpg";
+			}
+		}
+	</script>
+	</head>
+	<body>
+<div id="nx">
+    <div id="top">
+    <p class="logo"><a href="http://www.devpia.com/"><img src="images/logo.png" alt="DEVPIA" /></a></p>
+  </div>
+    
+    <!--1번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">01</span> / DEXTUploadNX Development Package 설치</div>
+        <a href="#" onclick="OnPageShowHide(1)"><img id="img_btn_1" src="images/btn_01.jpg" alt="" /></a> </div>
+    <div class="page" id="page_1" style="display: none">
+        <dl>
+        <dt>1) 설치 시작</dt>
+        <dd><img src="images/install01.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>2) 2EULA 동의</dt>
+        <dd><img src="images/install02.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>3) 설치 구성요소(NX, NX Manual, NX Sample) 선택</dt>
+        <dt class="f_none"> 
+		- DEXTUploadNX : DEXTUploadNX 구동시 필수 목록을 설치 합니다.</dt>
+        <dt class="f_none" >- Manual : 개발 시 필요한 DEXTUploadNX 의 기능과 지원 속성/함수 등의 정보를 확인 할 수 있는 안내서를 설치합니다.</dt>
+        <dt class="f_none" >- Sample : 개발 시 도움이 될 수있는 예제를 설치합니다.</dt>
+        <dd><img src="images/install03.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>4) 설치 경로 선택 </dt>
+        <dd><img src="images/install04.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>5) 선택된 구성요소를 선택한 설치 경로로 설치, 시작 메뉴 그룹 등록</dt>
+        <dd><img src="images/install05.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>6) 설치 완료</dt>
+        <dd><img src="images/install06.jpg" alt="" /></dd>
+      </dl>
+      </div>
+  </div>
+    
+    <!--2번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">02</span> / DEXTUploadNX 평가판 인증키 발행</div>
+        <a href="#" onclick="OnPageShowHide(2)"><img  id="img_btn_2" src="images/btn_01.jpg" alt="" /></a>
+	</div>
+    <div class="page" id="page_2" style="display: none">
+        <dl>
+			<dt>1)평가판 개발도구 다운로드</dt>
+			<dt class="f_none" >- 다운로드 시 입력된 email 로 인증키 생성 시 필요한 PID 와 SN 이 전달됩니다.</dt>
+			<dd><img src="images/eval_authkey01.jpg" alt="" /></dd>
+		</dl>
+		<dl>
+			<dt>2)평가판 인증키 요청</dt>
+			<dt  class="f_none" >- 평가판 다운로드 페이지에서 아래와 같이 <font color="red">DEXTUploadNX 평가판 인증키 요청</font> 링크 클릭</dt>
+			<dd><img src="images/eval_authkey02.jpg" alt="" /></dd>
+			<dd><img src="images/eval_authkey03.jpg" alt="" /></dd>
+			<dt class="f_none" ></dt>
+			<dt class="f_none" >- 평가판 인증키 생성정보 입력 창 생성 확인 후 정보 입력</dt>
+			<dt class="f_none" >- <font color="olive">ProductID</font> 전달받은 PID 입력</dt>
+			<dt class="f_none" >- <font color="olive">Serial Number</font> 전달받은 SN 입력</dt>
+			<dt class="f_none" >- <font color="olive">Domain</font> 평가판 테스트를 위한 도메인을 입력하세요. 별도 도메인 없이 로컬 테스트의 경우 <font color="red">localhost</font> 를 추천합니다.</dt>
+			<dt class="f_none" >- 상기 3가지 필수 정보 입력, 기본정보를 입력 후 확인 버튼을 클릭하시면 입력된 email 로 <font color="red">30일</font> 동안 사용 가능한 인증키가 발송됩니다.</dt>
+		</dl>
+	</div>
+  </div>
+    
+    <!--3번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">03</span> / DEXTUploadNX 정품 인증키 발행</div>
+        <a href="#" onclick="OnPageShowHide(3)"><img  id="img_btn_3" src="images/btn_01.jpg" alt="" /></a> </div>
+    <div class="page" id="page_3" style="display: none">
+        <dl>
+        <dt>1)MY PAGE 의 설치정보 변경탭 정보중 도메인(IP) 정보 확인</dt>
+        <dt class="f_none" >- 제품구입 후 정품등록을 완료하면 MY Page의 설치정보 변경 탭에서 제품이 사용될 도메인(IP) 를 설정</dt>
+        <dt class="f_none" >- 도메인(IP) 를 설정하지 않는 경우 인증키를 발급할 수 없습니다.</dt>
+        <dd><img src="images/authkey_publish01.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>2)MY PAGE 의 인증키 생성탭으로 이동하여 인증키 생성</dt>
+        <dt class="f_none" >- 인증키를 생성할 대상 PID 와 SN을 입력하여 인증키를 생성합니다.</dt>
+        <dt class="f_none" >- 생성된 인증키를 복사하여 사용 가능합니다.</dt>
+        <dd><img src="images/authkey_publish02.jpg" alt="" /></dd>
+      </dl>
+      </div>
+  </div>
+    
+    <!--4번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">04</span> / DEXTUploadNX 인증키 적용</div>
+        <a href="#" onclick="OnPageShowHide(4)"><img id="img_btn_4" src="images/btn_01.jpg" alt="" /></a> </div>
+    <div class="page" id="page_4" style="display: none">
+      <dl>
+        <dt>1)DEXTUploadNX Development Package 설치 위치로 이동</dt>
+        <dt class="f_none" >- 제품이 설치된 위치로 이동합니다. 설치 위치 변경 없이 설치 시 32bit, 64bit 각각 아래의 경로에 위치합니다.</dt>
+        <dt class="f_none" >- 32bit OS: "<font color="olive">C:\Program Files\DEVPIA\DEXTUploadNX_Development_Pack</font>"</dt>
+        <dt class="f_none" >- 64bit OS: "<font color="olive">C:\Program Files (x86)\DEVPIA\DEXTUploadNX_Development_Pack</font>"</dt>
+      </dl>
+      <dl>
+        <dt>2)설치 위치의 DEXTUploadNX 폴더 내부의 DEXTUploadNX.js 파일 수정 </dt>
+        <dt class="f_none" >- 메모장 또는 기타 js 파일을 편집 할 수 있는 툴을 이요하여 DEXTUploadNX 폴더 안의 DEXTUploadNX.js 파일을 엽니다.</dt>
+        <dt class="f_none" >- 아래 이미지의 붉게 표시된 부분에 발급된 DEXTUploadNX 인증키 를 입력하고 저장합니다.</dt>
+        <dd><img src="images/set_authkey01.jpg" alt="" /></dd>
+      </dl>
+      </div>
+  </div>
+    
+    <!--5번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">05</span> /  DEXTUploadNX Client 배포 설정</div>
+        <a href="#" onclick="OnPageShowHide(5)"><img  id="img_btn_5" src="images/btn_01.jpg" alt="" /></a> </div>
+    <div class="page" id="page_5" style="display: none">
+        <dl>
+        <dt>1)DEXTUploadNX Development Package 설치 위치로 이동하여 DEXTUploadNX 폴더와 내부 구성 목록 확인</dt>
+        <dt class="f_none" >- <font color="olive">DEXTUploadNX.js</font>: 인증키, Domain 등 설정과 NX 객체 생성을 위한 함수가 구현되어 있습니다.</dt>
+        <dt class="f_none" >- <font color="olive">DEXTUploadNX_Client_Install.html</font>: 클라이언트에서 DEXTUploadNX 객체 생성 시 최초 설치 또는 버전 업데이트에 의한 <font color="olive">DEXTUploadNX_Client_Installer.exe</font> 설치 파일을 배포하기 위한 페이지 파일입니다.</dt>
+        <dt class="f_none" >- <font color="olive">DEXTUploadNX_Client_Installer.exe</font>: DEXTUploadNX 를 Browser에 표시하기 위하여 클라이언트에 다운로드 되어 설치하는 파일입니다.</dt>
+        <dt class="f_none" >- <font color="olive">DEXTUploadNX_Setting.html</font>: 현재 열려있는 설정 안내페이지 파일입니다.</dt>
+        <dt class="f_none" >- <font color="olive">NXMessage.xml</font>: DEXTUploadNX 객체에서 사용되는 예외처리/UI 등 문자열 리소스 파일입니다.</dt>
+        <dt class="f_none" >- <font color="olive">images</font>: 클라이언트 배포/설정 안내페이지에서 사용되는 이미지 파일이 포함된 폴더입니다.</dt>
+        <dt class="f_none" ><font color="red">※상기 6개의 폴더/파일은 DEXTUploadNX 배포/구동 시 필수적으로 요구되는 요소들 입니다. 또한, 포함되어있는 폴더의 이름(DEXTUploadNX)을 변경하시지 않기를 권장합니다.</font></dt>
+      </dl>
+        <dl>
+        <dt>2)DEXTUploadNX 경로를 웹서버에 등록</dt>
+        <dt class="f_none" >- NX 배포를 위해서 웹서버에 DEXTUploadNX 제품이 설치된 경로를 등록 하거나 기존에 운영중인 응용프로그램 또는 가상디렉토리를 사용하는 경우 DEXTUploadNX 폴더(하위 폴더/파일 포함) 복사합니다. </dt>
+      </dl>
+        <dl>
+        <dt>3)DEXTUploadNX 폴더 내부의 DEXTUploadNX.js 파일 항목 수정</dt>
+        <dt class="f_none" >- 메모장 또는 기타 js 파일을 편집 할 수 있는 툴을 이요하여 DEXTUploadNX 폴더 안의 DEXTUploadNX.js 파일을 엽니다.</dt>
+        <dt class="f_none" >- <font color="olive">vDEXTUploadNX_Domain</font> 변수 에 인증키 발급 시 입력한 Domain 또는 IP를 입력합니다.</dt>
+        <dt class="f_none" >- <font color="olive">vDEXTUploadNX_Path</font> 변수 에 <font color="red">2)DEXTUploadNX 경로를 웹서버에 등록</font> 항목에서 등록 또는 복사된 응용프로그램(or 가상디렉토리) 경로를 입력합니다.</dt>
+        <dd><img src="images/set_releaseclient01.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>4)DEXTUploadNX Client 배포페이지 접근 확인</dt>
+        <dt class="f_none" >- <font color="red">3)DEXTUploadNX 폴더 내부의 DEXTUploadNX.js 파일 항목 수정</font> 에서 각각 vDEXTUploadNX_Domain 변수에 www.testnx.net, vDEXTUploadNX_Path 변수에 /a/b/c 를 입력한 경우</dt>
+        <dt class="f_none" >- http://www.testnx.net/a/b/c/DEXTUploadNX/DEXTUploadNX_Client_Install.html URL을 입력하여 DEXTUploadNX Client 배포페이지에 정상적으로 접근이 되는지 확인합니다.</dt>
+      </dl>
+      </div>
+  </div>
+    
+    <!--6번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">06</span> / DEXTUploadNX Sample 설정</div>
+        <a href="#" onclick="OnPageShowHide(6)"><img id="img_btn_6" src="images/btn_01.jpg" alt="" /></a> </div>
+    <div class="page" id="page_6" style="display: none">
+        <dl>
+        <dt style="display:block; width:600px;"><font color="red">※ 인증키 를 발급받지 않은 상태인 경우 평가판 또는 정품 인증키 발행 항목을 참조하여 인증키를 발행후 진행하시길 바랍니다.</font></dt>
+      </dl>
+        <dl>
+        <dt>1)DEXTUploadNX Development Package 설치 경로로 이동.</dt>
+        <dd><img src="images/sample01.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>2)DEXTUploadNX_Development_Pack 아래의 <font color="red">DEXTUploadNX</font> 폴더를 복사하여 <font color="red">Sample</font> 폴더에 붙여넣습니다.</dt>
+        <dd><img src="images/sample02.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>3)Sample 경로를 웹서버에 등록</dt>
+        <dt class="f_none" >- NX Client 배포를 위해서 웹서버에 Sample 이 설치된 경로를 등록합니다.</dt>
+        <dt class="f_none" >- 예저 설치 경로(기본 설치시): <font color="olive">C:\Program Files (x86) or C:\Program Files\DEVPIA\DEXTUploadNX_Development_Pack\Sample</font></dt>
+        <dt class="f_none" >- 아래의 이미지와 같이 응용프로그램(또는 가상디렉토리)의 이름은 <font color="red">NXSamples</font> 로 지정을 해야합니다.</dt>
+        <dt class="f_none" >- <font color="red">NXSamples</font> 아닌 다른 이름을 사용하는 경우 예제가 정상적으로 동작하지 않으며, 이러한 경우 <font color="olive">C:\Program Files (x86) or C:\Program Files\DEVPIA\DEXTUploadNX_Development_Pack\Sample</font> 경로의 <font color="red">NXSamples.js</font> 파일을 수정하여 사용하여야 합니다.</dt>
+        <dd><img src="images/sample03.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>4)설치 위치의 DEXTUploadNX 폴더 내부의 DEXTUploadNX.js 파일 수정 </dt>
+        <dt class="f_none" >- 메모장 또는 기타 js 파일을 편집 할 수 있는 툴을 이요하여 DEXTUploadNX 폴더 안의 DEXTUploadNX.js 파일을 엽니다.</dt>
+        <dt class="f_none" >- 아래 이미지의 붉게 표시된 부분에 발급된 DEXTUploadNX 인증키 를 입력하고 저장합니다.</dt>
+        <dd><img src="images/set_authkey01.jpg" alt="" /></dd>
+		<dt class="f_none" ></dt>
+        <dt class="f_none" >- <font color="olive">vDEXTUploadNX_Domain</font> 변수 에 인증키 발급 시 입력한 Domain 또는 IP를 입력합니다.</dt>
+        <dt class="f_none" >- <font color="olive">vDEXTUploadNX_Path</font> 변수 에 <font color="red">3)Sample 경로를 웹서버에 등록</font> 에서 등록한 응용프로그램(or 가상디렉토리) 경로를 입력합니다.
+        수정 없이 기본(<font color="red">NXSamples</font>) 사용 시 <font color="red">/NXSamples/DEXTUploadNX</font> 입력하고 저장합니다.</dt>
+        <dd><img src="images/set_releaseclient01.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>5)DEXTUploadNX 예제 실행</dt>
+        <dt class="f_none" >- <font color="red">4)DEXTUploadNX_Development_Pack/DEXTUploadNX 폴더 내부의 DEXTUploadNX.js 파일 항목 수정</font> 에서 각각 vDEXTUploadNX_Domain 변수에 localhost, vDEXTUploadNX_Path 변수에 /NXSamples 를 입력한 경우</dt>
+        <dt class="f_none" >- 웹브라우저에 <font color="olive">http://localhost/NXSamples/index.html</font> 또는 <font color="olive">http://localhost/NXSamples</font> 을 입력, DEXTUploadNX Samples 페이지 정상 접근 확인</dt>
+        <dt class="f_none" >- 예제목록 중 <font color="olive"> 파일 업로드 &gt; 예제 1</font> 선택</dt>
+        <dt class="f_none" >- 최초 실행 시 자동으로 DEXTUploadNX 설치페이지로 이동하여 설치를 진행</dt>
+        <dt class="f_none" >- 이미 설치되어있는 경우 아래의 그림과 같이 정상적으로 생성되는지 확인</dt>
+        <dd><img src="images/sample04.jpg" alt="" /></dd>
+      </dl>
+      </div>
+  </div>
+    
+    <!--7번-->
+    <div class="con">
+    <div class="btn">
+        <div class="tit"><span class="f_num">07</span> / DEXTUploadNX Development Package 삭제</div>
+        <a href="#" onclick="OnPageShowHide(7)"><img id="img_btn_7" src="images/btn_01.jpg" alt="" /></a> </div>
+    <div class="page" id="page_7" style="display: none">
+        <dl>
+        <dt>1) 삭제 시작/중지 선택</dt>
+        <dd><img src="images/uninstall01.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>2) 설치된 구성요소 삭제, 시작 메뉴 그룹 삭제</dt>
+        <dd><img src="images/uninstall02.jpg" alt="" /></dd>
+      </dl>
+        <dl>
+        <dt>3) 삭제 완료 안내</dt>
+        <dd><img src="images/uninstall03.jpg" alt="" /></dd>
+      </dl>
+      </div>
+  </div>
+  </div>
+<div id="footer"> <img src="images/footer.jpg" alt="Copyright(C) DEVPIA Incorporated.All Rights Reserved." /> </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TnNtcnSrvc">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="tnNtcnSrvcSerarchVO" type="egovframework.let.ngi.ntc.service.TnNtcnSrvcDefaultVO"/>
+	<typeAlias  alias="tnNtcnSrvcVO" type="egovframework.let.ngi.ntc.service.TnNtcnSrvcVO"/>
+	
+	<resultMap id="tnNtcnSrvc" class="egovframework.let.ngi.ntc.service.TnNtcnSrvcVO">
+		<result property="ntcnSrvcId" column="ntcn_srvc_id" columnIndex="1"/>
+		<result property="userNm" column="user_nm" columnIndex="2"/>
+		<result property="telno" column="telno" columnIndex="3"/>
+		<result property="email" column="email" columnIndex="4"/>
+	</resultMap>
+	
+	<insert id="tnNtcnSrvcDAO.insertTnNtcnSrvc_S">
+		<![CDATA[
+			INSERT INTO ngiweb.tn_ntcn_srvc 
+				( ntcn_srvc_id
+				  , user_nm
+				  , telno
+				  , email
+				  , rgsde )
+			VALUES ( 
+					(SELECT COALESCE(MAX(ntcn_srvc_id),0)+1 FROM ngiweb.tn_ntcn_srvc)
+				  , #userNm#
+				  , #telno#
+				  , #email#
+				  , CURRENT_TIMESTAMP )
+		]]>
+	</insert>
+	
+	<update id="tnNtcnSrvcDAO.updateTnNtcnSrvc_S">
+		<![CDATA[
+			UPDATE ngiweb.tn_ntcn_srvc
+			SET  user_nm=#userNm#
+				, telno=#telno#
+				, email=#email#
+				, rgsde=CURRENT_TIMESTAMP
+						WHERE ntcn_srvc_id=#ntcnSrvcId#
+				]]>
+	</update>
+	
+	<delete id="tnNtcnSrvcDAO.deleteTnNtcnSrvc_S">
+		<![CDATA[
+			DELETE FROM ngiweb.tn_ntcn_srvc 
+						WHERE ntcn_srvc_id=#ntcnSrvcId#
+				]]>
+	</delete>
+	
+	<select id="tnNtcnSrvcDAO.selectTnNtcnSrvc_S" resultMap="tnNtcnSrvc">
+		<![CDATA[
+			SELECT
+				ntcn_srvc_id
+				, user_nm
+				, telno
+				, email
+				, rgsde
+			FROM ngiweb.tn_ntcn_srvc
+						WHERE ntcn_srvc_id=#ntcnSrvcId#
+				]]>
+	</select>
+	
+	<select id="tnNtcnSrvcDAO.selectTnNtcnSrvcList_D" parameterClass="tnNtcnSrvcSerarchVO" resultClass="egovMap">
+
+	</select>	
+	<select id="tnNtcnSrvcDAO.selectTnNtcnSrvcListTotCnt_S" parameterClass="tnNtcnSrvcSerarchVO" resultClass="int">
+			SELECT
+				count(ntcn_srvc_id)
+			FROM ngiweb.tn_ntcn_srvc
+	</select>
+
+	<select id="tnNtcnSrvcDAO.selectTnNtcnSrvMaxid" parameterClass="tnNtcnSrvcVO" resultClass="int">
+			SELECT
+				MAX(ntcn_srvc_id)+1
+			FROM ngiweb.tn_ntcn_srvc
+	</select>
+
+</sqlMap>

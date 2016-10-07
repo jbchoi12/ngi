@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Exception>
+		<E_INACTIVATE id="99">모든 기능이 차단되었습니다.</E_INACTIVATE>
+		<E_NOT_SUPPORT_OPERATOR_TYPE id="100">지원하지 않는 형식의 객체형입니다.</E_NOT_SUPPORT_OPERATOR_TYPE>
+		<E_NOT_SUPPORT_PROPERTY id="101">객체에서 지원하지 않는 속성입니다.</E_NOT_SUPPORT_PROPERTY>
+		<E_NOT_SUPPORT_METHOD id="102">객체에서 지원하지 않는 함수입니다.</E_NOT_SUPPORT_METHOD>
+
+		<E_NOT_UPLOADABLE_FOLDER_ITEM id="120">업로드 가능한 폴더 항목이 아닙니다.</E_NOT_UPLOADABLE_FOLDER_ITEM>
+		<E_NOT_UPLOADABLE_FILE_ITEM id="121">업로드 가능한 파일 항목이 아닙니다.</E_NOT_UPLOADABLE_FILE_ITEM>
+		<E_UPLOADITEM_ADD_STOP id="122">업로드 아이템 추가 중지</E_UPLOADITEM_ADD_STOP>
+		<E_INVALID_VFILE_INFO id="123">가상파일 정보가 올바르지 않습니다.</E_INVALID_VFILE_INFO>
+		<E_UPLOADITEM_EMPTY id="124">업로드 대상 목록이 없습니다.</E_UPLOADITEM_EMPTY>
+		<E_UPLOAD_URL_EMPTY id="125">업로드 URL이 존재하지 않습니다.</E_UPLOAD_URL_EMPTY>
+		<E_INVALID_ITEM_INDEX_EXECUTABLE id="126">실행 할 수 없는 아이템 번호입니다.</E_INVALID_ITEM_INDEX_EXECUTABLE>
+		<E_NEED_MORE_INFO_FOR_EXECUTE id="127">아이템 실행에 필요한 경로가 없습니다.</E_NEED_MORE_INFO_FOR_EXECUTE>
+		<E_NOT_EXECUTABLE_ITEM_TYPE id="128">실행 할 수 없는 아이템 타입 입니다.</E_NOT_EXECUTABLE_ITEM_TYPE>
+		<E_NOT_EXIST_LINKED_PROGRAM id="129">실행 할 수 있는 연결프로그램이 없습니다.</E_NOT_EXIST_LINKED_PROGRAM>
+		<E_UPLOAD_IN_PROGRESS id="130">업로드 진행중 입니다.</E_UPLOAD_IN_PROGRESS>
+		<E_UPLOAD_GET_INPUT_ITEM_FAIL id="131">아이템을 읽어오지 못했습니다.</E_UPLOAD_GET_INPUT_ITEM_FAIL>
+		<E_EXECUTE_FAIL_CURRENT_BROWSER id="132">현재 브라우저에서는 로컬 파일을 실행할 수 없습니다.</E_EXECUTE_FAIL_CURRENT_BROWSER>
+		<E_NOT_EXIST_EXECUTABLE_PATH id="133">실행 대상 경로가 입력되지 않았습니다.</E_NOT_EXIST_EXECUTABLE_PATH>
+		<E_SERVERFILE_EXECUTE_FAIL id="134">파일 실행 실패(HttpStatusCode: %d, FileURL: %s)</E_SERVERFILE_EXECUTE_FAIL>
+		<E_INVALID_UIPATTERN_INDEX id="135">유효한 UI Color Pattern 번호가 아닙니다.</E_INVALID_UIPATTERN_INDEX>
+		<E_INVALID_STATUSPATTERN_INDEX id="136">유효한 Status Image Pattern 번호가 아닙니다.</E_INVALID_STATUSPATTERN_INDEX>
+		<E_INVALID_AUTOSORT_TYPE id="137">유효한 자동정렬 타입이 아닙니다.</E_INVALID_AUTOSORT_TYPE>
+
+		<E_INVALID_DELETE_ITEM_INDEX id="140">유효한 삭제 번호가 아닙니다.</E_INVALID_DELETE_ITEM_INDEX>
+		<E_EMPTY_DELTEED_VIRTUAL_FILES id="141">삭제된 가상파일 목록이 비어있습니다.</E_EMPTY_DELTEED_VIRTUAL_FILES>
+		<E_NOT_EXIST_INDEX_IN_DELETED id="142">삭제된 가상파일이 아닙니다.</E_NOT_EXIST_INDEX_IN_DELETED>
+		<E_INVALID_ITEM_INDEX id="143">유효한 아이템 번호가 아닙니다.</E_INVALID_ITEM_INDEX>
+		<E_DELETE_ITEMS_EMPTY id="144">삭제할 아이템이 없습니다.</E_DELETE_ITEMS_EMPTY>
+		<E_EMPTY_FORM_NAME id="145">Form name 이 비어있습니다.</E_EMPTY_FORM_NAME>
+		<E_EMPTY_FORM_DATA id="146">Form data 가 비어있습니다.</E_EMPTY_FORM_DATA>
+		<E_NOT_EXIST_FORM_NAME id="147">지정된 Form name 이 존재하지 않습니다.</E_NOT_EXIST_FORM_NAME>
+		<E_NOT_FILE_ITEM id="148">파일아이템이 아닙니다.</E_NOT_FILE_ITEM>
+		<E_FILE_USER_DATA_NAME_EMPTY id="149">파일 사용자 데이터 이름이 비어있습니다.</E_FILE_USER_DATA_NAME_EMPTY>
+		<E_NOT_EXIST_FILE_USER_DATA_NAME id="150">존재하지 않는 파일 데이터 이름입니다.</E_NOT_EXIST_FILE_USER_DATA_NAME>
+		<E_ALREADY_EXIST_VFILE_INDEX id="151">이미 존재하는 가상파일 인덱스 입니다.</E_ALREADY_EXIST_VFILE_INDEX>
+		<E_DUPLICATE_FILTERS id="152">필터 설정이 중복되어 있습니다.</E_DUPLICATE_FILTERS>
+    <E_INVALID_CUSTOM_COLUMN_INDEX id="153">유효한 사용자 정의 컬럼 번호가 아닙니다.</E_INVALID_CUSTOM_COLUMN_INDEX>
+
+		<E_INVALID_ENCRYPT_PREFIX id="160">암호화 파일 Prefix가 유효하지 않습니다.</E_INVALID_ENCRYPT_PREFIX>
+
+		<E_GER_GET_INNERNETTEXT_FAIL id="170">서버 처리결과 메시지 확인 실패</E_GER_GET_INNERNETTEXT_FAIL>
+
+		<E_ABNORMAL_AUTH_KEY_TYPE id="180">인증키 형식이 올바르지 않습니다.</E_ABNORMAL_AUTH_KEY_TYPE>
+		<E_EVALUATION_EXPIRED id="183">평가판 사용 기간이 만료되었습니다.</E_EVALUATION_EXPIRED>
+		<E_INVALID_AUTH_INFO id="184">정상적인 인증정보가 아닙니다.</E_INVALID_AUTH_INFO>
+		<E_NOT_REGISTERED_HOST_NAME id="185">등록된 도메인이(IP) 아닙니다.</E_NOT_REGISTERED_HOST_NAME>
+		<E_MAINTENANCE_EXPIRED id="186">사용가능한 버전이 아닙니다.</E_MAINTENANCE_EXPIRED>
+
+		<E_EMPTY_DOWNLOAD_URL id="201">다운로드 URL이 존재하지 않습니다.</E_EMPTY_DOWNLOAD_URL>
+		<E_INVALID_DOWNLOAD_URL id="202">유효한 URL 이 아닙니다.</E_INVALID_DOWNLOAD_URL>
+		<E_DOWNLOAD_SIZE_ZERO id="203">다운로드 대상 파일 크기가 0 Byte 입니다.</E_DOWNLOAD_SIZE_ZERO>
+		<E_EMPTY_LOCAL_DOWNPATH id="204">다운로드 경로가 비어있습니다.</E_EMPTY_LOCAL_DOWNPATH>
+		<E_DOWNLOAD_PATH_CREATE_FAIL id="205">다운로드 경로 생성 실패</E_DOWNLOAD_PATH_CREATE_FAIL>
+		<E_INVALID_SAVE_PATH id="206">정상적인 저장 경로가 아닙니다.</E_INVALID_SAVE_PATH>
+		<E_DOWNLOADLOADITEM_EMPTY id="207">다운로드 대상 목록이 없습니다.</E_DOWNLOADLOADITEM_EMPTY>
+		<E_DOWNLOAD_FILE_OPEN_ERROR id="208">다운로드 대상 확인 오류.</E_DOWNLOAD_FILE_OPEN_ERROR>
+		<E_ALL_ITEM_WORDK_END id="209">모든항목이 완료된 상태입니다.</E_ALL_ITEM_WORDK_END>
+		<E_DOWNLOAD_DEFAULTPATH_CREATE_FAIL id="210">다운로드 기본경로 생성 실패.</E_DOWNLOAD_DEFAULTPATH_CREATE_FAIL>
+
+		<E_DOWNLOADLOAD_IN_PROGRESS id="211">다운로드 진행중 입니다.</E_DOWNLOADLOAD_IN_PROGRESS>
+		<E_CREATE_SAVE_FILE_FAIL id="212">다운로드 파일 생성 실패</E_CREATE_SAVE_FILE_FAIL>
+		<E_CREATE_SAVE_PATH_FAIL id="213">다운로드 경로 생성 실패</E_CREATE_SAVE_PATH_FAIL>
+
+		<E_NOT_EXIST_ENCRYPT_FILES id="214">암호화된 파일이 존재하지 않습니다.</E_NOT_EXIST_ENCRYPT_FILES>
+		<E_INVALIDE_DECRYPT_PASSWORD id="215">비밀번호가 일치하지 않습니다.</E_INVALIDE_DECRYPT_PASSWORD>
+		<E_NOT_COMPLETE_DOWNLOAD id="216">다운로드 완료 파일이 아닙니다.</E_NOT_COMPLETE_DOWNLOAD>
+		<E_DAMAGED_ENCRYPTED_FILE id="217">손상된 암호화 파일</E_DAMAGED_ENCRYPTED_FILE>
+		<E_DECRYPT_FAIL id="218">복호화 실패</E_DECRYPT_FAIL>
+
+		<E_WWW_INVALID_AUTH_INFO id="220">Web 인증 정보가 올바르지 않습니다.</E_WWW_INVALID_AUTH_INFO>
+		<E_PROXY_INVALID_SERVER_INFO id="221">프록시 서버 정보가 올바르지 않습니다.</E_PROXY_INVALID_SERVER_INFO>
+		<E_PROXY_INVALID_AUTH id="222">프록시 인증 정보가 올바르지 않습니다.</E_PROXY_INVALID_AUTH>
+
+		<E_UNHANDLED_STATUS_CODE id="225">처리되지 않은 상태코드 입니다.</E_UNHANDLED_STATUS_CODE>
+		<E_IE11_EPM_MSG id="226">인터넷 옵션의 "보안" 설정 탭에서 "보호 모드 사용"을 해제 또는 "신뢰할 수 있는 사이트 목록"에 현재 도메인을 추가하시기 바랍니다.</E_IE11_EPM_MSG>
+		<E_THUMBNAIL_NOTSUPPORT_EXT id="227">'%s' 는 지원되는 않는 형식입니다.</E_THUMBNAIL_NOTSUPPORT_EXT>
+		<E_TUHMBNAIL_EXCEPTION id="228">Thumbnail 자동추가 시 오류 발생(내용: %s, 코드: %d)</E_TUHMBNAIL_EXCEPTION>
+		<E_THUMBNAIL_DEFAULTPATH_CREATE_FAIL id="229">thumbnail 기본폴더 생성 실패</E_THUMBNAIL_DEFAULTPATH_CREATE_FAIL>
+    <E_NOT_EXIST_SELECTED_ITEM id="230">선택된 아이템이 없습니다.</E_NOT_EXIST_SELECTED_ITEM>
+	</Exception>
+	<Detail>
+		<E_DMSG_ENCRYPT id="1">Encrypt</E_DMSG_ENCRYPT>
+		<E_DMSG_DECRYPT id="2">Decrypt</E_DMSG_DECRYPT>
+		<E_DMSG_PREVIEW id="3">미리보기</E_DMSG_PREVIEW>
+		<E_DMSG_DUPLICATE_FILE id="4">중복파일</E_DMSG_DUPLICATE_FILE>
+		<E_DMSG_LIMITED_EXTENSION id="5">제한된 확장자</E_DMSG_LIMITED_EXTENSION>
+
+		<E_DMSG_LIMITED_FILE_COUNT id="6">파일 제한갯수 초과</E_DMSG_LIMITED_FILE_COUNT>
+		<E_DMSG_LIMITED_FILE_SIZE id="7">파일 제한용량 초과</E_DMSG_LIMITED_FILE_SIZE>
+		<E_DMSG_LIMITED_TOTAL_SIZE id="8">전체 제한용량 초과</E_DMSG_LIMITED_TOTAL_SIZE>
+		<E_DMSG_LIMITED_VFILE_TOTAL_SIZE id="9">가상파일 전체 제한용량 초과</E_DMSG_LIMITED_VFILE_TOTAL_SIZE>
+		<E_DMSG_MIMETYPE_CHECK id="10">MIMEType Check</E_DMSG_MIMETYPE_CHECK>
+
+		<E_DMSG_DUPLICATE_VFILE_INDEX id="11">중복된 가상파일 인덱스</E_DMSG_DUPLICATE_VFILE_INDEX>
+	</Detail>
+	<MessageBox>
+		<E_MBSTR_1 id="1">중복된 파일/폴더 항목을 삭제하였습니다. 추가할 항목이 없습니다.</E_MBSTR_1>
+		<E_MBSTR_2 id="2">중복된 파일/폴더 항목을 삭제하였습니다. 나머지 항목을 추가하시겠습니까?</E_MBSTR_2>
+
+		<E_MBSTR_3 id="3">중복된 가상파일 인덱스 항목을 삭제 하였습니다. 추가할 항목이 없습니다.</E_MBSTR_3>
+		<E_MBSTR_4 id="4">중복된 가상파일 인덱스 항목을 삭제 하였습니다. 나머지 항목을 추가하시겠습니까?</E_MBSTR_4>
+
+		<E_MBSTR_5 id="5">허가되지 않은 확장자 파일이 삭제 되었습니다. 추가할 항목이 없습니다.</E_MBSTR_5>
+		<E_MBSTR_6 id="6">허가되지 않은 확장자 파일이 삭제 되었습니다. 나머지 항목을 추가하시겠습니까?</E_MBSTR_6>
+
+		<E_MBSTR_7 id="7">%ld 개의 초과된 파일을 삭제하였습니다. 추가할 항목이 없습니다.</E_MBSTR_7>
+		<E_MBSTR_8 id="8">%ld 개의 초과된 파일을 삭제하였습니다. 나머지 항목을 추가하시겠습니까?</E_MBSTR_8>
+
+		<E_MBSTR_9 id="9">%d 개의 파일이 업로드 가능 크기 제한용량을 초과하여 삭제되었습니다. 추가할 항목이 없습니다.</E_MBSTR_9>
+		<E_MBSTR_10 id="10">%d 개의 파일이 업로드 가능 크기 제한용량을 초과하여 삭제되었습니다. 나머지 항목을 추가하시겠습니까?</E_MBSTR_10>
+
+		<E_MBSTR_11 id="11">업로드 전체 제한크기 %lld 를 %lld 크기만큼 초과 하였습니다. 추가할 항목이 없습니다.</E_MBSTR_11>
+		<E_MBSTR_12 id="12">업로드 전체 제한크기 %lld 를 %lld 크기만큼 초과 하였습니다. 나머지 항목을 추가하시겠습니까?</E_MBSTR_12>
+
+		<E_MBSTR_30 id="30">암호화 비밀번호를 입력하세요.</E_MBSTR_30>
+		<E_MBSTR_31 id="31">비밀번호를 입력하세요.</E_MBSTR_31>
+		<E_MBSTR_32 id="32">암호 최대 길이는 %d 입니다.</E_MBSTR_32>
+
+		<E_MBTITLE_1 id="100">알림</E_MBTITLE_1>
+
+		<E_FOLDER_DLG_TITLE id="105">폴더 선택</E_FOLDER_DLG_TITLE>
+		<E_COMPFILE_PATH_NAME_CHANGE_DLG_TITLE id="106">압축파일 생성 경로/이름 변경</E_COMPFILE_PATH_NAME_CHANGE_DLG_TITLE>
+
+		<E_DLGBTN_OK id="120">확인</E_DLGBTN_OK>
+		<E_DLGBTN_CANCEL id="121">취소</E_DLGBTN_CANCEL>
+		<E_DLGBTN_YES id="122">예</E_DLGBTN_YES>
+		<E_DLGBTN_NO id="123">아니오</E_DLGBTN_NO>
+	</MessageBox>
+	<ListView>
+		<E_LISTIVEW_1 id="1">파일경로</E_LISTIVEW_1>
+		<E_LISTIVEW_2 id="2">파일이름</E_LISTIVEW_2>
+		<E_LISTIVEW_3 id="3">크기</E_LISTIVEW_3>
+		<E_LISTIVEW_4 id="4">상태</E_LISTIVEW_4>
+		<E_LISTIVEW_5 id="5">저장경로</E_LISTIVEW_5>
+	</ListView>
+	<ItemState>
+		<E_ITEM_STATUS_WAIT id="1">대기</E_ITEM_STATUS_WAIT>
+		<E_ITEM_STATUS_COMPLETE id="2">완료</E_ITEM_STATUS_COMPLETE>
+		<E_ITEM_STATUS_STOP id="3">중지</E_ITEM_STATUS_STOP>
+		<E_ITEM_STATUS_LOCK id="4">잠금</E_ITEM_STATUS_LOCK>
+		<E_ITEM_STATUS_RUN id="5">진행중</E_ITEM_STATUS_RUN>
+	</ItemState>
+	<ImageEdit>
+		<E_BTN_APPLY id="1">적용</E_BTN_APPLY>
+		<E_BTN_EDIT_OK id="2">편집 완료</E_BTN_EDIT_OK>
+		<E_BTN_EDIT_CANCEL id="3">편집 취소</E_BTN_EDIT_CANCEL>
+		<E_BTN_ROTATE_RIGHT id="4">오른쪽 회전</E_BTN_ROTATE_RIGHT>
+		<E_BTN_ROTATE_LEFT id="5">왼쪽 회전</E_BTN_ROTATE_LEFT>
+		<E_BTN_FLIP_VERTICAL id="6">좌/우 반전</E_BTN_FLIP_VERTICAL>
+		<E_BTN_FLIP_HORIZONTAL id="7">상/하 반전</E_BTN_FLIP_HORIZONTAL>
+		<E_STATIC_IMAGESIZE_TEXT id="8">이미지 크기 :</E_STATIC_IMAGESIZE_TEXT>
+		<E_CHECK_FIXED_RATIO id="9">비율 고정</E_CHECK_FIXED_RATIO>
+		<E_STATIC_WIDTH id="10">넓이 :</E_STATIC_WIDTH>
+		<E_STATIC_HEIGHT id="11">높이 :</E_STATIC_HEIGHT>
+		<E_TAB_ROTATE_FLIP id="12">회전/반전</E_TAB_ROTATE_FLIP>
+		<E_TAB_CUT id="13">잘라내기</E_TAB_CUT>
+		<E_TAB_RESIZE id="14">크기조절</E_TAB_RESIZE>
+	</ImageEdit>
+</root>

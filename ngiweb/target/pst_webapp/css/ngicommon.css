@@ -1,0 +1,236 @@
+
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+
+/************** 공통 **************/
+*{margin:0;padding:0;}
+html, body {font-family:Nanum Gothic,'나눔고딕',dotum,'돋움',sans-serif; font-size:12px; background:#fff; height:100%; color:#999;}
+ul, ol, dl, dd, dt, li	{list-style-type:none; margin:0; padding:0px;}
+select {font-size:12px;font-family:Nanum Gothic,'나눔고딕',dotum,'돋움',sans-serif;}
+input {font-size:12px;}
+fieldset {border:0;margin:0px;padding:0px; vertical-align:middle;}
+legend {display:none;position:absolute;visibility:hidden;}
+caption {visibility:hidden; width:0px; height:0px; overflow:hidden;font-size:0px; margin:0px; padding:0px; line-height:0px;}
+img {border:0; vertical-align:middle;}
+a {color:#666; text-decoration:none;} 
+a:hover {color:#333; text-decoration:none;}
+
+#wrap {width:100%; min-width:980px; min-height:100%; position:relative;}
+#Mapwrap {width:100%; min-height:100%; position:relative;}/* 지도 */
+
+@charset "utf-8";
+
+
+
+/************** 상단 **************/
+#header {position:relative; width:100%; padding-top:24px; border-bottom:#00b8f8 4px solid;}
+#header .headerin { width:980px; margin:0 auto;}
+
+/************** 로고 및 유틸메뉴 **************/
+#header h1 {float:left; margin-left:0; padding:0;}
+.logo{ padding:7px 0 0 3px;}
+.uti_menuAll{width:980px; margin:0 auto; overflow:hidden; padding:8px 0 0 0;}
+.uti_menu {float:right; right:0; top:0px; list-style:none; font-size:11px;}
+.uti_menu .noneline{ margin:0 5px;}
+.uti_menu li {float:left; color:#ddd;}
+.uti_menu li a {color:#777;}
+.uti_menu li a:hover {font-weight:bold;}
+.uti_menu li.line {width:20px; text-align:center;}
+
+
+
+/**************
+#gnb {clear:both; text-align:center; padding-top:32px; padding-bottom:11px;}
+#gnb ul li {display:inline;}
+#gnb:after{content:''; clear:both; display:block; height:0;}
+#gnb ul li.Menu_1 a {position:relative; padding:20px 30px 21px 30px; overflow:hidden; font-weight:bold; font-size:16px; letter-spacing:-1px;}
+#gnb ul li.Menu_1 a:hover { color:#00aeef;}
+#gnb span a{color:#00aeef;}
+#gnb img { margin:0 0 2px 5px;}
+
+.tnb_r{position:absolute; width:100px; background:#fcfcfc; z-index:1; margin-top:10px; padding-top:10px; padding-bottom:10px; border:#bababa 1px solid;}	/* 2뎁스 메뉴 위치및사이즈 */
+/**************
+.tnb_r ul{margin:0 auto;}
+.ss{ position:absolute; text-align:center; top:-7px; margin:0 auto; left:43px;}
+.Menu_2{position:relative; overflow:hidden;}
+.Menu_2 li{ }
+.Menu_2 li a{padding:5px 20px; color:#999;} 
+
+
+
+/************** 네비게이션 **************/
+
+#tnb{clear:both; position:relative;  padding-top:32px; padding-bottom:11px; z-index:22; }
+.tnb_r{}
+
+.tnb_r li{display:inline; padding:0 20px 5px 30px; font-size:12px; font-weight:bold; letter-spacing:-1px;}
+.tnb_r .on .tnb_m, .tnb_r .tnb_m:hover{background-position:0 -45px;}
+
+.tnb_r .sub{position:absolute; margin-top:11px; width:100%;}
+.tnb_r .sub ul{background:#00b8f8; padding:10px;}
+.tnb_r .sub ul li{ font-size:12px; font-weight:normal; padding:0;}
+.tnb_r a{color:#333; padding:12px 10px; font-size:16px;}
+.tnb_r a:hover{color: #00b8f8; text-decoration: none;}
+.tnb_r .sub ul li a:active{ color: #036da7; }
+.tnb_r .sub ul li a:hover{ color: #036da7; font-weight:bold;}
+.tnb_r .sub ul li a{ color:#fff; padding:10px; font-size:12px;}
+.tnb_r .sub ul .on{ color: #036da7; font-weight:bold;}
+.tnb_r .sub ul .off{ color: #000; }
+
+.tnb_r #subMenu1{ text-align:left;}
+.tnb_r #subMenu2{ text-align:left;}
+.tnb_r #subMenu3{ text-align:left;}
+.tnb_r #subMenu4{ text-align:right;}
+.tnb_r #subMenu5{ text-align:right;}
+.tnb_r #subMenu6{ text-align:left;}
+
+.tnb_r .current .tnb_s, .tnb_r .tnb_s:hover{background-position:0 -10px;}
+.tnb_r .sub .subMenu11{ padding-left:30px;}
+.tnb_r .sub .subMenu22{ padding-left:130px;}
+.tnb_r .sub .subMenu33{ padding-left:310px;}
+.tnb_r .sub .subMenu44{ padding-right:360px;}
+.tnb_r .sub .subMenu55{ padding-right:230px;}
+.tnb_r .sub .subMenu66{}
+
+
+
+#tnb a span {color:#00aeef;}
+#tnb a span img{ vertical-align:-2px;}
+
+
+
+
+#tnb .menuAll {position:absolute; left:50%; top:15px; margin-left:350px; padding-top:16px; height:33px; z-index:9999; font-size:16px; letter-spacing:-1px; font-weight:bold;}
+#tnb .menuAll a {display:block; height:19px; color:#777;}
+#tnb .menuAll a.current {}
+#tnb .allView {display:none; position:relative; height:95px; background:#fff;}
+#tnb .allView div {position:absolute;left:50%; padding:5px 0 0 10px; margin-top:5px; height:95px;}
+#tnb .allView div:hover {}
+#tnb .allView div > a {display:block;font-size:15px; color:#333;}
+#tnb .allView div:hover > a {color:#333;}
+#tnb .allView div.allMenu1 {margin-left:-460px; }
+#tnb .allView div.allMenu2 {margin-left:-320px;}
+#tnb .allView div.allMenu3 {margin-left:-130px;}
+#tnb .allView div.allMenu4 {margin-left:10px;}
+#tnb .allView div.allMenu5 {margin-left:140px;}
+#tnb .allView ul li{padding-left:8px; background:url('../images/common/bull_01.gif') no-repeat 0 9px;}
+
+
+#tnb .allView div ul {list-style-type:none;}
+#tnb .allView div ul a {display:block;height:22px;font-size:12px;color:#999;line-height:22px;}
+#tnb .allView div ul a {color:#333;}
+#tnb .allView div ul a:hover {color:#00b8f8; font-weight:bold;}
+
+
+/************** 히스토리 **************/
+.History{ left:0; top:10px; margin-bottom:20px; }
+.History p{font-size:0.9em;}
+.History img{vertical-align:0;}
+.History .his1{color:#ccc;}
+.History .History1{color:#ccc;}
+.History .History2{color:#999; font-size:0.9em;}
+.History .History3{color:#333; font-weight:bold;}
+.History .History4{color:#f60;}
+.History .History4 img{vertical-align:0;color:#f60;}
+
+.SubVgA{ background:url(../images/common/subvg_bg.jpg) 0 0 repeat;}
+.SubVg{ width:980px; height:111px; margin:0 auto;}
+
+/* 줌 */
+.zoom{ position:absolute; right:0; margin:10px 0 0 0;}
+
+/* 왼쪽메뉴 */
+.LeftMenu{ float:left; width:180px; margin-top:0; margin-bottom:50px;} 
+.LeftMenu h2{color:#fff; font-size:22px; letter-spacing:-1px; padding:35px 0 55px 30px; background:url('../images/common/left_sub_bg.png') no-repeat 0 bottom; background-color:#00b8f8; }
+
+.FBtn li{ float:left; margin-top:20px; padding:0 1px;}
+
+ul.side1_ul{list-style:none;}
+li.side1_li{}
+
+li.side1_li a.side1_a{padding: 13px 0 15px 27px; border-bottom:1px solid #d9d9d9; display:block; color:#666;letter-spacing:-1px; font-weight:bold;font-size: 16px;}
+li.side1_li a.side1_a:hover{font-weight:bold; font-size:16px;color:#fff; font-weight:bold;background:url('../images/common/left_m_bg.png') no-repeat 0 8px;}
+li.side1_li a.side1_aon{padding: 13px 0 15px 27px; border-bottom:1px solid #d9d9d9; display:block; color:#fff;letter-spacing:-1px; font-weight:bold; font-size:16px; background:url('../images/common/left_m_bg.png') no-repeat 0 8px;}
+
+li.side1_li_current{}
+li.side1_li_current a.side1_a{padding:3px 10px; border-bottom:1px solid #e9f0d1; display:block; color:#000; font-weight:bold; letter-spacing:-1px;}
+
+div.side2_div{}
+ul.side2_ul{background-color: #fbfbfb;list-style: none;}
+li.side2_li{letter-spacing: -1px;}
+li.side2_li a.side2_a{padding: 12px 0 8px 37px;display: block;border-bottom: 1px solid #d9d9d9;color: #6a6a6a;font-size: 12px;background:url('../images/common/bull_01.gif') no-repeat 27px 18px;}
+li.side2_li a.side2_aon{padding: 12px 0 8px 37px;display: block;border-bottom: 1px solid #d9d9d9;color: #000;font-size: 12px;font-weight: bold;background:url('../images/common/bull_01.gif') no-repeat 27px 18px;}
+li.side2_li a.side2_a:hover{color: #00b8f8; font-weight:bold; font-size:12px;}
+
+
+
+/************** 하단 **************/
+#Footer{ position:relative; width:100%; background:#fff; border-top:#dfdfdf 1px solid; padding-top:20px; z-index:3;}
+.footer { position:relative; width:980px; margin:10px auto; padding-top:0px;}
+.footer .link01 {position:absolute; left:0; top:2px; color:#737373;}
+.footer .link01 a {color:#a8a8a8;}
+.footer .link02 {position:absolute; right:0; top:0; color:#737373;}
+.footer .link02 a {color:#a8a8a8;}
+.footer .copyright {clear:both; top:0; left:130px; width:610px; padding:0 0 30px 30px; color:#ccc; position:relative;}
+.footer .copyright span{ font-weight:bold; color:#333;}
+.footer .copyright p {color:#7f7f7f; margin-bottom:5px; font-size:11px;}
+div.footMenu table th, div.footMenu table td {color:#777;}
+
+.SearchSelect{ padding:3px; border:4px #CCC solid;}
+.searchType { height: 55px; }
+
+
+/* 컨텐츠영역 - 내용 */	
+#container{ width:100%;/*  overflow:hidden;  */margin-bottom:20px;}
+.containerIn{width:980px; margin:0 auto;}
+#Content { float:right; width:748px; padding:0 10px 40px 0; background:url('../images/common/ViSpace_sub_bg.jpg') no-repeat right 0;}
+.ConMTitle{position:relative; margin:0 0 40px 0; padding-top:30px; }
+.ConMTitle h3{margin:0; display:inline; letter-spacing:-1px; color:#494949; font-size:2.2em;}
+.ConMTitle p{margin-top:5px; color:#999; font-size:11px; font-style:italic}
+
+.ConMView{padding: 0 0 50px 0; line-height:20px; overflow:hidden;}
+.McontainerIn{ overflow:hidden; width:980px; margin:0 auto; margin-top:20px; margin-bottom:40px;}
+
+.Subcontainer{ overflow:hidden; width:980px; margin:0 auto; margin-bottom:20px;}
+
+.invisible { width:0px;height:0px;visibility: hidden;}  
+
+.ChangeView {position: absolute;left: 0px;right: 0px;bottom: 38px;top: 60px;}
+#detailForm {position: absolute;bottom: 0px;top: 0px;right: 0px;left: 0px;overflow-y: auto;}
+#listForm {position: absolute;bottom: 0px;top: 0px;right: 0px;left: 0px;overflow-y: auto;}
+
+
+
+.bldg_chg{background-repeat: no-repeat;position: relative;top: -42px;left: 19px;}
+.bldg_chg label {position: relative;left: 28px;top: -18px;}
+
+
+.titleBtn{overflow:hidden; margin:20px 0 10px;}
+.titleBtn .tit{color:#0b0b0b; font-family:ngb; float:left; font-size:12px; margin-top:10px;}
+.titleBtn .titEx{color:#666; float:left; margin-top:14px; margin-left:10px;}
+.titleBtn .btnArea{float:right;}
+
+
+/* margin */
+.mtb5{margin-top:5px; margin-bottom:5px;}
+
+.mt8{margin-top:8px;}
+.mt10{margin-top:10px !important;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt25{margin-top:25px;}
+.mt30{margin-top:30px;}
+.mt35{margin-top:35px;}
+.mt40{margin-top:40px !important;}
+.mt50{margin-top:50px !important;}
+
+.mr0{margin-right:0px !important;}
+.mr10{margin-right:10px;}
+
+.mb10{margin-bottom:10px !important;}
+.mb20{margin-bottom:20px !important;}
+
+.ml0{margin-left:0px !important;}
+.ml10{margin-left:10px !important;}
+.ml20{margin-left:20px !important;}
+

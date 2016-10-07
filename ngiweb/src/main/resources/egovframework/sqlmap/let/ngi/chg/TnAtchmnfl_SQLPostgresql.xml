@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TnAtchmnfl">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="tnAtchmnflSerarchVO" type="egovframework.let.ngi.chg.service.TnAtchmnflDefaultVO"/>
+	
+	<resultMap id="tnAtchmnfl" class="egovframework.let.ngi.chg.service.TnAtchmnflVO">
+		<result property="atchmnflId" column="atchmnfl_id" columnIndex="1"/>
+		<result property="changeInfoId" column="change_info_id" columnIndex="2"/>
+		<result property="fileNm" column="file_nm" columnIndex="3"/>
+		<result property="flpthNm" column="flpth_nm" columnIndex="4"/>
+		<result property="fileLockEnncAt" column="file_lock_ennc_at" columnIndex="5"/>
+		<result property="fileFomCodeTy" column="file_fom_code_ty" columnIndex="6"/>
+		<result property="fileMg" column="file_mg" columnIndex="7"/>
+	</resultMap>
+	
+	<insert id="tnAtchmnflDAO.insertTnAtchmnfl_S">
+		<![CDATA[
+			INSERT INTO NGIWEB.tn_atchmnfl 
+				( atchmnfl_id
+				  , change_info_id
+				  , file_nm
+				  , flpth_nm
+				  , file_lock_ennc_at
+				  , file_fom_code_ty
+				  , file_mg )
+			VALUES ( 
+				  (SELECT  COALESCE(MAX(atchmnfl_id), 0)+1 FROM NGIWEB.tn_atchmnfl )
+				  , #changeInfoId#
+				  , #fileNm#
+				  , #flpthNm#
+				  , #fileLockEnncAt#
+				  , #fileFomCodeTy#
+				  , #fileMg# )
+		]]>
+	</insert>
+	
+	<update id="tnAtchmnflDAO.updateTnAtchmnfl_S">
+		<![CDATA[
+			UPDATE NGIWEB.tn_atchmnfl
+			SET atchmnfl_id=#atchmnflId#
+				, change_info_id=#changeInfoId#
+				, file_nm=#fileNm#
+				, flpth_nm=#flpthNm#
+				, file_lock_ennc_at=#fileLockEnncAt#
+				, file_fom_code_ty=#fileFomCodeTy#
+				, file_mg=#fileMg#
+						WHERE atchmnfl_id=#atchmnflId#
+				]]>
+	</update>
+	
+	<delete id="tnAtchmnflDAO.deleteTnAtchmnfl_S">
+		<![CDATA[
+			DELETE FROM NGIWEB.tn_atchmnfl 
+			WHERE
+			change_info_id = #changeInfoId#   
+			AND  file_fom_code_ty = #fileFomCodeTy#
+			AND  file_nm = #fileNm#
+		]]>
+		 <isNotEmpty prepend="AND" property="atchmnflId">
+			atchmnfl_id = #atchmnflId#  
+		</isNotEmpty>
+	</delete>
+	
+	<delete id="tnAtchmnflDAO.deleteTnAtchmnflPhone_S">
+		<![CDATA[
+			DELETE FROM NGIWEB.tn_atchmnfl 
+			WHERE
+			change_info_id = #changeInfoId#
+		]]>
+		 <isNotEmpty prepend="AND" property="atchmnflId">
+			atchmnfl_id = #atchmnflId#  
+		</isNotEmpty>
+	</delete>
+	
+	<select id="tnAtchmnflDAO.selectTnAtchmnfl_S" resultMap="tnAtchmnfl">
+		<![CDATA[
+			SELECT
+				atchmnfl_id
+				, change_info_id
+				, file_nm
+				, flpth_nm
+				, file_lock_ennc_at
+				, file_fom_code_ty
+				, file_mg
+			FROM NGIWEB.tn_atchmnfl
+						WHERE atchmnfl_id=#atchmnflId#
+				]]>
+	</select>
+	
+	<select id="tnAtchmnflDAO.selectTnAtchmnflList_D" parameterClass="tnAtchmnflSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				atchmnfl_id
+				, change_info_id
+				, file_nm
+				, flpth_nm
+				, file_lock_ennc_at
+				, file_fom_code_ty
+				, file_mg
+			FROM NGIWEB.tn_atchmnfl
+						WHERE 1=1
+				]]>
+		<isNotEmpty prepend="AND" property="changeInfoId">
+			change_info_id = #changeInfoId#  
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="fileFomCodeTy">
+			file_fom_code_ty = #fileFomCodeTy# 
+		</isNotEmpty>
+		
+	</select>
+	
+	<select id="tnAtchmnflDAO.selectTnAtchmnflListPhone_D" parameterClass="tnAtchmnflSerarchVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				atchmnfl_id
+				, change_info_id
+				, file_nm
+				, flpth_nm
+				, file_lock_ennc_at
+				, file_fom_code_ty
+				, file_mg
+			FROM NGIWEB.tn_atchmnfl
+						WHERE 1=1
+				]]>
+		<isNotEmpty prepend="AND" property="changeInfoId">
+			change_info_id = #changeInfoId#  
+		</isNotEmpty>
+	</select>
+	
+	<select id="tnAtchmnflDAO.selectTnAtchmnflListTotCnt_S" parameterClass="tnAtchmnflSerarchVO" resultClass="int">
+
+	</select>
+
+
+
+</sqlMap>
